@@ -21,8 +21,7 @@ CREATE TABLE brewery (
 	contact_info varchar(500),
 	address varchar(300),
 	history varchar(1000),
-	active boolean,
-	CONSTRAINT fk_brewery_brewer FOREIGN KEY (brewer) REFERENCES users(user_id)
+	active boolean
 );
 
 CREATE TABLE beer (
