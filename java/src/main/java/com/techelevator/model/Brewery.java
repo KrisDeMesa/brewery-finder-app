@@ -7,11 +7,12 @@ public class Brewery {
     private int id;
     private int brewerId;
     private String name;
-    private LocalTime openTime;
-    private LocalTime closeTime;
-    private String contactInfo; // WHAT DOES THIS LOOK LIKE
+    private String hours;
+    private LocalTime openTime; // FUTURE IMPLEMENTATION
+    private LocalTime closeTime; // FUTURE IMPLEMENTATION
+    private String contactInfo;
     private String address;
-    private String history; // WHAT DOES THIS LOOK LIKE?
+    private String history;
     private boolean active;
 
     public int getId() {
@@ -36,6 +37,14 @@ public class Brewery {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getHours() {
+        return hours;
+    }
+
+    public void setHours(String hours) {
+        this.hours = hours;
     }
 
     public LocalTime getOpenTime() {

@@ -2,8 +2,8 @@ package com.techelevator.service;
 
 import com.techelevator.dao.BreweryDao;
 import com.techelevator.model.Brewery;
-import exception.DaoException;
-import exception.ResourceNotFoundException;
+import com.techelevator.exception.DaoException;
+import com.techelevator.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

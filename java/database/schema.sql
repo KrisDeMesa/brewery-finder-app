@@ -18,6 +18,8 @@ CREATE TABLE brewery (
 	brewer int,
 	brewery_name varchar(200),
 	hours varchar(200),
+--	open_time time
+--	close_time time
 	contact_info varchar(500),
 	address varchar(300),
 	history varchar(1000),

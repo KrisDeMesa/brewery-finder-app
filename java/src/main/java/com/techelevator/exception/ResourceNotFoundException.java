@@ -1,4 +1,4 @@
-package exception;
+package com.techelevator.exception;
 
 public class ResourceNotFoundException extends Exception {
 
