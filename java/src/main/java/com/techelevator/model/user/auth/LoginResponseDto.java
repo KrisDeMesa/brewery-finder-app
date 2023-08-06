@@ -1,4 +1,4 @@
-package com.techelevator.model;
+package com.techelevator.model.user.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 /*

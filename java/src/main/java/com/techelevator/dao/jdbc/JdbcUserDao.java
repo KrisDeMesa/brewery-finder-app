@@ -1,9 +1,10 @@
-package com.techelevator.dao;
+package com.techelevator.dao.jdbc;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.techelevator.dao.UserDao;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -11,7 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.techelevator.model.User;
+import com.techelevator.model.user.auth.User;
 
 @Component
 public class JdbcUserDao implements UserDao {

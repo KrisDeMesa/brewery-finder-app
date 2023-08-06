@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.User;
+import com.techelevator.dao.jdbc.JdbcUserDao;
+import com.techelevator.model.user.auth.User;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
