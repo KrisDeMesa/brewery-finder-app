@@ -22,10 +22,7 @@ public class BreweryService {
     }
 
     public Brewery getBreweryById(Integer id) throws ResourceNotFoundException {
-        try {
-            return breweryDao.getBreweryById(id);
-        } catch (DaoException ex) {
-            throw new ResourceNotFoundException("No brewery found for the ID provided");
-        }
+        return breweryDao.getBreweryById(id);
     }
+
 }
