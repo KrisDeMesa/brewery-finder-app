@@ -44,4 +44,51 @@ CREATE TABLE brewery_beer (
 	CONSTRAINT fk_brewery_beer_beer_id FOREIGN KEY (beer_id) REFERENCES beer(beer_id)
 );
 
+CREATE TABLE review (
+    review_id SERIAL PRIMARY KEY,
+    user_id int,
+    beer_id int,
+    title varchar(200),
+    description varchar(1000),
+    brewer_response varchar(1000),
+    CONSTRAINT fk_review_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
+    CONSTRAINT fk_review_beer_id FOREIGN KEY (beer_id) REFERENCES beer(beer_id)
+);
+
+CREATE TABLE rating (
+    user_id int,
+    beer_id int,
+    amount int,
+    CONSTRAINT pk_rating PRIMARY KEY (user_id, beer_id),
+    CONSTRAINT fk_rating_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
+    CONSTRAINT fk_rating_beer_id FOREIGN KEY (beer_id) REFERENCES beer(beer_id)
+);
+
+CREATE TABLE event (
+    event_id SERIAL PRIMARY KEY,
+    brewery_id int,
+    title varchar(100),
+    text varchar(2000),
+    event_time timestamp,
+    CONSTRAINT fk_event_brewery_id FOREIGN KEY (brewery_id) REFERENCES brewery(brewery_id)
+);
+
+CREATE TABLE blog (
+    blog_id SERIAL PRIMARY KEY,
+    brewery_id int,
+    title varchar(100),
+    text varchar(2000),
+    event_time timestamp,
+    CONSTRAINT fk_blog_brewery_id FOREIGN KEY (brewery_id) REFERENCES brewery(brewery_id)
+);
+
+CREATE TABLE update_info (
+    update_id SERIAL PRIMARY KEY,
+    brewery_id int,
+    title varchar(100),
+    text varchar(2000),
+    update_date date,
+    CONSTRAINT fk_update_info_brewery_id FOREIGN KEY (brewery_id) REFERENCES brewery(brewery_id)
+);
+
 COMMIT TRANSACTION;
