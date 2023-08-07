@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.model.Brewery;
+import com.techelevator.openbrewerydb.OpenBreweryDTO;
 import com.techelevator.service.BreweryService;
 import com.techelevator.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,11 @@ public class BreweryController {
     @GetMapping("/breweries")
     public List<Brewery> getBreweries() {
         return breweryService.getBreweries();
+    }
+
+    @GetMapping("/breweries/open")
+    public OpenBreweryDTO[] getBreweriesOpen() {
+        return breweryService.getOpenDBBreweries();
     }
 
     @GetMapping("/breweries/{id}")
