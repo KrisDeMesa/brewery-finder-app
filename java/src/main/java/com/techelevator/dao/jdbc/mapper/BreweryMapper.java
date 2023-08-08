@@ -2,7 +2,6 @@ package com.techelevator.dao.jdbc.mapper;
 
 import com.techelevator.model.Brewery;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,21 +12,19 @@ public class BreweryMapper implements RowMapper<Brewery> {
         Brewery brewery = new Brewery();
         brewery.setId(resultSet.getInt("brewery_id"));
         brewery.setBrewerId(resultSet.getInt("brewer"));
-        brewery.setName(resultSet.getString("brewery_name"));
+        brewery.setOpenDbId(resultSet.getString("open_db_id"));
+        brewery.setName(resultSet.getString("brewery_name"));;
+        brewery.setBreweryType(resultSet.getString("brewery_type"));
         brewery.setHours(resultSet.getString("hours"));
-        brewery.setContactInfo(resultSet.getString("contact_info"));
-        brewery.setAddress(resultSet.getString("address"));
+        brewery.setPhoneNumber(resultSet.getString("phone_number"));
+        brewery.setWebsite(resultSet.getString("website"));
+        brewery.setStreetAddress1(resultSet.getString("street_address_1"));
+        brewery.setStreetAddress2(resultSet.getString("street_address_2"));
+        brewery.setCity(resultSet.getString("city"));
+        brewery.setStateProvince(resultSet.getString("state_province"));
+        brewery.setPostalCode(resultSet.getString("postal_code"));
+        brewery.setCountry(resultSet.getString("country"));
         brewery.setHistory(resultSet.getString("history"));
-        brewery.setActive(resultSet.getBoolean("active"));
-
-//        FUTURE IMPLEMENTATION
-//        if (rowSet.getTime("open_time") != null) {
-//            brewery.setOpenTime(rowSet.getTime("open_time").toLocalTime());
-//        }
-//        if (rowSet.getTime("close_time") != null) {
-//            brewery.setCloseTime(rowSet.getTime("close_time").toLocalTime());
-//        }
-
         return brewery;
     }
 }

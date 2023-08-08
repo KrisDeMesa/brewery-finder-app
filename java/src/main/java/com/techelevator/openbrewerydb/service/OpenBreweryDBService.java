@@ -18,7 +18,7 @@ public class OpenBreweryDBService {
         try {
             OpenBreweryDTO[] breweries = restTemplate.getForObject(OPEN_BREWERY_DB_BASE_URL, OpenBreweryDTO[].class);
             return breweries;
-        } catch (RestClientResponseException |ResourceAccessException ex) {
+        } catch (RestClientResponseException | ResourceAccessException ex) {
             throw new OpenBreweryDBException("Error retrieving breweries");
         }
     }
@@ -27,7 +27,7 @@ public class OpenBreweryDBService {
         try {
             OpenBreweryDTO[] breweries = restTemplate.getForObject(OPEN_BREWERY_DB_BASE_URL + "?by_city=" + city, OpenBreweryDTO[].class);
             return breweries;
-        } catch (RestClientResponseException |ResourceAccessException ex) {
+        } catch (RestClientResponseException | ResourceAccessException ex) {
             throw new OpenBreweryDBException("Error retrieving breweries by city");
         }
     }

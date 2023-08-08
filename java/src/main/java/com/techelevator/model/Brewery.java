@@ -1,20 +1,22 @@
 package com.techelevator.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.time.LocalTime;
-
 public class Brewery {
 
     private int id;
     private int brewerId;
+    private String openDbId;
     private String name;
+    private String breweryType;
     private String hours;
-    @JsonProperty("contact info")
-    private String contactInfo;
-    private String address;
+    private String phoneNumber;
+    private String website;
+    private String streetAddress1;
+    private String streetAddress2;
+    private String city;
+    private String stateProvince;
+    private String postalCode;
+    private String country;
     private String history;
-    private boolean active;
 
     public int getId() {
         return id;
@@ -32,12 +34,28 @@ public class Brewery {
         this.brewerId = brewerId;
     }
 
+    public String getOpenDbId() {
+        return openDbId;
+    }
+
+    public void setOpenDbId(String openDbId) {
+        this.openDbId = openDbId;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getBreweryType() {
+        return breweryType;
+    }
+
+    public void setBreweryType(String breweryType) {
+        this.breweryType = breweryType;
     }
 
     public String getHours() {
@@ -48,20 +66,68 @@ public class Brewery {
         this.hours = hours;
     }
 
-    public String getContactInfo() {
-        return contactInfo;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setContactInfo(String contactInfo) {
-        this.contactInfo = contactInfo;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getAddress() {
-        return address;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getStreetAddress1() {
+        return streetAddress1;
+    }
+
+    public void setStreetAddress1(String streetAddress1) {
+        this.streetAddress1 = streetAddress1;
+    }
+
+    public String getStreetAddress2() {
+        return streetAddress2;
+    }
+
+    public void setStreetAddress2(String streetAddress2) {
+        this.streetAddress2 = streetAddress2;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStateProvince() {
+        return stateProvince;
+    }
+
+    public void setStateProvince(String stateProvince) {
+        this.stateProvince = stateProvince;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getHistory() {
@@ -70,13 +136,5 @@ public class Brewery {
 
     public void setHistory(String history) {
         this.history = history;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
     }
 }

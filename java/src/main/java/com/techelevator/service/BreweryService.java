@@ -24,11 +24,27 @@ public class BreweryService {
         return breweryDao.getBreweries();
     }
 
+    public Brewery getBreweryById(Integer id) throws ResourceNotFoundException {
+        return breweryDao.getBreweryById(id);
+    }
+
     public OpenBreweryDTO[] getOpenDBBreweries(String city) {
+        OpenBreweryDTO[] breweries;
         if (city == null) {
-            return openBreweryService.getOpenBreweryList();
+            breweries = openBreweryService.getOpenBreweryList();
         } else {
-            return openBreweryService.getOpenBreweryListByCity(city);
+            breweries = openBreweryService.getOpenBreweryListByCity(city);
+        }
+        addNewBreweries(breweries);
+        return breweries;
+    }
+
+    public void addNewBreweries(OpenBreweryDTO[] breweries) {
+        for (OpenBreweryDTO brewery : breweries) {
+            Brewery existingBrewery = breweryDao.getBreweryByOpenDbId(brewery.getId());
+            if (existingBrewery == null) {
+                breweryDao.addBreweryFromOpenDb(brewery);
+            }
         }
     }
 
@@ -36,8 +52,5 @@ public class BreweryService {
 //        return openBreweryService.getOpenBreweryListByCity(city);
 //    }
 
-    public Brewery getBreweryById(Integer id) throws ResourceNotFoundException {
-        return breweryDao.getBreweryById(id);
-    }
 
 }
