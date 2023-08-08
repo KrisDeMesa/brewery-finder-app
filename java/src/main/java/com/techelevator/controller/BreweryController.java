@@ -1,7 +1,8 @@
 package com.techelevator.controller;
 
 import com.techelevator.model.Brewery;
-import com.techelevator.openbrewerydb.OpenBreweryDTO;
+import com.techelevator.openbrewerydb.exception.OpenBreweryDBException;
+import com.techelevator.openbrewerydb.model.OpenBreweryDTO;
 import com.techelevator.service.BreweryService;
 import com.techelevator.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -28,8 +29,12 @@ public class BreweryController {
     }
 
     @GetMapping("/breweries/open")
-    public OpenBreweryDTO[] getBreweriesOpen() {
-        return breweryService.getOpenDBBreweries();
+    public OpenBreweryDTO[] getBreweriesOpen(@RequestParam(required = false) String city) {
+        try {
+            return breweryService.getOpenDBBreweries(city);
+        } catch (OpenBreweryDBException ex) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
+        }
     }
 
     @GetMapping("/breweries/{id}")

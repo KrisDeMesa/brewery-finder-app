@@ -16,14 +16,19 @@ CREATE TABLE users (
 CREATE TABLE brewery (
 	brewery_id SERIAL PRIMARY KEY,
 	brewer int,
+	open_db_id varchar(100),
 	brewery_name varchar(200),
+	brewery_type varchar(30),
 	hours varchar(200),
---	open_time time
---	close_time time
-	contact_info varchar(500),
-	address varchar(300),
-	history varchar(1000),
-	active boolean
+	phone_number varchar(20),
+	website varchar (100),
+	street_address_1 varchar(200),
+	street_address_2 varchar(100),
+	city varchar(50),
+	state_province varchar(50),
+	postal_code varchar(20),
+	country varchar(100),
+	history varchar(1000)
 );
 
 CREATE TABLE beer (
