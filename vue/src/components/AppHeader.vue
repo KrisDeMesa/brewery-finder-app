@@ -1,0 +1,84 @@
+<template>
+  <div class="app-header">
+      <div id="main-header">
+        <router-link :to="{ name: 'home' }"><img class="nav-link" id="ontap-logo" src="../assets/images/ontap-logo.png" alt="on-tap"></router-link>
+        <form class="search-name">
+            <label for="breweryname">Name</label>
+            <input type="text" id="breweryname" name="breweryname">
+            
+        </form>
+        <form action="" class="search-location">
+            <label for="location">City / State</label>
+            <input type="text" id="location" name="location">
+        </form>
+        
+        <div class="account-menu">
+            
+            <button class="menu-btn"> Account Menu
+                
+            </button>
+        </div>
+      </div>
+      
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style scoped>
+
+#main-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "logo searchname searchlocation menu"
+    
+    ;
+    border: 1px solid black;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+    
+}
+.account-menu {
+    grid-area: menu;
+    justify-self: right;
+    margin-right: 30px;
+}
+
+#ontap-logo {
+   grid-area: logo;
+   
+    
+}
+
+.nav-link:hover {
+    cursor: pointer !important;
+}
+
+#breweryname {
+    grid-area: searchname;
+    justify-self: center;
+   
+}
+#location {
+    grid-area: searchlocation;
+    justify-self: center;
+}
+
+.app-header {
+    background-image: linear-gradient(to right, #AC0D0D, #F0C929 );
+}
+
+
+
+#ontap-logo {
+    width: 100px;
+}
+</style>
