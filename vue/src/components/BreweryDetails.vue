@@ -48,7 +48,7 @@ export default {
         filteredDetails() {
             let filtered = {};
             for (const key in this.selectedBrewery) {
-                if (key != 'id' && key != 'brewerId') {
+                if (key != 'id' && key != 'brewerId' && key != 'name') {
                     filtered[key] = this.selectedBrewery[key];
                 }
             }
