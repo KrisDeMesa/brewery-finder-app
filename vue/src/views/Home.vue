@@ -3,9 +3,20 @@
     <!-- <app-header/> -->
     
     
-    <div class="filter"><h3>Filter</h3></div>
-    <div class="brewery-list"><brewery-list/></div>
-    <div class="map"><h2>Map</h2></div>
+    <div id="filter" class="grid-container">
+      <h3 id="filter-header">Filter</h3>
+      <div id="filter-content">filter content</div>
+      </div>
+
+    <div class="grid-container">
+      <h3 id="brewerylist-header">Brewery List</h3>
+      <brewery-list id="brewerylist-content" />
+      </div>
+
+    <div id="map" class="grid-container">
+      <h2 id="map-header">Map</h2>
+      <div id="map-content">map content</div>
+      </div>
     
   </div>
 </template>
@@ -25,22 +36,35 @@ export default {
 </script>
 
 <style scoped>
-* {
+.home {
   display: grid;
-    grid-template-columns: .3fr 1fr .8fr;
+    grid-template-columns: 2fr 4fr 3fr;
     grid-template-areas: 
-    "filter brewerylist map";
+    "filter-header brewerylist-header map-header"
+    "filter-content brewerylist-content map-content";
+    row-gap: 20px;
+    
 }
-h1 {
-  grid-area: map;
+#filter-header {
+  grid-area: filter-header;
 }
-h3 {
-  grid-area: filter;
+#brewerylist-header {
+  grid-area: brewerylist-header;
 }
-.brewery-list {
-  display: flex;
-  
-  grid-area: brewerylist;
-  
+#map-header {
+  grid-area: map-header;
+}
+#filter-content {
+  grid-area: filter-content;
+}
+#brewerylist-content {
+  grid-area: brewerylist-content;
+}
+#map-content {
+  grid-area: map-content;
+}
+.grid-container {
+  border: 1px solid black;
+  padding: 20px;
 }
 </style>
