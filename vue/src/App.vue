@@ -6,6 +6,7 @@
     <app-header v-show="!hideHeader" />
     
     <router-view />
+
   </div>
 </template>
 
@@ -24,3 +25,10 @@ export default {
   }
 }
 </script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
+  * {
+    font-family: 'Archivo', sans-serif;
+  }
+</style>
