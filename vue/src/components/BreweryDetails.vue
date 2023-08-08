@@ -10,7 +10,7 @@
         <ul>
             <li v-for="(value, key) in filteredDetails" v-bind:key="key"> 
                  <span class='keys'>{{`${key}: `}}</span>
-                 <span>{{`${value}`}}</span>
+                 <span>{{ `${value != null ? value : ''}` }}</span>
                  <p></p>
             </li>
         </ul>
@@ -56,7 +56,7 @@ export default {
         filteredDetails() {
             let filtered = {};
             for (const key in this.selectedBrewery) {
-                if (key != 'id' && key != 'brewerId' && key != 'name') {
+                if (key != 'id' && key != 'brewerId' && key != 'name' && key != 'openDbId') {
                     filtered[key] = this.selectedBrewery[key];
                 }
             }

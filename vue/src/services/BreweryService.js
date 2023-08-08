@@ -5,7 +5,7 @@ const http =axios.create({
 export default {
 
   getBreweries() {
-    return http.get('/breweries/')
+    return http.get('/breweries/open?city=philadelphia')
   },
 
   getBreweryById(breweryId) {

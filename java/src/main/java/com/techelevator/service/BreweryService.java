@@ -28,7 +28,7 @@ public class BreweryService {
         return breweryDao.getBreweryById(id);
     }
 
-    public OpenBreweryDTO[] getOpenDBBreweries(String city) {
+    public List<Brewery> getOpenDBBreweries(String city) {
         OpenBreweryDTO[] breweries;
         if (city == null) {
             breweries = openBreweryService.getOpenBreweryList();
@@ -36,7 +36,7 @@ public class BreweryService {
             breweries = openBreweryService.getOpenBreweryListByCity(city);
         }
         addNewBreweries(breweries);
-        return breweries;
+        return getBreweries();
     }
 
     public void addNewBreweries(OpenBreweryDTO[] breweries) {

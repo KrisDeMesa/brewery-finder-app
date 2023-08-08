@@ -29,7 +29,7 @@ public class BreweryController {
     }
 
     @GetMapping("/breweries/open")
-    public OpenBreweryDTO[] getBreweriesOpen(@RequestParam(required = false) String city) {
+    public List<Brewery> getBreweriesOpen(@RequestParam(required = false) String city) {
         try {
             return breweryService.getOpenDBBreweries(city);
         } catch (OpenBreweryDBException ex) {

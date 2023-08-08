@@ -1,19 +1,27 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Brewery {
 
     private int id;
     private int brewerId;
     private String openDbId;
     private String name;
+    @JsonProperty("brewery type")
     private String breweryType;
     private String hours;
+    @JsonProperty("phone number")
     private String phoneNumber;
     private String website;
+    @JsonProperty("street address 1")
     private String streetAddress1;
+    @JsonProperty("street address 2")
     private String streetAddress2;
     private String city;
+    @JsonProperty("state / province")
     private String stateProvince;
+    @JsonProperty("postal code")
     private String postalCode;
     private String country;
     private String history;
