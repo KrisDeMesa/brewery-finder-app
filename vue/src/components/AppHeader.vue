@@ -3,12 +3,12 @@
       <div id="main-header">
         <router-link :to="{ name: 'home' }"><img class="nav-link" id="ontap-logo" src="../assets/images/ontap-logo.png" alt="on-tap"></router-link>
         <form class="search-name">
-            <label for="breweryname">Name</label>
+            <label for="breweryname">Name </label>
             <input type="text" id="breweryname" name="breweryname">
             
         </form>
         <form action="" class="search-location">
-            <label for="location">City / State</label>
+            <label for="location">City or State </label>
             <input type="text" id="location" name="location">
         </form>
         
@@ -39,18 +39,17 @@ export default {
     "logo searchname searchlocation menu";
     justify-content: space-between;
     align-items: center;
-    height: 150px;
 }
 .account-menu {
     grid-area: menu;
     justify-self: right;
-    margin-right: 30px;
+    margin-right: 80px;
 }
 
 #ontap-logo {
-   margin-left: 40px; 
+   margin-left: 80px ;
    grid-area: logo;
-   width: 150px;
+   width: 180px;
    height: auto;
     
 }
@@ -74,6 +73,11 @@ export default {
     border: 1px solid rgb(172, 13, 13);
     border-bottom: none;
     border-radius: 10px 10px 0 0;
+    padding-top: 20px;
+}
+
+label {
+    font-size: 20px;
 }
 
 </style>

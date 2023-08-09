@@ -77,7 +77,7 @@ h3{
 #filter-content {
   background-color: white;
   grid-area: filter-content;
-  padding-left: 10px;
+  padding-left: 30px;
 }
 #brewerylist-content {
   background-color: white;
@@ -87,6 +87,7 @@ h3{
 #map-content {
   background-color: white;
   grid-area: map-content;
+  padding-left: 30px;
 }
 
 </style>

@@ -27,8 +27,8 @@ export default {
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Alata&family=Alfa+Slab+One&family=Anton&family=Passion+One&display=swap');
   * {
-    font-family: 'Archivo', sans-serif;
+    font-family: 'Alata', sans-serif;
   }
 </style>
