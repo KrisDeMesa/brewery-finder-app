@@ -4,6 +4,11 @@ DROP TABLE IF EXISTS brewery_beer;
 DROP TABLE IF EXISTS beer;
 DROP TABLE IF EXISTS brewery;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS review;
+DROP TABLE IF EXISTS rating;
+DROP TABLE IF EXISTS event_info;
+DROP TABLE IF EXISTS blog;
+DROP TABLE IF EXISTS update_info;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -28,7 +33,10 @@ CREATE TABLE brewery (
 	state_province varchar(50),
 	postal_code varchar(20),
 	country varchar(100),
-	history varchar(1000)
+	latitude decimal(8,6),
+	longitude decimal(8,6),
+	history varchar(1000),
+	CONSTRAINT fk_brewery_brewer FOREIGN KEY (brewer) REFERENCES users(user_id)
 );
 
 CREATE TABLE beer (
@@ -69,7 +77,7 @@ CREATE TABLE rating (
     CONSTRAINT fk_rating_beer_id FOREIGN KEY (beer_id) REFERENCES beer(beer_id)
 );
 
-CREATE TABLE event (
+CREATE TABLE event_info (
     event_id SERIAL PRIMARY KEY,
     brewery_id int,
     title varchar(100),
