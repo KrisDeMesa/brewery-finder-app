@@ -125,7 +125,7 @@ input[type="password"] {
 button {
   font-size: 12px;
   background: rgba(251,230,194, .3);
-  color: rgb(244,139,41);
+  color: #721c24;
   border-color: rgb(244,139,41);
   height: 30px;
   width: 100px;

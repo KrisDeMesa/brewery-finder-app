@@ -2,21 +2,28 @@
   <div class="app-header">
       <div id="main-header">
         <router-link :to="{ name: 'home' }"><img class="nav-link" id="ontap-logo" src="../assets/images/ontap-logo.png" alt="on-tap"></router-link>
-        <form class="search-name">
-            <label for="breweryname">Name </label>
-            <input type="text" id="breweryname" name="breweryname">
+        
+        <form class="search-bar">
+            <!-- <label for="breweryname">Name </label> -->
+            <input type="text" placeholder="Name" id="breweryname" name="breweryname">
             
         </form>
-        <form action="" class="search-location">
-            <label for="location">City or State </label>
-            <input type="text" id="location" name="location">
+        <form action="" class="search-bar">
+            <!-- <label for="location">City or State </label> -->
+            <input type="text" placeholder="City" id="location" name="location">
         </form>
         
         <div class="account-menu">
             
-            <button class="menu-btn"> Account Menu
-                
-            </button>
+            <button class="menu-btn"> Account Menu </button>
+        </div>
+
+        <div class="account-logout">
+            <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">
+
+            <button class="logout-btn"> Log Out </button>
+
+        </router-link>
         </div>
       </div>
       
@@ -42,8 +49,33 @@ export default {
 }
 .account-menu {
     grid-area: menu;
+}
+.account-logout{
+    grid-area: menu;
     justify-self: right;
-    margin-right: 80px;
+}
+
+.menu-btn{
+    margin-left: 80px;
+    background-color: white;
+    color: rgb(172, 13, 13);
+    height: 30px;
+    width: 120px;
+    border-radius: 10px;
+    border: 1px solid rgb(172, 13, 13)
+}
+
+.logout-btn{
+    margin-right: 60px;
+    background-color: white;
+    color: rgb(172, 13, 13);
+    height: 30px;
+    width: 120px;
+    border-radius: 10px;
+    border: 1px solid rgb(172, 13, 13)
+}
+button:hover {
+    cursor: pointer !important;
 }
 
 #ontap-logo {
@@ -76,8 +108,15 @@ export default {
     padding-top: 20px;
 }
 
-label {
-    font-size: 20px;
+.search-bar{
+    padding-left: 40px
 }
+input[type="text"]{
+    width: 300px;
+    height: 40px;
+    font-size: 25px;
+}
+
+
 
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-link v-for="brewery in breweryList" v-bind:key="brewery.id" :to="{ name: 'brewery-details', params: {id: brewery.id}}"> 
+        <router-link class="brewery-link" v-for="brewery in breweryList" v-bind:key="brewery.id" :to="{ name: 'brewery-details', params: {id: brewery.id}}"> 
         <ul>
           <li> {{ brewery.name }} </li>
         </ul>
@@ -30,6 +30,12 @@ export default {
 
 ul {
   list-style-type: none;
+}
+
+.brewery-link{
+  color: rgb(255, 145, 0);
+  font-size: 20px;
+  text-decoration: none;
 }
 
 </style>

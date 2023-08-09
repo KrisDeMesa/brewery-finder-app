@@ -131,7 +131,7 @@ input[type="password"] {
 }
 button {
   background: rgba(251,230,194, .3);
-  color: rgb(244,139,41);
+  color: #721c24;
   border-color: rgb(244,139,41);
   height: 35px;
   width: 60px;
