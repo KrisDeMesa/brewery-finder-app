@@ -78,6 +78,7 @@ h3{
   background-color: white;
   grid-area: filter-content;
   padding-left: 30px;
+  border-radius: 0 0 0 10px;
 }
 #brewerylist-content {
   background-color: white;
@@ -88,6 +89,7 @@ h3{
   background-color: white;
   grid-area: map-content;
   padding-left: 30px;
+  border-radius: 0 0 10px 0;
 }
 
 </style>

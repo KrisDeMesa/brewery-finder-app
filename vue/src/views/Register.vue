@@ -123,11 +123,12 @@ input[type="password"] {
   font-size: .8rem;
 }
 button {
+  font-size: 12px;
   background: rgba(251,230,194, .3);
   color: rgb(244,139,41);
   border-color: rgb(244,139,41);
-  height: 35px;
-  width: 70px;
+  height: 30px;
+  width: 100px;
   
   border-radius: 10px;
   margin-top: 10px;
@@ -138,6 +139,7 @@ button:hover {
 }
 #button-div{
   margin-bottom: 10px;
+  white-space: nowrap;
 }
 #ontap-logo {
   width: 60%;
