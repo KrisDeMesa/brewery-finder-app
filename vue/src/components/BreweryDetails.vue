@@ -57,8 +57,9 @@ export default {
     computed: {
         filteredDetails() {
             let filtered = {};
+            let removedItems = ['id', 'brewerId', 'name', 'openDbId', 'latitude', 'longitude'];
             for (const key in this.selectedBrewery) {
-                if (key != 'id' && key != 'brewerId' && key != 'name' && key != 'openDbId') {
+                if (!removedItems.includes(key)) {
                     filtered[key] = this.selectedBrewery[key];
                 }
             }
