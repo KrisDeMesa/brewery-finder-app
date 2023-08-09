@@ -32,19 +32,14 @@ export default {
 <style scoped>
 
 #main-header {
+    color: rgb(172, 13, 13);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-    "logo searchname searchlocation menu"
-    
-    ;
-    border: 1px solid black;
-    height: 100px;
+    "logo searchname searchlocation menu";
     justify-content: space-between;
     align-items: center;
-    
-    
-    
+    height: 150px;
 }
 .account-menu {
     grid-area: menu;
@@ -53,8 +48,10 @@ export default {
 }
 
 #ontap-logo {
+   margin-left: 40px; 
    grid-area: logo;
-   
+   width: 150px;
+   height: auto;
     
 }
 
@@ -73,12 +70,10 @@ export default {
 }
 
 .app-header {
-    background-image: linear-gradient(to right, #AC0D0D, #F0C929 );
+    background: rgba(251,230,194, .7);
+    border: 1px solid rgb(172, 13, 13);
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
 }
 
-
-
-#ontap-logo {
-    width: 100px;
-}
 </style>

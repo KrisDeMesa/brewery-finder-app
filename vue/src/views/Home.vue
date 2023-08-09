@@ -10,11 +10,11 @@
 
     <div class="grid-container">
       <h3 id="brewerylist-header">Brewery List</h3>
-      <brewery-list id="brewerylist-content" />
+      <div id="brewerylist-content"><brewery-list /></div>
       </div>
 
     <div id="map" class="grid-container">
-      <h2 id="map-header">Map</h2>
+      <h3 id="map-header">Map</h3>
       <div id="map-content">map content</div>
       </div>
     
@@ -37,34 +37,56 @@ export default {
 
 <style scoped>
 .home {
+  background: rgba(251,230,194, .7);
+  border: 1px solid rgb(172, 13, 13);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 30px;
   display: grid;
     grid-template-columns: 2fr 4fr 3fr;
     grid-template-areas: 
     "filter-header brewerylist-header map-header"
     "filter-content brewerylist-content map-content";
-    row-gap: 20px;
     
 }
+
+h3{
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 0px;
+  padding-bottom: 40px;
+  padding-top: 10px;
+}
 #filter-header {
+  background-color: white;
+  color: rgb(172, 13, 13);
   grid-area: filter-header;
+  border-radius: 10px 0 0 0;
 }
 #brewerylist-header {
+  background-color: white;
+  color: rgb(172, 13, 13);
   grid-area: brewerylist-header;
 }
 #map-header {
+  background-color: rgb(255, 255, 255);
+  color: rgb(172, 13, 13);
   grid-area: map-header;
+  border-radius: 0 10px 0 0 ;
 }
 #filter-content {
+  background-color: white;
   grid-area: filter-content;
+  padding-left: 10px;
 }
 #brewerylist-content {
+  background-color: white;
   grid-area: brewerylist-content;
+  padding-top: 10px;
 }
 #map-content {
+  background-color: white;
   grid-area: map-content;
 }
-.grid-container {
-  border: 1px solid black;
-  padding: 20px;
-}
+
 </style>
