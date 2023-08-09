@@ -10,7 +10,7 @@
             <div class="head-text">Brewery Details</div>
         <ul>
             <li v-for="(value, key) in filteredDetails" v-bind:key="key"> 
-                 <span class='keys'>{{`${key}: `}}</span>
+                 <span class='keys'>{{`${key.replace(/([a-z])([A-Z])/g, '$1 $2')}: `}}</span>
                  <span>{{ `${value != null ? value : ''}` }}</span>
                  <p></p>
             </li>
