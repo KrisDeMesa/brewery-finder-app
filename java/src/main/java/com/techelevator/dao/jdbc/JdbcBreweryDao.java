@@ -64,14 +64,21 @@ public class JdbcBreweryDao implements BreweryDao {
 
     public void addBreweryFromOpenDb(OpenBreweryDTO brewery) {
         String sql = "INSERT INTO brewery (brewery_id, open_db_id, brewery_name, brewery_type, phone_number, website, street_address_1, " +
-                "street_address_2, city, state_province, postal_code, country) " +
-                "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "street_address_2, city, state_province, postal_code, latitude, longitude, country) " +
+                "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+        Double latitude = null;
+        Double longitude = null;
         try {
+            if (brewery.getLatitude() != null && brewery.getLongitude() != null) {
+                latitude = Double.parseDouble(brewery.getLatitude());
+                longitude = Double.parseDouble(brewery.getLongitude());
+            }
+
             jdbcTemplate.update(sql, brewery.getId(),
                     brewery.getName(), brewery.getBreweryType(), brewery.getPhone(), brewery.getWebsiteUrl(),
                     brewery.getAddress1(), brewery.getAddress2(), brewery.getCity(), brewery.getStateProvince(),
-                    brewery.getPostalCode(), brewery.getCountry());
+                    brewery.getPostalCode(), latitude, longitude, brewery.getCountry());
             return;
         } catch (Exception ex) {
             throw new DaoException(ex.getMessage());

@@ -28,8 +28,8 @@ public class OpenBreweryDTO {
     @JsonProperty("postal_code")
     private String postalCode;
     private String country;
-    private String longitude;
     private String latitude;
+    private String longitude;
     private String phone;
     @JsonProperty("website_url")
     private String websiteUrl;

@@ -23,6 +23,8 @@ public class BreweryMapper implements RowMapper<Brewery> {
         brewery.setCity(resultSet.getString("city"));
         brewery.setStateProvince(resultSet.getString("state_province"));
         brewery.setPostalCode(resultSet.getString("postal_code"));
+        brewery.setLatitude(resultSet.getDouble("latitude"));
+        brewery.setLongitude(resultSet.getDouble("longitude"));
         brewery.setCountry(resultSet.getString("country"));
         brewery.setHistory(resultSet.getString("history"));
         return brewery;
