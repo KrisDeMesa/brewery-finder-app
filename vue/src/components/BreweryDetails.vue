@@ -18,10 +18,9 @@
         </div>    
      <div id="map-label">
         <div class="head-text">Map</div>
+        <div id="map-content">map content</div>
     </div>    
-    <div id="map-content">
-        
-    </div>
+    
    
     </div>
 
@@ -147,11 +146,11 @@ ul {
   margin-left: 300px;
   border: 1px solid rgb(172, 13, 13);
   border-radius: 10px;
-  
+  background: white;
 }
 #map-content {
   grid-area: map-label;
-
+  background: white;
 }
 
 </style>

@@ -1,22 +1,29 @@
 <template>
   <div class="home">
     <!-- <app-header/> -->
+
+    <div id="full-container">
+      <div id="header-section">
+      </div>
+      <div id="list-section">
+      </div>
+    </div>
     
     
-    <div id="filter" class="grid-container">
+    <!-- <div id="filter" class="grid-container"> -->
       <div id="filter-header" class="page-header">Filter</div>
       <div id="filter-content">filter content</div>
-      </div>
+      <!-- </div> -->
 
-    <div class="grid-container">
+    <!-- <div class="grid-container"> -->
       <div id="brewerylist-header" class="page-header">Brewery List</div>
       <div id="brewerylist-content"><brewery-list /></div>
-      </div>
+      <!-- </div> -->
 
-    <div id="map" class="grid-container">
+    <!-- <div id="map" class="grid-container"> -->
       <div id="map-header" class="page-header">Map</div>
       <div id="map-content">map content</div>
-      </div>
+      <!-- </div> -->
     
   </div>
 </template>
@@ -36,6 +43,19 @@ export default {
 </script>
 
 <style scoped>
+
+.header-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "filter-header brewerylist-header map-header";
+}
+
+.list-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "filter-content brewerylist-content map-content";
+}
+
 .home {
   background: rgba(251,230,194, .7);
   border: 1px solid rgb(172, 13, 13);
