@@ -46,5 +46,18 @@ public class BreweryController {
         }
     }
 
+    @PutMapping("/breweries/{id}")
+    public void updateBrewery(@RequestBody Brewery brewery, @PathVariable Integer id) {
+        if (id != brewery.getId()) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Id in URL did not match Id in Brewery object");
+        }
+        try {
+            breweryService.updateBrewery(brewery, id);
+        } catch (OpenBreweryDBException ex) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
+        }
+
+    }
+
 }
 

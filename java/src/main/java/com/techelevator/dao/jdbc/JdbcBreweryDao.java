@@ -84,5 +84,21 @@ public class JdbcBreweryDao implements BreweryDao {
             throw new DaoException(ex.getMessage());
         }
     }
+
+    public void updateBrewery(Brewery brewery, Integer id) {
+        String sql = "UPDATE brewery SET brewer = ?, brewery_name = ?, brewery_type = ?, hours  = ?, phone_number = ?, website = ?, street_address_1 = ?, " +
+                "street_address_2 = ?, city = ?, state_province = ?, postal_code = ?, country = ?, latitude = ?, longitude = ?, history = ?" +
+                " WHERE brewery_id = ?";
+        try {
+            jdbcTemplate.update(sql, brewery.getBrewerId(), brewery.getName(),
+                    brewery.getBreweryType(), brewery.getHours(), brewery.getPhoneNumber(), brewery.getWebsite(),
+                    brewery.getStreetAddress1(), brewery.getStreetAddress2(), brewery.getCity(), brewery.getStateProvince(),
+                    brewery.getPostalCode(), brewery.getCountry(), brewery.getLatitude(), brewery.getLongitude(), brewery.getHistory(),
+                    brewery.getId());
+        } catch (Exception ex) {
+            throw new DaoException(ex.getMessage());
+        }
+
+    }
     
 }
