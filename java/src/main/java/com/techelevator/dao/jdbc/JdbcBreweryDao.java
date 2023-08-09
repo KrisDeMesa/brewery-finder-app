@@ -84,8 +84,5 @@ public class JdbcBreweryDao implements BreweryDao {
             throw new DaoException(ex.getMessage());
         }
     }
-
-
-
-
+    
 }
