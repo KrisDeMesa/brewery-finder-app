@@ -14,8 +14,9 @@
         </form>
         
         <div class="account-menu">
-            
+            <router-link :to="{name: 'account-brewer'}">
             <button class="menu-btn"> Account Menu </button>
+            </router-link>
         </div>
 
         <div class="account-logout">

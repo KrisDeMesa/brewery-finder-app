@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     hideHeader() {
-      return this.$route.name === 'login' || this.$route.name === 'register';
+      return this.$route.name === 'login' || this.$route.name === 'register' || this.$route.name === 'account-brewer';
     }
   }
 }
