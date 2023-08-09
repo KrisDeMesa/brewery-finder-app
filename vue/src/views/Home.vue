@@ -1,22 +1,29 @@
 <template>
   <div class="home">
     <!-- <app-header/> -->
+
+    <div id="full-container">
+      <div id="header-section">
+      </div>
+      <div id="list-section">
+      </div>
+    </div>
     
     
-    <div id="filter" class="grid-container">
-      <h3 id="filter-header">Filter</h3>
+    <!-- <div id="filter" class="grid-container"> -->
+      <div id="filter-header" class="page-header">Filter</div>
       <div id="filter-content">filter content</div>
-      </div>
+      <!-- </div> -->
 
-    <div class="grid-container">
-      <h3 id="brewerylist-header">Brewery List</h3>
+    <!-- <div class="grid-container"> -->
+      <div id="brewerylist-header" class="page-header">Brewery List</div>
       <div id="brewerylist-content"><brewery-list /></div>
-      </div>
+      <!-- </div> -->
 
-    <div id="map" class="grid-container">
-      <h3 id="map-header">Map</h3>
+    <!-- <div id="map" class="grid-container"> -->
+      <div id="map-header" class="page-header">Map</div>
       <div id="map-content">map content</div>
-      </div>
+      <!-- </div> -->
     
   </div>
 </template>
@@ -36,6 +43,19 @@ export default {
 </script>
 
 <style scoped>
+
+.header-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "filter-header brewerylist-header map-header";
+}
+
+.list-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "filter-content brewerylist-content map-content";
+}
+
 .home {
   background: rgba(251,230,194, .7);
   border: 1px solid rgb(172, 13, 13);
@@ -50,46 +70,60 @@ export default {
     
 }
 
-h3{
-  font-size: 25px;
+.page-header{
+  background-color: white;
+  color: rgb(172, 13, 13);
+  border-top: 1px solid rgb(172, 13, 13);
+  font-size: 40px;
+  font-weight: 900;
   text-align: center;
   margin-bottom: 0px;
   padding-bottom: 40px;
-  padding-top: 10px;
+  padding-top: 30px;
 }
 #filter-header {
-  background-color: white;
-  color: rgb(172, 13, 13);
   grid-area: filter-header;
   border-radius: 10px 0 0 0;
+  border-left: 1px solid rgb(172, 13, 13);
+  
 }
 #brewerylist-header {
   background-color: white;
   color: rgb(172, 13, 13);
   grid-area: brewerylist-header;
+  border-top: 1px solid rgb(172, 13, 13);
 }
+
 #map-header {
   background-color: rgb(255, 255, 255);
   color: rgb(172, 13, 13);
   grid-area: map-header;
   border-radius: 0 10px 0 0 ;
+  border-right: 1px solid rgb(172, 13, 13);
+  border-top: 1px solid rgb(172, 13, 13);
 }
 #filter-content {
   background-color: white;
   grid-area: filter-content;
-  padding-left: 30px;
+  padding-left: 40px;
   border-radius: 0 0 0 10px;
+  border-left: 1px solid rgb(172, 13, 13);
+  border-bottom: 1px solid rgb(172, 13, 13);
 }
 #brewerylist-content {
   background-color: white;
   grid-area: brewerylist-content;
-  padding-top: 10px;
+  border-bottom: 1px solid rgb(172, 13, 13);
+  border-left: 1px solid rgb(172, 13, 13);
+  border-right:1px solid rgb(172, 13, 13);
 }
 #map-content {
   background-color: white;
   grid-area: map-content;
-  padding-left: 30px;
+  padding-left: 40px;
   border-radius: 0 0 10px 0;
+  border-right: 1px solid rgb(172, 13, 13);
+  border-bottom: 1px solid rgb(172, 13, 13);
 }
 
 </style>
