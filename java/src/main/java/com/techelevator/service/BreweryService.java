@@ -48,6 +48,12 @@ public class BreweryService {
         }
     }
 
+
+    public void updateBrewery(Brewery brewery, Integer id) {
+        breweryDao.updateBrewery(brewery, id);
+    }
+
+
 //    public OpenBreweryDTO[] getOpenDBBreweriesByCity(String city) {
 //        return openBreweryService.getOpenBreweryListByCity(city);
 //    }

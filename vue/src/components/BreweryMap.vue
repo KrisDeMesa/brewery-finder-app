@@ -3,7 +3,7 @@
      <div id= "map">
     <iframe
         width="600"
-        height="450"
+        height="750"
         style="border:0"
         loading="lazy"
         allowfullscreen

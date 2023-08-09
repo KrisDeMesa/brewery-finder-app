@@ -145,6 +145,7 @@ ul {
   margin-right: 200px;
   border: 1px solid rgb(172, 13, 13);
   border-radius: 10px;
+
 }
 .banner {
   grid-area: banner;
@@ -162,6 +163,19 @@ ul {
 #map-content {
   grid-area: map-label;
   background: white;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  min-width: auto;
+  min-height: auto;
+  padding: 30px;
+  /* padding-top: 30px;
+  padding-bottom: 30px; */
+  /* background-size: cover; */
+
+  
+  
+
 }
 
 </style>
