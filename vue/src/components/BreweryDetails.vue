@@ -18,12 +18,13 @@
         </div>    
      <div id="map-label">
         <div class="head-text">Map</div>
-        <div id="map-content">map content</div>
+        <div id="map-content">
+            <brewery-map :latitude="selectedBrewery.latitude" :longitude="selectedBrewery.longitude" :address="combinedAddress"></brewery-map>
+        
+    </div>
     </div>    
 
-    <div id="map-content">
-        <brewery-map :latitude="selectedBrewery.latitude" :longitude="selectedBrewery.longitude" :address="combinedAddress"></brewery-map>
-    </div>
+
    
     </div>
 
