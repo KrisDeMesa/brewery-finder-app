@@ -19,7 +19,7 @@
     <div id="map-label"> 
     </div>
     <div id="map-content">
-        <h2>Map</h2>
+        <brewery-map :latitude="selectedBrewery.latitude" :longitude="selectedBrewery.longitude" :address="combinedAddress"></brewery-map>
     </div>
     </div>
 
@@ -27,8 +27,12 @@
 </template>
 
 <script>
-import breweryService from '../services/BreweryService'
+import breweryService from '../services/BreweryService';
+import BreweryMap from './BreweryMap.vue';
 export default {
+    components: {
+        BreweryMap
+    },
     data() {
         return {
             selectedBrewery: {}
@@ -62,6 +66,9 @@ export default {
                 }
             }
             return filtered;
+        },
+        combinedAddress() {
+            return `${this.selectedBrewery.streetAddress1}, ${this.selectedBrewery.city} ${this.selectedBrewery.stateProvince}, ${this.selectedBrewery.postalCode}`;
         }
     }
 }
