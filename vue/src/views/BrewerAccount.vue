@@ -33,10 +33,11 @@ export default {
             this.brewery = this.$store.state.breweries.find( curBrewery => {
                 return curBrewery.brewerId === this.$store.state.curUser.id;
             });
+            breweryService.getBeers(this.brewery.id).then( response => {
+                this.beers = response.data;
+            });
         });
-        breweryService.getBeers(this.brewery.id).then( response => {
-            this.beers = response.data;
-        });
+        
     },
     computed: {
         isBreweryBeerList() {
