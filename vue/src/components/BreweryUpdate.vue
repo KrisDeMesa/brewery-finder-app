@@ -11,7 +11,7 @@
           <div class="labels" for="hours" id="hours-label">Hours: </div>
 
         <div class="input-field">
-          <input type="text" id="name" :value="brewery.name"/>
+          <input type="text" id="name" v-model="updatedBrewery.name"/>
         </div>
 
         <div class="input-field">
@@ -30,16 +30,16 @@
         </div>
           
         <div class="input-field">
-          <input type="text" id="phone" :value="brewery.phoneNumber"/>
+          <input type="text" id="phone" v-model="updatedBrewery.phoneNumber"/>
         </div>
     
 
         <div class="input-field">
-          <input type="text" id="website" :value="brewery.website"/>
+          <input type="text" id="website" v-model="updatedBrewery.website"/>
         </div>
 
          <div class="input-field">
-          <input type="text" id="hours" :value="brewery.hours"/>
+          <input type="text" id="hours" v-model="updatedBrewery.hours"/>
         </div>
 
 
@@ -55,41 +55,71 @@
         <div class="labels" for="history" id="history-label">History: </div>
 
         <div class="input-field">
-          <input type="text" id="street1" :value="brewery.streetAddress1"/>
+          <input type="text" id="street1" v-model="updatedBrewery.streetAddress1"/>
         </div>
 
         <div class="input-field">
-          <input type="text" id="street2" :value="brewery.streetAddress2" />
+          <input type="text" id="street2" v-model="updatedBrewery.streetAddress2"/>
         </div>
 
         <div class="input-field">  
-          <input type="text" id="city" :value="brewery.city"/>
+          <input type="text" id="city" v-model="updatedBrewery.city"/>
         </div>
 
         <div class="input-field">
-          <input type="text" id="state" :value="brewery.stateProvince"/>
+          <input type="text" id="state" v-model="updatedBrewery.stateProvince"/>
         </div>
 
         <div class="input-field">
-          <input type="text" id="zip" :value="brewery.postalCode"/>
+          <input type="text" id="zip" v-model="updatedBrewery.postalCode"/>
         </div>
 
         <div class="input-field">
-          <textarea id="history" :value="brewery.history"></textarea>
+          <textarea id="history" v-model="updatedBrewery.history"></textarea>
         </div>
 
-        <button id=submit>Submit Changes</button>
+        <button id=submit @click.prevent="updateBrewery">Submit Changes</button>
 
       </div>
   </div>
 </template>
 
 <script>
+import breweryService from '../services/BreweryService.js';
 export default {
-  props: ['brewery']
+  
+  props: ['brewery'],
+  data() {
+    return {
+      updatedBrewery: {
+        id: this.brewery.id,
+        brewerId: this.brewery.brewerId,
+        name: this.brewery.name,
+        brewerType: this.brewery.brewerType,
+        phoneNumber: this.brewery.phoneNumber,
+        website: this.brewery.website,
+        city: this.brewery.city,
+        country: this.brewery.country,
+        hours: this.brewery.hours,
+        streetAddress1: this.brewery.streetAddress1,
+        streetAddress2: this.brewery.streetAddress2,
+        stateProvince: this.brewery.stateProvince,
+        postalCode: this.brewery.postalCode,
+        history: this.brewery.history,
+      }
+    }
+  },
+  methods: {
+    updateBrewery() {
+      breweryService.updateBrewery(this.updatedBrewery)
+        .then(response => {
+          this.$store.commit('UPDATE_BREWERY', response.data);
+          this.$router.push({name: 'home'});
+        })
+    }
+  }
 };
 </script>
-
 
 
 <style scoped>

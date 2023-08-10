@@ -46,6 +46,12 @@ export default new Vuex.Store({
     },
     CHANGE_BREWER_PAGE_VIEW(state, page) {
       state.brewerPageView = page;
+    },
+    UPDATE_BREWERY(state, updatedBrewery) {
+      let breweryIdx = state.breweries.findIndex(brewery => {
+        return brewery.id === updatedBrewery.id;
+      });
+      state.breweries[breweryIdx] = updatedBrewery;
     }
   }
 })

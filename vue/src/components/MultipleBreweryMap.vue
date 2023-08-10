@@ -14,7 +14,7 @@ export default {
     };
   },
   mounted() {
-    this.initMap();
+    // this.initMap();
     this.fetchBreweries();
   },
   methods: {

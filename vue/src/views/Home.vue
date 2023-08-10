@@ -31,14 +31,14 @@
 <script>
 import BreweryList from '../components/BreweryList.vue';
 // import AppHeader from '../components/AppHeader.vue'
-import MultipleBreweryMap from '../components/MultipleBreweryMap.vue';
+// import MultipleBreweryMap from '../components/MultipleBreweryMap.vue';
 
 export default {
   name: "home",
   components: {
     // AppHeader,
     BreweryList,
-    MultipleBreweryMap
+    // MultipleBreweryMap
   }
 
     
