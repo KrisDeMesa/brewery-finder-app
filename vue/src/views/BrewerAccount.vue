@@ -52,6 +52,11 @@ export default {
 }
 #nav{
     grid-area: nav;
+    background: rgba(251, 230, 194, 0.7);
+    border: 1px solid rgb(172, 13, 13);
+    border-right-width: 10px;
+    border-right-style: groove;
+    border-radius: 0 0 0 10px;
 }
 #beer-list{
     grid-area: main;

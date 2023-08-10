@@ -68,7 +68,7 @@ export default {
   background: rgba(251, 230, 194, 0.7);
   display: grid;
   border: 1px solid rgb(172, 13, 13);
-  border-radius: 10px;
+  border-radius: 0 0 10px 0;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "left-form right-form";
   row-gap: 20px;
