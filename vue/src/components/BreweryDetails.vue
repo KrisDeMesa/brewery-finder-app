@@ -134,7 +134,6 @@ ul {
     
 }
 
-
 #details {
     grid-area: brewery-details;
 }

@@ -23,7 +23,7 @@
 
       </div>
 
-      <div class="right-fields">
+      <div class="right-form">
         <div class="input-field">
           <div for="street1" id="street1-label">Street 1: </div>
           <input type="text" id="street1" :value="brewery.streetAddress1"/>
@@ -75,7 +75,7 @@ export default {
   border: 1px solid rgb(172, 13, 13);
   border-radius: 0 0 10px 0;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "left-fields right-fields";
+  grid-template-areas: "left-form right-form";
   row-gap: 20px;
 }
 
