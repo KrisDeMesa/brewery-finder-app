@@ -1,7 +1,6 @@
 <template>
   <div class="brewery-update">
-    <!-- <form> -->
-      <div class="left-form">
+      <div class="left-fields">
         <div class="input-field">
           <label for="name">Name: </label>
           <input type="text" id="name" :value="brewery.name"/>
@@ -19,7 +18,7 @@
 
       </div>
 
-      <div class="right-form">
+      <div class="right-fields">
         <div class="input-field">
           <label for="street1">Street 1: </label>
           <input type="text" id="street1" :value="brewery.streetAddress1"/>
@@ -50,8 +49,9 @@
           <textarea id="history" :value="brewery.history"></textarea>
         </div>
 
+        <button id=submit>Submit Changes</button>
+
       </div>
-    <!-- </form> -->
   </div>
 </template>
 
@@ -70,22 +70,18 @@ export default {
   border: 1px solid rgb(172, 13, 13);
   border-radius: 0 0 10px 0;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "left-form right-form";
+  grid-template-areas: "left-fields right-fields";
   row-gap: 20px;
 }
 
-.left-form {
-  grid-area: left-form;
+.left-fields {
+  grid-area: left-fields;
   text-align: right;
 }
 
-.right-form {
-  grid-area: right-form;
+.right-fields {
+  grid-area: right-fields;
   text-align: right;
-}
-
-form {
-  grid-column: span 2;
 }
 
 .input-field {
