@@ -14,6 +14,10 @@ export default {
 
   updateBrewery(brewery) {
     return http.put(`/breweries/${brewery.id}`, brewery);
+  },
+
+  getBeers(breweryId) {
+    return http.get(`/breweries/${breweryId}/beers`);
   }
 
 
