@@ -85,7 +85,7 @@ public class JdbcBreweryDao implements BreweryDao {
         }
     }
 
-<<<<<<< HEAD
+
     public void updateBrewery(Brewery brewery, Integer id) {
         String sql = "UPDATE brewery SET brewer = ?, brewery_name = ?, brewery_type = ?, hours  = ?, phone_number = ?, website = ?, street_address_1 = ?, " +
                 "street_address_2 = ?, city = ?, state_province = ?, postal_code = ?, country = ?, latitude = ?, longitude = ?, history = ?" +

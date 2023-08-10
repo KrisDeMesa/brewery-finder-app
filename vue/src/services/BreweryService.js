@@ -10,6 +10,12 @@ export default {
 
   getBreweryById(breweryId) {
     return http.get(`/breweries/${breweryId}`)
+  },
+
+  updateBrewery(brewery) {
+    return http.put(`/breweries/${brewery.id}`, brewery);
   }
+
+
 
 }

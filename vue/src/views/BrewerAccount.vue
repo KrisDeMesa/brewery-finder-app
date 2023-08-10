@@ -3,7 +3,7 @@
       <app-header-brewer-account id="header" :brewery="brewery" />
       <nav-pane-brewer-account id="nav"/>
       <brewer-beer-list id="beer-list"/>
-      <brewery-update id="update-brewery"/>
+      <brewery-update id="update-brewery" :brewery="brewery"/>
   </div>
 </template>
 
