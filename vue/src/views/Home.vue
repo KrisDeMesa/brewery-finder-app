@@ -12,7 +12,7 @@
     
     <!-- <div id="filter" class="grid-container"> -->
       <div id="filter-header" class="page-header">Filter</div>
-      <div id="filter-content">filter content</div>
+      <div id="filter-content"><brewery-list-filters /></div>
       <!-- </div> -->
 
     <!-- <div class="grid-container"> -->
@@ -29,16 +29,23 @@
 </template>
 
 <script>
+
 import BreweryList from '../components/BreweryList.vue';
+import BreweryListFilters from '../components/BreweryListFilters.vue';
 // import AppHeader from '../components/AppHeader.vue'
-// import MultipleBreweryMap from '../components/MultipleBreweryMap.vue';
+import MultipleBreweryMap from '../components/MultipleBreweryMap.vue';
 
 export default {
   name: "home",
   components: {
     // AppHeader,
     BreweryList,
+
+    MultipleBreweryMap,
+    BreweryListFilters
+
     // MultipleBreweryMap
+
   }
 
     
