@@ -1,18 +1,23 @@
 <template>
   <div class="brewery-update">
-      <div class="left-fields">
-        <div class="input-field">
-          <label for="name" class="name-label">Name: </label>
-          <input type="text" id="name" class="name-input" :value="brewery.name"/>
-        </div>
+
+    <!-- <form> -->
+      <div class="left-form">
+
+          <div class="labels" for= "name" id="name-label">Name: </div>
+          <div class="labels" for="phone" id="phone-label">Phone: </div>
+          <div class="labels" for="website" id="website-label">Website: </div>
 
         <div class="input-field">
-          <label for="phone">Phone: </label>
+          <input type="text" id="name" :value="brewery.name"/>
+        </div>
+          
+        <div class="input-field">
           <input type="text" id="phone" :value="brewery.phoneNumber"/>
         </div>
+    
 
         <div class="input-field">
-          <label for="website">Website: </label>
           <input type="text" id="website" :value="brewery.website"/>
         </div>
 
@@ -20,32 +25,32 @@
 
       <div class="right-fields">
         <div class="input-field">
-          <label for="street1">Street 1: </label>
+          <div for="street1" id="street1-label">Street 1: </div>
           <input type="text" id="street1" :value="brewery.streetAddress1"/>
         </div>
 
         <div class="input-field">
-          <label for="street2">Street 2: </label>
+          <div for="street2" id="street1-labe2">Street 2: </div>
           <input type="text" id="street2" :value="brewery.streetAddress2" />
         </div>
 
         <div class="input-field">
-          <label for="city">City: </label>
-          <input type="text" id="street2" :value="brewery.city"/>
+          <div for="city" id="city-label">City: </div>
+          <input type="text" id="city" :value="brewery.city"/>
         </div>
 
         <div class="input-field">
-          <label for="state">State: </label>
+          <div for="state" id="state-label">State: </div>
           <input type="text" id="state" :value="brewery.stateProvince"/>
         </div>
 
         <div class="input-field">
-          <label for="zip">Zip: </label>
+          <div for="zip" id="zip-label">Zip: </div>
           <input type="text" id="zip" :value="brewery.postalCode"/>
         </div>
 
         <div class="input-field">
-          <label for="history">History: </label>
+          <div for="history" id="history-label">History: </div>
           <textarea id="history" :value="brewery.history"></textarea>
         </div>
 
@@ -79,9 +84,43 @@ export default {
   border: 1px solid black;
   grid-area: left-form;
   padding-left: 10px;
-  /* display: grid;
-  grid-template-areas:  */
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  grid-template-rows: 100px 100px 100px;
+  grid-template-areas: 
+  "name-label name"
+  "phone-label phone"
+  "website-label website"
 
+}
+
+.labels{
+  padding-top: 10px;
+}
+
+#name {
+  grid-area: name;
+}
+
+#name-label {
+  padding-top: 10;
+  grid-area: name-label;
+}
+
+#phone {
+  grid-area: phone;
+}
+
+#phone-label {
+  grid-area: phone-label;
+}
+
+#website {
+  grid-area: website;
+}
+
+#website-label {
+  grid-area: website-label;
 }
 
 .right-form {

@@ -2,8 +2,8 @@
   <div class="app-header">
     <div id="main-header">
       <div id="logo-div">
-      <router-link :to="{ name: 'home' }"
-        ><img
+      <router-link :to="{ name: 'home' }">
+        <img @click="defaultBrewerPageView"
           class="nav-link"
           id="ontap-logo"
           src="../assets/images/ontap-logo.png"
@@ -26,7 +26,12 @@
 
 <script>
 export default {
-    props: ["brewery"]
+    props: ["brewery"],
+    methods: {
+        defaultBrewerPageView() {
+            this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_beer_list');
+        }
+    }
 };
 </script>
 

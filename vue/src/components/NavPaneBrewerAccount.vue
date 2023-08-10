@@ -2,7 +2,7 @@
   <div>
       <section id="nav-pane">
         <span id="beers">My Beers</span>
-        <span id="update">Update Brewery</span>
+        <button id="update" @click="$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_update')">Update Brewery</button>
       </section>
   </div>
 </template>

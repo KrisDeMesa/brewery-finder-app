@@ -2,8 +2,8 @@
   <div id="grid">
       <app-header-brewer-account id="header" :brewery="brewery" />
       <nav-pane-brewer-account id="nav"/>
-      <brewer-beer-list id="beer-list"/>
-      <brewery-update id="update-brewery" :brewery="brewery"/>
+      <brewer-beer-list id="beer-list" v-if="isBreweryBeerList"/>
+      <brewery-update id="update-brewery" :brewery="brewery" v-if="isBreweryUpdate"/>
   </div>
 </template>
 
@@ -34,6 +34,14 @@ export default {
         this.brewery = this.$store.state.breweries.find( curBrewery => {
             return curBrewery.brewerId === this.$store.state.curUser.id;
         });
+    },
+    computed: {
+        isBreweryBeerList() {
+            return this.$store.state.brewerPageView === 'brewery_beer_list';
+        },
+        isBreweryUpdate() {
+            return this.$store.state.brewerPageView === 'brewery_update';
+        }
     }
 }
 </script>

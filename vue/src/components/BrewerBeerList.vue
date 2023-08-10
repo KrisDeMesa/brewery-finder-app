@@ -4,7 +4,8 @@
     <!-- <div id=rating v-for="beer in beers" v-bind:key="beer.id"> -->
       <!-- <img v-for="index in beer.rating" v-bind:key="index"src="../assets/images/beer-rating.png" -->
       <img v-for="index in rating" v-bind:key="index" src="../assets/images/beer-rating.png">
-      <button id="edit-button">Edit</button>
+      <button id="edit-button" @click="$store.commit('CHANGE_BREWER_PAGE_VIEW', 'beer_edit')">Edit</button>
+      <!-- <span id="beer-name">{{ beer.name }}</span> -->
 
     </div>
 
