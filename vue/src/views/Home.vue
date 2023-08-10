@@ -40,8 +40,12 @@ export default {
   components: {
     // AppHeader,
     BreweryList,
+
     MultipleBreweryMap,
     BreweryListFilters
+
+    // MultipleBreweryMap
+
   }
 
     

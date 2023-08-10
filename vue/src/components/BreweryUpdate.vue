@@ -5,67 +5,121 @@
       <div class="left-form">
 
           <div class="labels" for= "name" id="name-label">Name: </div>
+          <div class="labels" for="type" id="type-label">Brewery Type: </div>
           <div class="labels" for="phone" id="phone-label">Phone: </div>
           <div class="labels" for="website" id="website-label">Website: </div>
+          <div class="labels" for="hours" id="hours-label">Hours: </div>
 
         <div class="input-field">
-          <input type="text" id="name" :value="brewery.name"/>
+          <input type="text" id="name" v-model="updatedBrewery.name"/>
+        </div>
+
+        <div class="input-field">
+          <select name="type" id="type"> 
+            <option value="bar">Bar</option>
+            <option value="brewpub">Brewpub</option>
+            <option value="closed">Closed</option>
+            <option value="contract">Contract</option>
+            <option value="large">Large</option>
+            <option value="micro">Micro</option>
+            <option value="nano">Nano</option>
+            <option value="planning">Planning</option>
+            <option value="proprietor">Proprietor</option>
+            <option value="regional">Regional</option>
+          </select>
         </div>
           
         <div class="input-field">
-          <input type="text" id="phone" :value="brewery.phoneNumber"/>
+          <input type="text" id="phone" v-model="updatedBrewery.phoneNumber"/>
         </div>
     
 
         <div class="input-field">
-          <input type="text" id="website" :value="brewery.website"/>
+          <input type="text" id="website" v-model="updatedBrewery.website"/>
         </div>
+
+         <div class="input-field">
+          <input type="text" id="hours" v-model="updatedBrewery.hours"/>
+        </div>
+
 
       </div>
 
       <div class="right-form">
+
+        <div class="labels" for="street1" id="street1-label">Street 1: </div>
+        <div class="labels" for="street2" id="street2-label">Street 2: </div>
+        <div class="labels" for="city" id="city-label">City: </div>
+        <div class="labels" for="state" id="state-label">State: </div>
+        <div class="labels" for="zip" id="zip-label">Zip: </div>
+        <div class="labels" for="history" id="history-label">History: </div>
+
         <div class="input-field">
-          <div for="street1" id="street1-label">Street 1: </div>
-          <input type="text" id="street1" :value="brewery.streetAddress1"/>
+          <input type="text" id="street1" v-model="updatedBrewery.streetAddress1"/>
         </div>
 
         <div class="input-field">
-          <div for="street2" id="street1-labe2">Street 2: </div>
-          <input type="text" id="street2" :value="brewery.streetAddress2" />
+          <input type="text" id="street2" v-model="updatedBrewery.streetAddress2"/>
+        </div>
+
+        <div class="input-field">  
+          <input type="text" id="city" v-model="updatedBrewery.city"/>
         </div>
 
         <div class="input-field">
-          <div for="city" id="city-label">City: </div>
-          <input type="text" id="city" :value="brewery.city"/>
+          <input type="text" id="state" v-model="updatedBrewery.stateProvince"/>
         </div>
 
         <div class="input-field">
-          <div for="state" id="state-label">State: </div>
-          <input type="text" id="state" :value="brewery.stateProvince"/>
+          <input type="text" id="zip" v-model="updatedBrewery.postalCode"/>
         </div>
 
         <div class="input-field">
-          <div for="zip" id="zip-label">Zip: </div>
-          <input type="text" id="zip" :value="brewery.postalCode"/>
+          <textarea id="history" v-model="updatedBrewery.history"></textarea>
         </div>
 
-        <div class="input-field">
-          <div for="history" id="history-label">History: </div>
-          <textarea id="history" :value="brewery.history"></textarea>
-        </div>
-
-        <button id=submit>Submit Changes</button>
+        <button id=submit @click.prevent="updateBrewery">Submit Changes</button>
 
       </div>
   </div>
 </template>
 
 <script>
+import breweryService from '../services/BreweryService.js';
 export default {
-  props: ['brewery']
+  
+  props: ['brewery'],
+  data() {
+    return {
+      updatedBrewery: {
+        id: this.brewery.id,
+        brewerId: this.brewery.brewerId,
+        name: this.brewery.name,
+        brewerType: this.brewery.brewerType,
+        phoneNumber: this.brewery.phoneNumber,
+        website: this.brewery.website,
+        city: this.brewery.city,
+        country: this.brewery.country,
+        hours: this.brewery.hours,
+        streetAddress1: this.brewery.streetAddress1,
+        streetAddress2: this.brewery.streetAddress2,
+        stateProvince: this.brewery.stateProvince,
+        postalCode: this.brewery.postalCode,
+        history: this.brewery.history,
+      }
+    }
+  },
+  methods: {
+    updateBrewery() {
+      breweryService.updateBrewery(this.updatedBrewery)
+        .then(response => {
+          this.$store.commit('UPDATE_BREWERY', response.data);
+          this.$router.push({name: 'home'});
+        })
+    }
+  }
 };
 </script>
-
 
 
 <style scoped>
@@ -83,19 +137,35 @@ export default {
 .left-form {
   border: 1px solid black;
   grid-area: left-form;
-  padding-left: 10px;
   display: grid;
-  grid-template-columns: 60px 1fr;
-  grid-template-rows: 100px 100px 100px;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 100px 100px 100px 100px;
   grid-template-areas: 
   "name-label name"
+  "type-label type"
   "phone-label phone"
   "website-label website"
-
+  "hours-label hours"
 }
 
+.right-form {
+  border: 1px solid black;
+  grid-area: right-form;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px;
+  grid-template-areas:
+  "street1-label street1"
+  "street2-label street2"
+  "city-label city"
+  "state-label state"
+  "zip-label zip"
+  "history-label history"
+
+}
 .labels{
   padding-top: 10px;
+  padding-left: 10px;
 }
 
 #name {
@@ -103,8 +173,16 @@ export default {
 }
 
 #name-label {
-  padding-top: 10;
   grid-area: name-label;
+}
+
+#type{
+  grid-area: type;
+}
+
+#type-label{
+  white-space: nowrap;
+  grid-area: type-label;
 }
 
 #phone {
@@ -123,14 +201,67 @@ export default {
   grid-area: website-label;
 }
 
-.right-form {
-  border: 1px solid black;
-  grid-area: right-form;
-  /* text-align: right; */
+#hours{
+  grid-area: hours;
 }
 
+#hours-label{
+  grid-area: hours-label;
+}
+
+#street1{
+  grid-area: street1;
+}
+
+#street1-label{
+  grid-area: street1-label;
+}
+
+#street2{
+  grid-area: street2;
+}
+
+#street2-label{
+  grid-area: street2-label;
+}
+
+#city{
+  grid-area: city;
+}
+
+#city-label{
+  grid-area: city-label;
+}
+
+#state{
+  grid-area: state;
+}
+
+#state-label{
+  grid-area: state-label;
+}
+
+#zip{
+  grid-area: zip;
+}
+
+#zip-label{
+  grid-area: zip-label;
+}
+
+#history{
+  grid-area: history;
+}
+
+#history-label{
+  grid-area: history-label;
+}
+
+
+
 .input-field {
-  margin: 10px;
+  padding: 10px;
+  padding-left: 30px;
 }
 
 input {

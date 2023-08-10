@@ -1,14 +1,17 @@
 package com.techelevator.controller;
 
+import com.techelevator.model.Beer;
 import com.techelevator.model.Brewery;
 import com.techelevator.openbrewerydb.exception.OpenBreweryDBException;
 import com.techelevator.openbrewerydb.model.OpenBreweryDTO;
+import com.techelevator.service.BeerService;
 import com.techelevator.service.BreweryService;
 import com.techelevator.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -19,8 +22,11 @@ public class BreweryController {
 
     private final BreweryService breweryService;
 
-    public BreweryController(BreweryService breweryService) {
+    private final BeerService beerService;
+
+    public BreweryController(BreweryService breweryService, BeerService beerService) {
         this.breweryService = breweryService;
+        this.beerService = beerService;
     }
 
     @GetMapping("/breweries")
@@ -58,6 +64,12 @@ public class BreweryController {
         }
 
     }
+
+    @GetMapping("/breweries/{id}/beers")
+    public List<Beer> getBeers(@PathVariable int id) {
+        return beerService.getBeers(id);
+    }
+
 
 }
 
