@@ -2,8 +2,8 @@
   <div class="brewery-update">
       <div class="left-fields">
         <div class="input-field">
-          <label for="name">Name: </label>
-          <input type="text" id="name" :value="brewery.name"/>
+          <label for="name" class="name-label">Name: </label>
+          <input type="text" id="name" class="name-input" :value="brewery.name"/>
         </div>
 
         <div class="input-field">
@@ -74,14 +74,20 @@ export default {
   row-gap: 20px;
 }
 
-.left-fields {
-  grid-area: left-fields;
-  text-align: right;
+
+.left-form {
+  border: 1px solid black;
+  grid-area: left-form;
+  padding-left: 10px;
+  /* display: grid;
+  grid-template-areas:  */
+
 }
 
-.right-fields {
-  grid-area: right-fields;
-  text-align: right;
+.right-form {
+  border: 1px solid black;
+  grid-area: right-form;
+  /* text-align: right; */
 }
 
 .input-field {
