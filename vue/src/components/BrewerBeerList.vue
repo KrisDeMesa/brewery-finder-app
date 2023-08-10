@@ -1,6 +1,7 @@
 <template>
   <div class="brewery-beer-list">
     <div id="rating">
+      <p>{{beers[0].name}}</p>
     <!-- <div id=rating v-for="beer in beers" v-bind:key="beer.id"> -->
       <!-- <img v-for="index in beer.rating" v-bind:key="index"src="../assets/images/beer-rating.png" -->
       <img v-for="index in rating" v-bind:key="index" src="../assets/images/beer-rating.png">
@@ -14,7 +15,7 @@
 
 <script>
 export default {
-  // props: ['beers'],
+  props: ['beers'],
   data() {
     return {
       rating: 5

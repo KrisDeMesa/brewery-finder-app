@@ -2,7 +2,7 @@
   <div id="grid">
       <app-header-brewer-account id="header" :brewery="brewery" />
       <nav-pane-brewer-account id="nav"/>
-      <brewer-beer-list id="beer-list" v-if="isBreweryBeerList"/>
+      <brewer-beer-list id="beer-list" v-if="isBreweryBeerList" :beers="beers"/>
       <brewery-update id="update-brewery" :brewery="brewery" v-if="isBreweryUpdate"/>
   </div>
 </template>
@@ -17,7 +17,8 @@ import breweryService from '../services/BreweryService.js';
 export default {
     data () {
         return {
-            brewery: {}
+            brewery: {},
+            beers: []
         }
     },
     components: {
@@ -33,7 +34,9 @@ export default {
                 return curBrewery.brewerId === this.$store.state.curUser.id;
             });
         });
-
+        breweryService.getBeers(this.brewery.id).then( response => {
+            this.beers = response.data;
+        });
     },
     computed: {
         isBreweryBeerList() {
