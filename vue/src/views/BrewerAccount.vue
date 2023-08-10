@@ -13,6 +13,8 @@ import BrewerBeerList from '../components/BrewerBeerList.vue';
 import NavPaneBrewerAccount from '../components/NavPaneBrewerAccount.vue';
 import BreweryUpdate from '../components/BreweryUpdate.vue';
 
+import breweryService from '../services/BreweryService.js';
+
 export default {
     data () {
         return {
@@ -26,8 +28,11 @@ export default {
         BreweryUpdate
     },
     created() {
+        breweryService.getBreweries().then((response) => {
+            this.$store.commit("GET_BREWERIES", response.data);
+        });
         this.brewery = this.$store.state.breweries.find( curBrewery => {
-            return curBrewery.brewer === this.$store.state.curUser.id;
+            return curBrewery.brewerId === this.$store.state.curUser.id;
         });
     }
 }
@@ -38,7 +43,7 @@ export default {
     display: grid;
     grid-template-rows: 1fr 4fr;
     grid-template-areas:
-    "header"
+    "header header"
     "nav main"
     ;
 }
