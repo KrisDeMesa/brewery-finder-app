@@ -42,6 +42,7 @@ export default {
 #grid{
     display: grid;
     grid-template-rows: 1fr 4fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-areas:
     "header header"
     "nav main"

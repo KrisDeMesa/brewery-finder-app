@@ -3,8 +3,8 @@
     <!-- <form> -->
       <div class="left-form">
         <div class="input-field">
-          <label for="name">Name: </label>
-          <input type="text" id="name" :value="brewery.name"/>
+          <label for="name" class="name-label">Name: </label>
+          <input type="text" id="name" class="name-input" :value="brewery.name"/>
         </div>
 
         <div class="input-field">
@@ -75,13 +75,18 @@ export default {
 }
 
 .left-form {
+  border: 1px solid black;
   grid-area: left-form;
-  text-align: right;
+  padding-left: 10px;
+  /* display: grid;
+  grid-template-areas:  */
+
 }
 
 .right-form {
+  border: 1px solid black;
   grid-area: right-form;
-  text-align: right;
+  /* text-align: right; */
 }
 
 form {
