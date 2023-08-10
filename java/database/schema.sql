@@ -42,11 +42,10 @@ CREATE TABLE brewery (
 CREATE TABLE beer (
 	beer_id SERIAL PRIMARY KEY,
 	beer_name varchar(200),
-	brewery int,
 	description varchar(600),
 	abv decimal(4,2),
-	beer_type varchar(100),
-	CONSTRAINT fk_beer_brewery FOREIGN KEY (brewery) REFERENCES brewery(brewery_id)
+	beer_type varchar(100)
+	
 );
 
 CREATE TABLE brewery_beer (
