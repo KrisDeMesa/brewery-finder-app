@@ -1,15 +1,22 @@
 <template>
   <div>
       <section id="nav-pane">
-        <span id="beers">My Beers</span>
-        <button id="update" @click="$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_update')">Update Brewery</button>
+        <button id="beers" @click="beerListPageView">My Beers</button>
+        <button id="update" @click="breweryUpdatePageView">Update Brewery</button>
       </section>
   </div>
 </template>
 
 <script>
 export default {
-
+  methods: {
+    breweryUpdatePageView() {
+      return this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_update');
+    },
+    beerListPageView() {
+      return this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_beer_list');
+    }
+  }
 }
 </script>
 
