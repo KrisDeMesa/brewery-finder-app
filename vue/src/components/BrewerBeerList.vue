@@ -1,8 +1,11 @@
 <template>
   <div class="brewery-beer-list">
+    <div id="add-btn">
+      <button type="button">Add Beer</button>
+    </div>
     <div v-for="beer in beers" v-bind:key="beer.id">
       <div class="data-div">
-        <div id="image">
+        <div id="image-div">
           <img
           class="beer-rating"
           v-for="index in rating"
@@ -10,15 +13,17 @@
           src="../assets/images/beer-rating.png"
           
         /></div>
-        <button
+        <span class="beer-name" id="beer-name">{{ beer.name }}</span
+        >
+        <div id="btn">
+          <button
           class="edit-button"
           @click="$store.commit('CHANGE_BREWER_PAGE_VIEW', 'beer_edit')"
-          id="btn"
         >
           Edit
         </button>
-        <span class="beer-name" id="beer-name">{{ beer.name }}</span
-        >
+        </div>
+        
       </div>
       
     </div>
@@ -44,7 +49,6 @@ export default {
 <style scoped>
 .brewery-beer-list {
   background: rgba(251, 230, 194, 0.7);
-  /* display: grid; */
   border: 1px solid rgb(172, 13, 13);
   border-radius: 0 0 10px 0;
   grid-template-columns: 1fr 1fr 4fr;
@@ -58,6 +62,7 @@ export default {
 }
 .beer-name {
   grid-area: beer-list;
+  font-size: 1.5rem;
 }
 img {
   width: 30px;
@@ -65,12 +70,15 @@ img {
 .data-div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "image btn beer-name";
+  grid-template-areas: "image beer-name btn";
   gap: 10px;
+  text-align: center;
+  align-items: center;
 }
 
-#image {
+#image-div {
   grid-area: image;
+  /* text-align: center; */
 }
 
 #btn {
@@ -80,4 +88,9 @@ img {
 #beer-name {
   grid-area: beer-name;
 }
+#add-btn{
+  text-align: center;
+  margin: 1rem 0;
+}
+
 </style>
