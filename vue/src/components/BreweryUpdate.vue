@@ -44,7 +44,33 @@
 
         <div id="hours-of-operation">
           
-          <div id="monday-flex">
+          <div v-for="n in 7" :key="n" :id="`${updatedBrewery.hoursOfOperation[n-1].day}-flex`">
+            <div :id="`${updatedBrewery.hoursOfOperation[n-1].day}-top`">
+              <span>{{updatedBrewery.hoursOfOperation[n-1].day}}</span>
+              <span>
+                <label :for="`${updatedBrewery.hoursOfOperation[n-1].day}-checkbox`">Open:</label>
+                <input type="checkbox" :id="`${updatedBrewery.hoursOfOperation[n-1].day}-checkbox`" value=true v-model="updatedBrewery.hoursOfOperation[n-1].openStatus" />
+              </span>
+            </div>
+            <div :id="`${updatedBrewery.hoursOfOperation[n-1].day}-middle`">
+              <label :for="`${updatedBrewery.hoursOfOperation[n-1].day}-open-select`">Open:</label>
+              <input type="number" min="1" max="12" :id="`${updatedBrewery.hoursOfOperation[n-1].day}-open-number`" v-model="updatedBrewery.hoursOfOperation[n-1].startTime" />
+              <select :id="`${updatedBrewery.hoursOfOperation[n-1].day}-open-am-pm`" v-model="updatedBrewery.hoursOfOperation[n-1].startAmPm">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+            </div>
+            <div :id="`${updatedBrewery.hoursOfOperation[n-1].day}-bottom`">
+              <label :for="`${updatedBrewery.hoursOfOperation[n-1].day}-close-select`">Close:</label>
+              <input type="number" min="1" max="12" :id="`${updatedBrewery.hoursOfOperation[n-1].day}-close-number`" v-model="updatedBrewery.hoursOfOperation[n-1].endTime"/>
+              <select :id="`${updatedBrewery.hoursOfOperation[n-1].day}-close-am-pm`" v-model="updatedBrewery.hoursOfOperation[n-1].endAmPm">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- <div id="monday-flex">
             <div id="monday-top">
               <span>Monday</span>
               <span>
@@ -54,207 +80,23 @@
             </div>
             <div id="monday-middle">
               <label for="monday-open-select">Open:</label>
-              <input type="number" min="1" max="12" id="monday-open-number" />
-              <select id="monday-open-am-pm">
+              <input type="number" min="1" max="12" id="monday-open-number" v-model="updatedBrewery.hoursOfOperation[0].startTime" />
+              <select id="monday-open-am-pm" v-model="updatedBrewery.hoursOfOperation[0].startAmPm">
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
               </select>
             </div>
             <div id="monday-bottom">
               <label for="monday-close-select">Close:</label>
-              <input type="number" min="1" max="12" id="monday-close-number" />
-              <select id="monday-close-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div id="tuesday-flex">
-            <div id="tuesday-top">
-              <span>Tuesday</span>
-              <span>
-                <label for="tuesday-checkbox">Open:</label>
-                <input type="checkbox" id="tuesday-checkbox" value="open" />
-              </span>
-            </div>
-            <div id="tuesday-middle">
-              <label for="tuesday-open-select">Open:</label>
-              <input type="number" min="1" max="12" id="tuesday-open-number" />
-              <select id="tuesday-open-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-            <div id="tuesday-bottom">
-              <label for="tuesday-close-select">Close:</label>
-              <input type="number" min="1" max="12" id="tuesday-close-number" />
-              <select id="tuesday-close-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div id="wednesday-flex">
-            <div id="wednesday-top">
-              <span>Wednesday</span>
-              <span>
-                <label for="wednesday-checkbox">Open:</label>
-                <input type="checkbox" id="wednesday-checkbox" value="open" />
-              </span>
-            </div>
-            <div id="wednesday-middle">
-              <label for="wednesday-open-select">Open:</label>
-              <input type="number" min="1" max="12" id="wednesday-open-number" />
-              <select id="wednesday-open-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-            <div id="wednesday-bottom">
-              <label for="wednesday-close-select">Close:</label>
-              <input type="number" min="1" max="12" id="wednesday-close-number" />
-              <select id="wednesday-close-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div id="thursday-flex">
-            <div id="thursday-top">
-              <span>Thursday</span>
-              <span>
-                <label for="thursday-checkbox">Open:</label>
-                <input type="checkbox" id="thursday-checkbox" value="open" />
-              </span>
-            </div>
-            <div id="thursday-middle">
-              <label for="thursday-open-select">Open:</label>
-              <input type="number" min="1" max="12" id="thursday-open-number" />
-              <select id="thursday-open-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-            <div id="thursday-bottom">
-              <label for="thursday-close-select">Close:</label>
-              <input type="number" min="1" max="12" id="thursday-close-number" />
-              <select id="thursday-close-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div id="friday-flex">
-            <div id="friday-top">
-              <span>Friday</span>
-              <span>
-                <label for="friday-checkbox">Open:</label>
-                <input type="checkbox" id="friday-checkbox" value="open" />
-              </span>
-            </div>
-            <div id="friday-middle">
-              <label for="friday-open-select">Open:</label>
-              <input type="number" min="1" max="12" id="friday-open-number" />
-              <select id="friday-open-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-            <div id="friday-bottom">
-              <label for="friday-close-select">Close:</label>
-              <input type="number" min="1" max="12" id="friday-close-number" />
-              <select id="friday-close-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div id="saturday-flex">
-            <div id="saturday-top">
-              <span>Saturday</span>
-              <span>
-                <label for="saturday-checkbox">Open:</label>
-                <input type="checkbox" id="saturday-checkbox" value="open" />
-              </span>
-            </div>
-            <div id="saturday-middle">
-              <label for="saturday-open-select">Open:</label>
-              <input type="number" min="1" max="12" id="saturday-open-number" />
-              <select id="saturday-open-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-            <div id="saturday-bottom">
-              <label for="saturday-close-select">Close:</label>
-              <input type="number" min="1" max="12" id="saturday-close-number" />
-              <select id="saturday-close-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div id="sunday-flex">
-            <div id="sunday-top">
-              <span>Sunday</span>
-              <span>
-                <label for="sunday-checkbox">Open:</label>
-                <input type="checkbox" id="sunday-checkbox" value="open" />
-              </span>
-            </div>
-            <div id="sunday-middle">
-              <label for="sunday-open-select">Open:</label>
-              <input type="number" min="1" max="12" id="sunday-open-number" />
-              <select id="sunday-open-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-            <div id="sunday-bottom">
-              <label for="sunday-close-select">Close:</label>
-              <input type="number" min="1" max="12" id="sunday-close-number" />
-              <select id="sunday-close-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- <div v-for="day in days" :key="day" :id="`${day}-flex`">
-            <div :id="`${day}-top`">
-              <span>{{day}}</span>
-              <span>
-                <label :for="`${day}-checkbox`">Open:</label>
-                <input type="checkbox" :id="`${day}-checkbox`" value="open" />
-              </span>
-            </div>
-            <div id="monday-middle">
-              <label for="monday-open-select">Open:</label>
-              <input type="number" min="1" max="12" id="monday-open-number" />
-              <select id="monday-open-am-pm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-            <div id="monday-bottom">
-              <label for="monday-close-select">Close:</label>
-              <input type="number" min="1" max="12" id="monday-close-number" />
-              <select id="monday-close-am-pm">
+              <input type="number" min="1" max="12" id="monday-close-number" v-model="updatedBrewery.hoursOfOperation[0].endTime"/>
+              <select id="monday-close-am-pm" v-model="updatedBrewery.hoursOfOperation[0].endAmPm">
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
               </select>
             </div>
           </div> -->
-          
+
         </div>
-
-
       </div>
 
       <div class="right-form">
