@@ -1,42 +1,44 @@
 <template>
   <div class="filter-container">
     <div class="filter-name">
-        <input id="filter-name" v-model="filterValue" @input="filterData" placeholder="Brewery name" />
-        <ul>
-        <li v-for="item in filteredItems" :key="item.id">{{ item.name }}</li>
-        </ul>
-    </div>
-    
-    <div class="filter-location">
-        <input id="filter-location" v-model="filterValue" @input="filterData" placeholder="Location" />
-        <ul>
-        <li v-for="item in filteredItems" :key="item.id">{{ item.name }}</li>
-        </ul>
+        <input type="text" id="filter-name" v-model="searchQuery" @input="filterBreweries" placeholder="Brewery name"/>
+        
     </div>
     
     <div class="filter-brewery-type">
-        <input id="brewery-type-filter" list="brewery-type" name="" placeholder="Select Brewery Type"/>
-            <datalist id="brewery-type">
-                <option value="Brewpub"></option>
-                <option value="Micro"></option>
-                <option value="Nano"></option>
-                <option value="Large"></option>
-                <option value="Planning"></option>
-                <option value="Bar"></option>
-                <option value="Contract"></option>
-                <option value="Proprietor"></option>
-                <option value="Closed"></option>
-            </datalist>
+            <select id="brewery-type">
+                <option value="all">All</option>
+                <option value="bar">Bar</option>
+                <option value="brewpub">Brewpub</option>
+                <option value="closed">Closed</option>
+                <option value="contract">Contract</option>
+                <option value="large">Large</option>
+                <option value="micro">Micro</option>
+                <option value="nano">Nano</option>
+                <option value="planning">Planning</option>
+                <option value="proprietor">Proprietor</option>
+                <option value="regional">Regional</option>
+            </select>
     </div>
         
         
-    <div class="filter-params"></div>
+    
   </div>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            searchQuery: '',
+        }
+    },
+    methods: {
+        filterBreweries() {
+            this.$store.commit('FILTER_BREWERIES', this.searchQuery);
+        },
+        
+    }
 
 }
 </script>
@@ -49,9 +51,9 @@ export default {
     justify-content: center;
     
 }
-#brewery-type-filter {
-    width: 300px;
-    height: 30px;
+#brewery-type {
+    width: 308px;
+    height: 35px;
 }
 #filter-name {
     justify-items: center;
