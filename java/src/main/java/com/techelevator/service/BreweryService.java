@@ -21,11 +21,17 @@ public class BreweryService {
     }
 
     public List<Brewery> getBreweries() {
-        return breweryDao.getBreweries();
+        List<Brewery> breweries = breweryDao.getBreweries();
+        for (Brewery brewery : breweries) {
+            brewery.setHoursOfOperation(breweryDao.getBreweryHours(brewery.getId()));
+        }
+        return breweries;
     }
 
     public Brewery getBreweryById(Integer id) throws ResourceNotFoundException {
-        return breweryDao.getBreweryById(id);
+        Brewery requestedBrewery = breweryDao.getBreweryById(id);
+        requestedBrewery.setHoursOfOperation(breweryDao.getBreweryHours(id));
+        return requestedBrewery;
     }
 
     public List<Brewery> getOpenDBBreweries(String city) {

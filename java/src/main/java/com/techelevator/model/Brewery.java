@@ -2,6 +2,8 @@ package com.techelevator.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 public class Brewery {
 
     private int id;
@@ -21,6 +23,7 @@ public class Brewery {
     private double longitude;
     private String country;
     private String history;
+    private List<DayHours> hoursOfOperation;
 
     public int getId() {
         return id;
@@ -156,5 +159,13 @@ public class Brewery {
 
     public void setHistory(String history) {
         this.history = history;
+    }
+
+    public List<DayHours> getHoursOfOperation() {
+        return hoursOfOperation;
+    }
+
+    public void setHoursOfOperation(List<DayHours> hoursOfOperation) {
+        this.hoursOfOperation = hoursOfOperation;
     }
 }
