@@ -21,11 +21,11 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     breweries: [],
-
     filterBreweries: [],
     curUser: currentUser,
     brewerPageView: 'brewery_beer_list',
     currentSearch: '',
+    currentType: '',
 
     // curUser: currentUser,
     
@@ -63,6 +63,9 @@ export default new Vuex.Store({
     FILTER_BREWERIES(state, currentSearch) {
       state.currentSearch = currentSearch;
     },
+    UPDATE_CURRENT_TYPE(state, type) {
+      state.currentType = type;
+    }
 
     
     
