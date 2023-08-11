@@ -18,6 +18,10 @@ export default {
 
   getBeers(breweryId) {
     return http.get(`/breweries/${breweryId}/beers`);
+  },
+
+  addBeer(newBeer, breweryId) {
+    return http.post(`breweries/${breweryId}/beers`, newBeer);
   }
 
 }

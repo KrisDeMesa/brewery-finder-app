@@ -4,9 +4,9 @@
         
           <button id="beers" class="buttons" @click="beerListPageView">My Beers</button>
 
-          <button id="add" class="minor-button" @click="beerAddPageview()">Add Beer</button>
+          <button id="add" class="minor-button" @click="beerAddPageView">Add Beer</button>
 
-          <button id="edit" class="minor-button" @click="beerEditPageView()">Edit Beer</button>
+          <button id="edit" class="minor-button" @click="beerEditPageView">Edit Beer</button>
         
           <button id="update" class="buttons" @click="breweryUpdatePageView">Update Brewery</button>
         
@@ -24,10 +24,10 @@ export default {
       return this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_beer_list');
     },
     beerEditPageView() {
-      return this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'beer_edit');
+      return this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'edit_beer_form');
     },
     beerAddPageView() {
-      return this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'beer_add');
+      return this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'add_beer_form');
     }
   }
 }

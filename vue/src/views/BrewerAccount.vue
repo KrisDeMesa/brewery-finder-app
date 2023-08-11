@@ -3,6 +3,7 @@
       <app-header-brewer-account id="header" :brewery="brewery" />
       <nav-pane-brewer-account id="nav"/>
       <brewer-beer-list id="beer-list" v-if="isBreweryBeerList" :beers="beers"/>
+      <add-beer-form id="add-beer" v-if="isAddBeerForm" :brewery="brewery"/>
       <brewery-update id="update-brewery" :brewery="brewery" v-if="isBreweryUpdate"/>
   </div>
 </template>
@@ -12,7 +13,9 @@ import AppHeaderBrewerAccount from '../components/AppHeaderBrewerAccount.vue';
 import BrewerBeerList from '../components/BrewerBeerList.vue';
 import NavPaneBrewerAccount from '../components/NavPaneBrewerAccount.vue';
 import BreweryUpdate from '../components/BreweryUpdate.vue';
+import AddBeerForm from '../components/AddBeerForm.vue';
 import breweryService from '../services/BreweryService.js';
+
 
 export default {
     data () {
@@ -25,7 +28,8 @@ export default {
         AppHeaderBrewerAccount,
         NavPaneBrewerAccount,
         BrewerBeerList,
-        BreweryUpdate
+        BreweryUpdate,
+        AddBeerForm
     },
     created() {
         breweryService.getBreweries().then((response) => {
@@ -45,6 +49,12 @@ export default {
         },
         isBreweryUpdate() {
             return this.$store.state.brewerPageView === 'brewery_update';
+        },
+        isEditBeerForm() {
+            return this.$store.commit.brewerPageView === 'edit_beer_form';
+        },
+        isAddBeerForm() {
+            return this.$store.state.brewerPageView === 'add_beer_form';
         }
     }
 }
