@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-link class="brewery-link" v-for="brewery in breweryList" v-bind:key="brewery.id" :to="{ name: 'brewery-details', params: {id: brewery.id}}"> 
+        <router-link class="brewery-link" v-for="brewery in filterBreweries" v-bind:key="brewery.id" :to="{ name: 'brewery-details', params: {id: brewery.id}}">
         <ul>
           <li> {{ brewery.name }} </li>
         </ul>
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+
 import breweryService from "../services/BreweryService";
 export default {
   created() {
@@ -21,8 +22,16 @@ export default {
     breweryList() {
       return this.$store.state.breweries;
     },
-  },
-  methods: {},
+    filterBreweries() {
+      // return this.$store.state.filrterBreweries;
+      const currentSearch = this.$store.state.currentSearch;
+      return this.$store.state.breweries.filter(brewery => {
+        return brewery.name.toLowerCase().includes(currentSearch.toLowerCase());
+      });
+    }
+    
+  }
+  
 };
 </script>
 

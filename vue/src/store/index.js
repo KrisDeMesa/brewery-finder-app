@@ -21,8 +21,15 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     breweries: [],
+
+    filterBreweries: [],
+    curUser: currentUser,
+    brewerPageView: 'brewery_beer_list',
+    currentSearch: '',
+
     // curUser: currentUser,
-    brewerPageView: 'brewery_beer_list'
+    
+
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -52,6 +59,13 @@ export default new Vuex.Store({
         return brewery.id === updatedBrewery.id;
       });
       state.breweries[breweryIdx] = updatedBrewery;
-    }
+    },
+    FILTER_BREWERIES(state, currentSearch) {
+      state.currentSearch = currentSearch;
+    },
+
+    
+    
+    
   }
 })

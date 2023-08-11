@@ -20,6 +20,4 @@ export default {
     return http.get(`/breweries/${breweryId}/beers`);
   }
 
-
-
 }
