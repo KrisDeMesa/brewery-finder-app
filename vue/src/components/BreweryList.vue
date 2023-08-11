@@ -24,10 +24,15 @@ export default {
     },
     filterBreweries() {
       // return this.$store.state.filrterBreweries;
-      const currentSearch = this.$store.state.currentSearch;
-      return this.$store.state.breweries.filter(brewery => {
-        return brewery.name.toLowerCase().includes(currentSearch.toLowerCase());
-      });
+    const currentSearch = this.$store.state.currentSearch;
+    const currentType = this.$store.state.currentType;
+
+    return this.$store.state.breweries.filter(brewery => {
+      const nameMatch = brewery.name.toLowerCase().includes(currentSearch.toLowerCase());
+      const typeMatch = currentType === '' || brewery.breweryType === currentType;
+
+      return nameMatch && typeMatch;
+    });
     }
     
   }

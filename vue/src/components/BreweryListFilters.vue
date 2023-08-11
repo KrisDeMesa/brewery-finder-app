@@ -5,9 +5,10 @@
         
     </div>
     
-    <div class="filter-brewery-type">
-            <select id="brewery-type">
-                <option value="all">All</option>
+    <div class="filter-brewery-type" >
+            <select id="brewery-type" v-model="currentType" @change="updateType(currentType)" placeholder="Text">
+                <option value=""></option>
+                <option value="">All</option>
                 <option value="bar">Bar</option>
                 <option value="brewpub">Brewpub</option>
                 <option value="closed">Closed</option>
@@ -31,12 +32,17 @@ export default {
     data() {
         return {
             searchQuery: '',
+            currentType: '',
+            
         }
     },
     methods: {
         filterBreweries() {
             this.$store.commit('FILTER_BREWERIES', this.searchQuery);
         },
+        updateType(type) {
+            this.$store.commit('UPDATE_CURRENT_TYPE', type);
+        }
         
     }
 
@@ -54,6 +60,7 @@ export default {
 #brewery-type {
     width: 308px;
     height: 35px;
+    margin-bottom: 30px;
 }
 #filter-name {
     justify-items: center;
@@ -70,7 +77,7 @@ export default {
 
 .filter-name , .filter-location, #brewery-type-filter {
     margin-bottom: 30px;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 
 
