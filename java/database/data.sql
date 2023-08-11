@@ -49,4 +49,4 @@ VALUES ((SELECT brewery_id FROM brewery WHERE brewery_name = 'Happy Times Brewin
 
 --INSERT INTO day(name)
 --VALUES('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
---COMMIT TRANSACTION;
+COMMIT TRANSACTION;
