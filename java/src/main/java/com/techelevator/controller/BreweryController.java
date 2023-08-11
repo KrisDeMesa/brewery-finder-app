@@ -1,5 +1,7 @@
 package com.techelevator.controller;
 
+import com.techelevator.exception.CreationFailureException;
+import com.techelevator.exception.LinkFailureException;
 import com.techelevator.model.Beer;
 import com.techelevator.model.Brewery;
 import com.techelevator.openbrewerydb.exception.OpenBreweryDBException;
@@ -68,6 +70,16 @@ public class BreweryController {
     @GetMapping("/breweries/{id}/beers")
     public List<Beer> getBeers(@PathVariable int id) {
         return beerService.getBeers(id);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/breweries/{id}/beers")
+    public Beer addBeer(@RequestBody Beer newBeer, @PathVariable Integer id) {
+        try {
+            return beerService.addBeer(newBeer, id);
+        } catch (CreationFailureException | LinkFailureException ex) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
     }
 
 
