@@ -21,7 +21,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     breweries: [],
-    curUser: currentUser,
+    // curUser: currentUser,
     brewerPageView: 'brewery_beer_list'
   },
   mutations: {
