@@ -108,7 +108,6 @@ public class JdbcBreweryDao implements BreweryDao {
                     brewery.getName(), brewery.getBreweryType(), brewery.getPhone(), brewery.getWebsiteUrl(),
                     brewery.getAddress1(), brewery.getAddress2(), brewery.getCity(), brewery.getStateProvince(),
                     brewery.getPostalCode(), latitude, longitude, brewery.getCountry());
-            return;
         } catch (Exception ex) {
             throw new DaoException(ex.getMessage());
         }
@@ -129,6 +128,17 @@ public class JdbcBreweryDao implements BreweryDao {
             throw new DaoException(ex.getMessage());
         }
 
+    }
+
+    public void updateBreweryDays(int breweryId, DayHours day) {
+        String sql = "UPDATE brewery_days SET open_status = ?, start_time = ?, start_am_pm = ?, end_time = ?, end_am_pm = ?" +
+                "WHERE brewery_id = ? AND day_name = ?";
+        try {
+            jdbcTemplate.update(sql, day.isOpenStatus(), day.getStartTime(), day.getStartAmPm(), day.getEndTime(),
+                    day.getEndAmPm(), breweryId, day.getDay());
+        } catch (Exception ex) {
+            throw new DaoException(ex.getMessage());
+        }
     }
 
 }

@@ -22,7 +22,7 @@ CREATE TABLE users (
 
 CREATE TABLE brewery (
 	brewery_id SERIAL PRIMARY KEY,
-	brewer int,
+	brewer int UNIQUE,
 	open_db_id varchar(100),
 	brewery_name varchar(200),
 	brewery_type varchar(30),

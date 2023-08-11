@@ -48,7 +48,7 @@ public class JdbcBeerDao implements BeerDao {
     public void linkBreweryBeer(int breweryId, int beerId) {
         String sql = "INSERT INTO brewery_beer VALUES (?, ?)";
         try {
-            int rowAdded= jdbcTemplate.update(sql, breweryId, beerId);
+            int rowAdded = jdbcTemplate.update(sql, breweryId, beerId);
             if (rowAdded == 0) {
                 throw new DaoException("No records inserted");
             }

@@ -17,7 +17,6 @@ public class DayHours {
     }
 
 
-
     public boolean isOpenStatus() {
         return openStatus;
     }
