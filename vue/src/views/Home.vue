@@ -22,7 +22,9 @@
 
     <!-- <div id="map" class="grid-container"> -->
       <div id="map-header" class="page-header">Map</div>
-      <div id="map-content">MultipleBreweryMap <multiple-brewery-map/> </div>
+      <div id="map-content">MultipleBreweryMap 
+        <multiple-brewery-map></multiple-brewery-map> 
+      </div>
       <!-- </div> -->
     
   </div>
@@ -33,7 +35,7 @@
 import BreweryList from '../components/BreweryList.vue';
 import BreweryListFilters from '../components/BreweryListFilters.vue';
 // import AppHeader from '../components/AppHeader.vue'
-import MultipleBreweryMap from '../components/MultipleBreweryMap.vue';
+// import MultipleBreweryMap from '../components/MultipleBreweryMap.vue';
 
 export default {
   name: "home",
@@ -41,10 +43,8 @@ export default {
     // AppHeader,
     BreweryList,
 
-    MultipleBreweryMap,
-    BreweryListFilters
-
-    // MultipleBreweryMap
+    // MultipleBreweryMap,
+    BreweryListFilters,
 
   }
 
