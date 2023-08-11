@@ -69,20 +69,22 @@ CREATE TABLE review (
     CONSTRAINT fk_review_beer_id FOREIGN KEY (beer_id) REFERENCES beer(beer_id)
 );
 
---CREATE TABLE day (
---    day_id SERIAL PRIMARY KEY,
---    name varchar(20)
---)
---
---CREATE TABLE brewery_day (
---    brewery_id int,
---    day_id int,
---    start_time time,
---    end_time time,
---    CONSTRAINT pk_brewery_day PRIMARY KEY (brewery_id, day_id),
---    CONSTRAINT fk_brewery_day_brewery_id FOREIGN KEY (brewery_id) REFERENCES brewery(brewery_id),
---    CONSTRAINT fk_brewery_day_day_id FOREIGN KEY (day_id) REFERENCES day(day_id)
---)
+CREATE TABLE days (
+    day_name varchar(20) PRIMARY KEY
+);
+
+CREATE TABLE brewery_days (
+    brewery_id int,
+    day_name varchar(20),
+	open_status boolean,
+    start_time int,
+	start_am_pm varchar(10),
+    end_time int,
+	end_am_pm varchar(10),
+    CONSTRAINT pk_brewery_days PRIMARY KEY (brewery_id, day_name),
+    CONSTRAINT fk_brewery_days_brewery_id FOREIGN KEY (brewery_id) REFERENCES brewery(brewery_id),
+    CONSTRAINT fk_brewery_days_day_name FOREIGN KEY (day_name) REFERENCES days(day_name)
+);
 
 CREATE TABLE rating (
     user_id int,

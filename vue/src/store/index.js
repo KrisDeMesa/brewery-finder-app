@@ -21,10 +21,15 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     breweries: [],
+
     filterBreweries: [],
     curUser: currentUser,
     brewerPageView: 'brewery_beer_list',
-    currentSearch: ''
+    currentSearch: '',
+
+    // curUser: currentUser,
+    
+
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

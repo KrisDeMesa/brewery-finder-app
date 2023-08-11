@@ -31,7 +31,7 @@ export default {
         breweryService.getBreweries().then((response) => {
             this.$store.commit("GET_BREWERIES", response.data);
             this.brewery = this.$store.state.breweries.find( curBrewery => {
-                return curBrewery.brewerId === this.$store.state.curUser.id;
+                return curBrewery.brewerId === this.$store.state.user.id;
             });
             breweryService.getBeers(this.brewery.id).then( response => {
                 this.beers = response.data;

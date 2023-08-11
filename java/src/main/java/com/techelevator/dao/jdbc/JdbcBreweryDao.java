@@ -5,7 +5,9 @@ import com.techelevator.dao.jdbc.mapper.BreweryMapper;
 import com.techelevator.exception.ResourceNotFoundException;
 import com.techelevator.model.Brewery;
 import com.techelevator.exception.DaoException;
+import com.techelevator.model.DayHours;
 import com.techelevator.openbrewerydb.model.OpenBreweryDTO;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -47,6 +49,33 @@ public class JdbcBreweryDao implements BreweryDao {
         } catch (Exception ex) {
             throw new DaoException(ex.getMessage());
         }
+    }
+
+    public List<DayHours> getBreweryHours(int breweryId) {
+        List<DayHours> dayHours = new ArrayList<>();
+        String sql = "SELECT bd.day_name, bd.open_status, bd.start_time, bd.start_am_pm, bd.end_time, bd.end_am_pm FROM brewery b\n" +
+                "JOIN brewery_days bd ON b.brewery_id = bd.brewery_id\n" +
+                "JOIN days d ON bd.day_name = d.day_name\n" +
+                "WHERE b.brewery_id = ?;";
+
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, breweryId);
+            if (results  != null) {
+                while (results.next()) {
+                    DayHours curDayHours = new DayHours();
+                    curDayHours.setDay(results.getString("day_name"));
+                    curDayHours.setOpenStatus(results.getBoolean("open_status"));
+                    curDayHours.setStartTime(results.getInt("start_time"));
+                    curDayHours.setStartAmPm(results.getString("start_am_pm"));
+                    curDayHours.setEndTime(results.getInt("end_time"));
+                    curDayHours.setEndAmPm(results.getString("end_am_pm"));
+                    dayHours.add(curDayHours);
+                }
+            }
+        } catch (DataAccessException e) {
+            throw new DaoException("Connection issues.");
+        }
+        return dayHours;
     }
 
     public Brewery getBreweryByOpenDbId(String openDbId) {
