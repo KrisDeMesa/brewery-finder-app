@@ -38,7 +38,7 @@ export default {
 <style scoped>
 .app-header {
     background: rgba(251,230,194, .7);
-    border: 1px solid rgb(172, 13, 13);
+    border: 2px solid rgb(172, 13, 13);
     border-bottom: none;
     border-radius: 10px 10px 0 0;
     

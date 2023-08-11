@@ -64,10 +64,12 @@ export default {
 }
 #nav{
     grid-area: nav;
-    background: rgba(251, 230, 194, 0.7);
-    border: 1px solid rgb(172, 13, 13);
-    border-right-width: 10px;
-    border-right-style: groove;
+    background: rgba(244,139,41,.3);
+    border: 2px solid rgb(172, 13, 13);
+    border-right-width: 5px;
+    /* border-right-style: groove; */
+    border-right-color: rgb(172, 13, 13);
+    
     border-radius: 0 0 0 10px;
 }
 #beer-list{
