@@ -19,10 +19,10 @@ INSERT INTO days (day_name) VALUES ('Sunday');
 INSERT INTO brewery_days (brewery_id, day_name, open_status) VALUES (1, 'Monday', false);
 INSERT INTO brewery_days (brewery_id, day_name, open_status) VALUES (1, 'Tuesday', false);
 INSERT INTO brewery_days (brewery_id, day_name, open_status) VALUES (1, 'Wednesday', false);
-INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, end_time) VALUES (1, 'Thursday', true, '6PM', '10PM');
-INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, end_time) VALUES (1, 'Friday', true, '6PM', '10PM');
-INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, end_time) VALUES (1, 'Saturday', true, '12PM', '2AM');
-INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, end_time) VALUES (1, 'Sunday', true, '12PM', '10PM');
+INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, start_am_pm, end_time, end_am_pm) VALUES (1, 'Thursday', true, 6, 'PM', 10, 'PM');
+INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, start_am_pm, end_time, end_am_pm) VALUES (1, 'Friday', true, 6, 'PM', 10, 'PM');
+INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, start_am_pm, end_time, end_am_pm) VALUES (1, 'Saturday', true, 12, 'PM', 2, 'AM');
+INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, start_am_pm, end_time, end_am_pm) VALUES (1, 'Sunday', true, 12, 'PM', 10, 'PM');
 
 INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
 VALUES (DEFAULT, 'Golden Gryphon Ale', 'A smooth and radiant ale that boasts a gentle honey undertone. Its mythical name reflects its delicate balance between malt sweetness and hoppy bitterness.', 5.5, 'Golden Ale');

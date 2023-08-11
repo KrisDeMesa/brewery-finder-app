@@ -3,8 +3,10 @@ package com.techelevator.model;
 public class DayHours {
     private String day;
     private boolean openStatus;
-    private String startTime;
-    private String endTime;
+    private int startTime;
+    private String startAmPm;
+    private int endTime;
+    private String endAmPm;
 
     public String getDay() {
         return day;
@@ -14,9 +16,7 @@ public class DayHours {
         this.day = day;
     }
 
-    public String getStartTime() {
-        return startTime;
-    }
+
 
     public boolean isOpenStatus() {
         return openStatus;
@@ -26,15 +26,35 @@ public class DayHours {
         this.openStatus = openStatus;
     }
 
-    public void setStartTime(String startTime) {
+    public int getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(int startTime) {
         this.startTime = startTime;
     }
 
-    public String getEndTime() {
+    public String getStartAmPm() {
+        return startAmPm;
+    }
+
+    public void setStartAmPm(String startAmPm) {
+        this.startAmPm = startAmPm;
+    }
+
+    public int getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(String endTime) {
+    public void setEndTime(int endTime) {
         this.endTime = endTime;
+    }
+
+    public String getEndAmPm() {
+        return endAmPm;
+    }
+
+    public void setEndAmPm(String endAmPm) {
+        this.endAmPm = endAmPm;
     }
 }
