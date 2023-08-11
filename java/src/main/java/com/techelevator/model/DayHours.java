@@ -2,6 +2,7 @@ package com.techelevator.model;
 
 public class DayHours {
     private String day;
+    private boolean openStatus;
     private String startTime;
     private String endTime;
 
@@ -15,6 +16,14 @@ public class DayHours {
 
     public String getStartTime() {
         return startTime;
+    }
+
+    public boolean isOpenStatus() {
+        return openStatus;
+    }
+
+    public void setOpenStatus(boolean openStatus) {
+        this.openStatus = openStatus;
     }
 
     public void setStartTime(String startTime) {

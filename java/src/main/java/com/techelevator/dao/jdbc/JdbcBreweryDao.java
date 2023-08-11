@@ -53,7 +53,7 @@ public class JdbcBreweryDao implements BreweryDao {
 
     public List<DayHours> getBreweryHours(int breweryId) {
         List<DayHours> dayHours = new ArrayList<>();
-        String sql = "SELECT bd.day_name, bd.start_time, bd.end_time FROM brewery b\n" +
+        String sql = "SELECT bd.day_name, bd.open_status, bd.start_time, bd.end_time FROM brewery b\n" +
                 "JOIN brewery_days bd ON b.brewery_id = bd.brewery_id\n" +
                 "JOIN days d ON bd.day_name = d.day_name\n" +
                 "WHERE b.brewery_id = ?;";
@@ -64,6 +64,7 @@ public class JdbcBreweryDao implements BreweryDao {
                 while (results.next()) {
                     DayHours curDayHours = new DayHours();
                     curDayHours.setDay(results.getString("day_name"));
+                    curDayHours.setOpenStatus(results.getBoolean("open_status"));
                     curDayHours.setStartTime(results.getString("start_time"));
                     curDayHours.setEndTime(results.getString("end_time"));
                     dayHours.add(curDayHours);

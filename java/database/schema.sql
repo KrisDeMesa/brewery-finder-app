@@ -76,6 +76,7 @@ CREATE TABLE days (
 CREATE TABLE brewery_days (
     brewery_id int,
     day_name varchar(20),
+	open_status boolean,
     start_time varchar(20),
     end_time varchar(20),
     CONSTRAINT pk_brewery_days PRIMARY KEY (brewery_id, day_name),
