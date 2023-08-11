@@ -161,18 +161,19 @@ export default {
         postalCode: this.brewery.postalCode,
         history: this.brewery.history,
         hoursOfOperation: this.brewery.hoursOfOperation
-      },
-      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+      }
     }
   },
   methods: {
     updateBrewery() {
       breweryService.updateBrewery(this.updatedBrewery)
         .then(response => {
-          this.$store.commit('UPDATE_BREWERY', response.data);
+          if (response.status === 200) {
+            // this.$store.commit('UPDATE_BREWERY', response.data);
           this.$store.commit("CHANGE_BREWER_PAGE_VIEW", 'brewery_beer_list');
           this.$router.push({name: 'home'});
-        })
+          }
+        });
     }
   }
 };
