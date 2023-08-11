@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.exception.CreationFailureException;
+import com.techelevator.exception.DaoException;
 import com.techelevator.exception.LinkFailureException;
 import com.techelevator.model.Beer;
 import com.techelevator.model.Brewery;
@@ -61,7 +62,7 @@ public class BreweryController {
         }
         try {
             breweryService.updateBrewery(brewery, id);
-        } catch (OpenBreweryDBException ex) {
+        } catch (DaoException ex) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         }
 

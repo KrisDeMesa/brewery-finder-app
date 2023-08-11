@@ -16,8 +16,11 @@ public interface BreweryDao {
     Brewery getBreweryByOpenDbId(String openDbId);
 
     void addBreweryFromOpenDb(OpenBreweryDTO brewery);
+
     void updateBrewery(Brewery brewery, Integer id);
 
     List<DayHours> getBreweryHours(int breweryId);
+
+    void updateBreweryDays(int breweryId, DayHours day);
 
 }

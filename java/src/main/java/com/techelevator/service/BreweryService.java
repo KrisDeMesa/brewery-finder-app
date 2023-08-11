@@ -1,11 +1,14 @@
 package com.techelevator.service;
 
 import com.techelevator.dao.BreweryDao;
+import com.techelevator.exception.DaoException;
 import com.techelevator.model.Brewery;
 import com.techelevator.exception.ResourceNotFoundException;
+import com.techelevator.model.DayHours;
 import com.techelevator.openbrewerydb.model.OpenBreweryDTO;
 import com.techelevator.openbrewerydb.service.OpenBreweryDBService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.ResourceAccessException;
 
 import java.util.List;
 
@@ -57,6 +60,9 @@ public class BreweryService {
 
     public void updateBrewery(Brewery brewery, Integer id) {
         breweryDao.updateBrewery(brewery, id);
+        for (DayHours dayHour : brewery.getHoursOfOperation()) {
+            breweryDao.updateBreweryDays(id, dayHour);
+        }
     }
 
 

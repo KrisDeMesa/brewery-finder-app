@@ -170,6 +170,7 @@ export default {
       breweryService.updateBrewery(this.updatedBrewery)
         .then(response => {
           this.$store.commit('UPDATE_BREWERY', response.data);
+          this.$store.commit("CHANGE_BREWER_PAGE_VIEW", 'brewery_beer_list');
           this.$router.push({name: 'home'});
         })
     }
