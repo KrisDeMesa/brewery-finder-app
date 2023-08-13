@@ -24,6 +24,7 @@ public class Brewery {
     private String country;
     private String history;
     private List<DayHours> hoursOfOperation;
+    private List<Beer> beerList;
 
     public int getId() {
         return id;
@@ -167,5 +168,13 @@ public class Brewery {
 
     public void setHoursOfOperation(List<DayHours> hoursOfOperation) {
         this.hoursOfOperation = hoursOfOperation;
+    }
+
+    public List<Beer> getBeerList() {
+        return beerList;
+    }
+
+    public void setBeerList(List<Beer> beerList) {
+        this.beerList = beerList;
     }
 }

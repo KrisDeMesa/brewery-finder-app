@@ -1,31 +1,38 @@
 <template>
     <div class="brewery-details">    
         
-    <div id="brewery-banner" class="banner">
-        <h1 v-bind:key="key"> {{selectedBrewery.name}} </h1> 
-    </div>
-        <div id="details"></div>
-        <div id="details-content"> 
-            <!-- <h2> Brewery Details</h2> -->
-            <div class="head-text">Brewery Details</div>
-        <ul>
-            <li v-for="(value, key) in filteredDetails" v-bind:key="key"> 
-                 <span class='keys'>{{`${key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/([a-z])([1-9])/g, '$1 $2')}: `}}</span>
-                 <span>{{ `${value != null ? value : ''}` }}</span>
-                 <p></p>
-            </li>
-        </ul>
+        <div id="brewery-banner" class="banner">
+            <h1 v-bind:key="key"> {{selectedBrewery.name}} </h1> 
+        </div>
+            <div id="details"></div>
+            <div id="details-content"> 
+                <!-- <h2> Brewery Details</h2> -->
+                <div class="head-text">Brewery Details</div>
+            <ul>
+                <li v-for="(value, key) in filteredDetails" v-bind:key="key">
+                    <span class="keys">{{`${formatKey(key)}: `}}</span>
+                    <span v-show="!valueIsArray(value)">{{ value != null ? value : null }}</span>
+                    <ul v-show="valueIsArray(value)">
+                        <li v-for="(arrObject, index) of value" v-bind:key="index">
+                            <ul>
+                                <li v-for="(objectValue, objectKey) in arrObject" v-show="confirmNotId(objectKey)" v-bind:key="objectKey">
+                                    <span class="keys"> {{`${formatKey(objectKey)}: `}} </span>
+                                    <span> {{ objectValue }} </span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p></p>
+                </li>
+            </ul>
+            </div>    
+        <div id="map-label">
+            <div class="head-text">Map</div>
+            <div id="map-content">
+                <brewery-map :latitude="selectedBrewery.latitude" :longitude="selectedBrewery.longitude" :address="combinedAddress"></brewery-map>
+            </div>
         </div>    
-     <div id="map-label">
-        <div class="head-text">Map</div>
-        <div id="map-content">
-            <brewery-map :latitude="selectedBrewery.latitude" :longitude="selectedBrewery.longitude" :address="combinedAddress"></brewery-map>
-        
-    </div>
-    </div>    
 
-
-   
     </div>
 
 
@@ -43,14 +50,17 @@ export default {
             selectedBrewery: {}
         }    
     },
-    // RETRIEVE DIRECTLY FROM STORE
+
     // computed: {
+    // RETRIEVE DIRECTLY FROM STORE
+
     //     selectedBrewery() {
     //         return this.$store.state.breweries.find(brewery => {
     //             return brewery.id === this.$route.params.id;
     //         });
     //     }
     // }
+
 
     // RETRIEVE FROM DATABASE
     created() {
@@ -74,6 +84,42 @@ export default {
         },
         combinedAddress() {
             return `${this.selectedBrewery.streetAddress1}, ${this.selectedBrewery.city} ${this.selectedBrewery.stateProvince}, ${this.selectedBrewery.postalCode}`;
+        },
+        // determineValueComputed(value) {
+        //     if (value == null) return '';
+        //     if (typeof value == 'object') {
+        //         let returnValues = [];
+        //         for (const key in value) {
+        //             returnValues.push(key[value]);
+        //         }
+        //         return returnValues;
+        //     }
+        //     return value;
+        // }
+    },
+    methods: {
+        determineValueMethod(value) {
+            if (value == null) return '';
+            if (Array.isArray(value)) {
+                let valueArray = value;
+                let returnValues = [];
+                for (const object of valueArray) {
+                    for (const key in object) {
+                        returnValues.push(`${key}, ${object[key]}`)
+                    }
+                }
+                return returnValues;
+            }
+            return value;
+        },
+        valueIsArray(value) {
+            return Array.isArray(value);
+        },
+        formatKey(key) {
+            return String(key).replace(/([a-z])([A-Z])/g, '$1 $2').replace(/([a-z])([1-9])/g, '$1 $2');
+        },
+        confirmNotId(key) {
+            return key != 'id';
         }
     }
 }

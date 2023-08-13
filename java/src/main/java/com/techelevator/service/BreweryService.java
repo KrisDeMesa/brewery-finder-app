@@ -1,5 +1,6 @@
 package com.techelevator.service;
 
+import com.techelevator.dao.BeerDao;
 import com.techelevator.dao.BreweryDao;
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Brewery;
@@ -17,16 +18,20 @@ public class BreweryService {
 
     private BreweryDao breweryDao;
     private OpenBreweryDBService openBreweryService;
+    private BeerDao beerDao;
 
-    public BreweryService(BreweryDao breweryDao, OpenBreweryDBService openBreweryDBService) {
+    public BreweryService(BreweryDao breweryDao, OpenBreweryDBService openBreweryDBService, BeerDao beerDao) {
         this.breweryDao = breweryDao;
         this.openBreweryService = openBreweryDBService;
+        this.beerDao = beerDao;
     }
 
     public List<Brewery> getBreweries() {
         List<Brewery> breweries = breweryDao.getBreweries();
         for (Brewery brewery : breweries) {
             brewery.setHoursOfOperation(breweryDao.getBreweryHours(brewery.getId()));
+            brewery.setBeerList(beerDao.getBeers(brewery.getId()));
+            // NOTE - WE MAY NOT NEED TO SET HOURS AND BEER LIST FOR getBreweries(). MAY ONLY BE NECESSARY FOR getBreweryById()
         }
         return breweries;
     }
@@ -34,6 +39,7 @@ public class BreweryService {
     public Brewery getBreweryById(Integer id) throws ResourceNotFoundException {
         Brewery requestedBrewery = breweryDao.getBreweryById(id);
         requestedBrewery.setHoursOfOperation(breweryDao.getBreweryHours(id));
+        requestedBrewery.setBeerList(beerDao.getBeers(id));
         return requestedBrewery;
     }
 
