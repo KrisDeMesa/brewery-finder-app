@@ -5,12 +5,12 @@
         
         <form class="search-bar">
             <!-- <label for="breweryname">Name </label> -->
-            <input type="text" placeholder="Name" id="breweryname" name="breweryname">
+            <input type="text" placeholder="Name of Brewery" id="breweryname" name="breweryname">
             
         </form>
         <form action="" class="search-bar">
             <!-- <label for="location">City or State </label> -->
-            <input type="text" placeholder="City" id="location" name="location">
+            <input type="text" placeholder="Search for Beers" id="location" name="location">
         </form>
         
         <div class="account-menu">
