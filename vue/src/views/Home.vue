@@ -21,10 +21,10 @@
       <!-- </div> -->
 
     <!-- <div id="map" class="grid-container"> -->
-      <div id="map-header" class="page-header">Map</div>
+      <!-- <div id="map-header" class="page-header">Map</div>
       <div id="map-content">MultipleBreweryMap 
         <multiple-brewery-map></multiple-brewery-map> 
-      </div>
+      </div> -->
       <!-- </div> -->
     
   </div>
@@ -58,13 +58,13 @@ export default {
 .header-section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "filter-header brewerylist-header map-header";
+  grid-template-areas: "filter-header brewerylist-header brewerylist-header";
 }
 
 .list-section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "filter-content brewerylist-content map-content";
+  grid-template-areas: "filter-content brewerylist-content brewerylist-content";
 }
 
 .home {
@@ -76,8 +76,8 @@ export default {
   display: grid;
     grid-template-columns: 2fr 4fr 3fr;
     grid-template-areas: 
-    "filter-header brewerylist-header map-header"
-    "filter-content brewerylist-content map-content";
+    "filter-header brewerylist-header brewerylist-header"
+    "filter-content brewerylist-content brewerylist-content";
     
 }
 
@@ -103,16 +103,18 @@ export default {
   color: rgb(172, 13, 13);
   grid-area: brewerylist-header;
   border-top: 1px solid rgb(172, 13, 13);
+  border-right: 1px solid rgb(172, 13, 13);
+  border-radius: 0 10px 0 0;
 }
 
-#map-header {
+/* #map-header {
   background-color: rgb(255, 255, 255);
   color: rgb(172, 13, 13);
   grid-area: map-header;
   border-radius: 0 10px 0 0 ;
   border-right: 1px solid rgb(172, 13, 13);
   border-top: 1px solid rgb(172, 13, 13);
-}
+} */
 #filter-content {
   background-color: white;
   grid-area: filter-content;
@@ -128,13 +130,13 @@ export default {
   border-left: 1px solid rgb(172, 13, 13);
   border-right:1px solid rgb(172, 13, 13);
 }
-#map-content {
+/* #map-content {
   background-color: white;
   grid-area: map-content;
   padding-left: 40px;
   border-radius: 0 0 10px 0;
   border-right: 1px solid rgb(172, 13, 13);
   border-bottom: 1px solid rgb(172, 13, 13);
-}
+} */
 
 </style>

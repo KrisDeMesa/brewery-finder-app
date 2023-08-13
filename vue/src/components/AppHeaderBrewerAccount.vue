@@ -38,10 +38,10 @@ export default {
 <style scoped>
 .app-header {
     background: rgba(251,230,194, .7);
-    border: 2px solid rgb(172, 13, 13);
-    border-bottom: none;
+    border-top: 1px solid rgb(172, 13, 13);
     border-radius: 10px 10px 0 0;
-    
+    padding-top: 30px;
+    padding-bottom: 40px;
 }
 #main-header {
     color: rgb(172, 13, 13);
@@ -81,7 +81,7 @@ export default {
 #ontap-logo {
    width: 180px;
    height: auto;
-   
+   margin-right: 40px ;
 }
 p{
     font-size: 3.5rem;

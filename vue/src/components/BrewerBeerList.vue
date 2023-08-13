@@ -38,9 +38,9 @@ export default {
 
 <style scoped>
 .brewery-beer-list {
-  background: rgba(251, 230, 194, .2);
+  background: white;
   border: 1px solid rgb(172, 13, 13);
-  border-radius: 0 0 10px 0;
+  border-radius: 0 10px 10px 0;
   padding: 2rem;
 }
 .beer-rating {

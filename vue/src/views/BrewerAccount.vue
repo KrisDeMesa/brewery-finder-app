@@ -61,29 +61,40 @@ export default {
 </script>
 
 <style scoped>
+
+
 #grid{
+    background-color: rgba(251,230,194, .7);
+    border-left: 1px solid rgb(172, 13, 13);
+    border-right: 1px solid rgb(172, 13, 13);
+    border-bottom: 1px solid rgb(172, 13, 13);
+    border-radius: 10px 10px 10px 10px;
     display: grid;
     grid-template-rows: 1fr 4fr;
     grid-template-columns: 1fr 4fr;
     grid-template-areas:
     "header header"
     "nav main";
+    
 }
 #header{
     grid-area: header;
 }
 #nav{
     grid-area: nav;
-    background: rgba(244,139,41,.3);
-    border: 2px solid rgb(172, 13, 13);
-    border-right-width: 5px;
+    background: white;
+    border-left: 1px solid rgb(172, 13, 13);
+    border-top: 1px solid rgb(172, 13, 13);
+    border-bottom: 1px solid rgb(172, 13, 13);
     /* border-right-style: groove; */
-    border-right-color: rgb(172, 13, 13);
-    
-    border-radius: 0 0 0 10px;
+    margin-left: 40px;
+    border-radius: 10px 0 0 10px;
+    margin-bottom: 30px;
 }
 #beer-list{
     grid-area: main;
+    margin-right: 40px;
+    margin-bottom: 30px;
 }
 #update-brewery{
     grid-area: main;
