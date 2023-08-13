@@ -64,7 +64,7 @@ export default {
 
 
 #grid{
-    background-color: rgba(251,230,194, .7);
+    background-color: rgba(251,230,194);
     border-left: 1px solid rgb(172, 13, 13);
     border-right: 1px solid rgb(172, 13, 13);
     border-bottom: 1px solid rgb(172, 13, 13);

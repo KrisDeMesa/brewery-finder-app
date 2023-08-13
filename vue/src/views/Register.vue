@@ -88,7 +88,7 @@ export default {
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
-  background: rgba(251,230,194, .7);
+  background: rgba(251,230,194);
 }
 #main-header {
   margin-top: 0;

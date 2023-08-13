@@ -102,7 +102,7 @@ button:hover {
 }
 
 .app-header {
-    background: rgba(251,230,194, .7);
+    background: rgba(251,230,194);
     border: 1px solid rgb(172, 13, 13);
     border-bottom: none;
     border-radius: 10px 10px 0 0;

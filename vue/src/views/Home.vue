@@ -68,7 +68,7 @@ export default {
 }
 
 .home {
-  background: rgba(251,230,194, .7);
+  background: rgba(251,230,194);
   border: 1px solid rgb(172, 13, 13);
   border-top: none;
   border-radius: 0 0 10px 10px;
