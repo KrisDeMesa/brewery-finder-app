@@ -46,11 +46,13 @@
           
           <div v-for="n in 7" :key="n" :id="`${updatedBrewery.hoursOfOperation[n-1].day}-flex`">
             <div :id="`${updatedBrewery.hoursOfOperation[n-1].day}-top`">
-              <span>{{updatedBrewery.hoursOfOperation[n-1].day}}</span>
-              <span>
-                <label :for="`${updatedBrewery.hoursOfOperation[n-1].day}-checkbox`">Open:</label>
-                <input type="checkbox" :id="`${updatedBrewery.hoursOfOperation[n-1].day}-checkbox`" value=true v-model="updatedBrewery.hoursOfOperation[n-1].openStatus" />
-              </span>
+              <div>
+                <span>{{updatedBrewery.hoursOfOperation[n-1].day}}</span>
+                <span>
+                  <label class="open-label" :for="`${updatedBrewery.hoursOfOperation[n-1].day}-checkbox`">Open:</label>
+                  <input class="checkbox" type="checkbox" :id="`${updatedBrewery.hoursOfOperation[n-1].day}-checkbox`" value=true v-model="updatedBrewery.hoursOfOperation[n-1].openStatus" />
+                </span>
+              <div>
             </div>
             <div :id="`${updatedBrewery.hoursOfOperation[n-1].day}-middle`">
               <label :for="`${updatedBrewery.hoursOfOperation[n-1].day}-open-select`">Open:</label>
@@ -228,6 +230,14 @@ export default {
 .labels{
   padding-top: 10px;
   padding-left: 10px;
+}
+
+/* .checkbox {
+  text-align: right;
+} */
+
+.open-label {
+  text-align: right;
 }
 
 #name {

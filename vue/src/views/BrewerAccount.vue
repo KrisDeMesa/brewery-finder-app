@@ -82,7 +82,7 @@ export default {
 }
 #nav{
     grid-area: nav;
-    background: white;
+    background: rgba(172, 13, 13, 0.3);
     border-left: 1px solid rgb(172, 13, 13);
     border-top: 1px solid rgb(172, 13, 13);
     border-bottom: 1px solid rgb(172, 13, 13);

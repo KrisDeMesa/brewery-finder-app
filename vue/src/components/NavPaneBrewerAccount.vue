@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="full-pane">
      <div id="nav-pane">
         
           <button id="beers" class="buttons" @click="beerListPageView">My Beers</button>
@@ -34,6 +34,7 @@ export default {
 </script>
 
 <style scoped>
+
 #nav-pane{
   height: 50%;
   display: flex;
