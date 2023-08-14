@@ -64,6 +64,7 @@ export default {
   background: white;
   display: grid;
   border: 1px solid rgb(172, 13, 13);
+  border-left: none;
   border-radius: 0 10px 10px 10px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 100px 100px 100px 100px;
