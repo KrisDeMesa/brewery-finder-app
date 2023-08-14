@@ -8,7 +8,7 @@
           <div class="labels" for="type" id="type-label">Brewery Type: </div>
           <div class="labels" for="phone" id="phone-label">Phone: </div>
           <div class="labels" for="website" id="website-label">Website: </div>
-          <!-- <div class="labels" for="hours" id="hours-label">Hours: </div> -->
+          <div class="labels" for="hours" id="hours-label">Hours: </div>
 
         <div class="input-field">
           <input type="text" id="name" v-model="updatedBrewery.name"/>
@@ -47,7 +47,7 @@
           <div v-for="n in 7" :key="n" :id="`${updatedBrewery.hoursOfOperation[n-1].day}-flex`">
             <div :id="`${updatedBrewery.hoursOfOperation[n-1].day}-top`">
               <div>
-                <span>{{updatedBrewery.hoursOfOperation[n-1].day}}</span>
+                <span>{{updatedBrewery.hoursOfOperation[n-1].day}} &nbsp; &nbsp;</span> 
                 <span>
                   <label class="open-label" :for="`${updatedBrewery.hoursOfOperation[n-1].day}-checkbox`">Open:</label>
                   <input class="checkbox" type="checkbox" :id="`${updatedBrewery.hoursOfOperation[n-1].day}-checkbox`" value=true v-model="updatedBrewery.hoursOfOperation[n-1].openStatus" />
@@ -70,6 +70,7 @@
                 <option value="PM">PM</option>
               </select>
             </div>
+            <p></p>
           </div>
 
           <!-- <div id="monday-flex">
@@ -207,8 +208,8 @@ export default {
   "type-label type"
   "phone-label phone"
   "website-label website"
-  /* "hours-label hours" */
-  "hours hours"
+  "hours-label hours"
+  /* "hours hours" */
 }
 #hours-of-operation{
   grid-area: hours;
