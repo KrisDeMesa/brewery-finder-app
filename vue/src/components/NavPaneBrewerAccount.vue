@@ -55,6 +55,8 @@ export default {
   color: rgb(172, 13, 13); 
   border-radius: 10px;
   border: 1px solid rgb(172, 13, 13);
+  min-width: 60px;
+  max-width: 45%;
 }
 
 .buttons:hover{
@@ -72,6 +74,8 @@ export default {
   border-width: 2px;
   background-color: rgba(251,230,194);
   border-radius: 10px;
+  min-width: 60px;
+  max-width: 45%;
 }
 
 </style>

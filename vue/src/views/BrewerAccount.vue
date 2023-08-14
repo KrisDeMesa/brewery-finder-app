@@ -87,6 +87,7 @@ export default {
     margin-left: 40px;
     border-radius: 10px 0 0 10px;
     margin-bottom: 30px;
+    
 }
 #beer-list{
     grid-area: main;
