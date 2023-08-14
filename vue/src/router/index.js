@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import BreweryDetailsView from '../views/BreweryDetailsView.vue'
 import BrewerAccount from '../views/BrewerAccount.vue'
 import IndividualBeer from '../views/IndividualBeer.vue'
+import UserAccount from '../views/UserAccount.vue'
 import store from '../store/index'
 
 
@@ -63,9 +64,14 @@ const router = new Router({
       component: BreweryDetailsView
     },
     {
-      path: "/account/brewer/",
+      path: "/account/brewer",
       name: 'account-brewer',
       component: BrewerAccount
+    },
+    {
+      path: "/account/user",
+      name: 'account-user',
+      component: UserAccount
     },
     {
       path: "/beer/:id",

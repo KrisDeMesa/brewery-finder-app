@@ -55,7 +55,7 @@ export default {
 #logo-div{
     grid-area: logo;
 }
-#brewery-name{
+#beer-name{
     grid-area: name;
     text-align: center;
 }
