@@ -20,6 +20,10 @@ export default {
     return http.get(`/breweries/${breweryId}/beers`);
   },
 
+  getBeer(beerId) {
+    return http.get(`/beer/${beerId}`);
+  },
+
   addBeer(newBeer, breweryId) {
     return http.post(`breweries/${breweryId}/beers`, newBeer);
   }

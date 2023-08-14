@@ -4,7 +4,7 @@
       <div id="logo-div">
         <router-link :to="{ name: 'home' }">
           <img
-            @click="defaultBrewerPageView"
+            @click="defaultHomeView"
             class="nav-link"
             id="ontap-logo"
             src="../assets/images/ontap-logo.png"
@@ -45,6 +45,11 @@
 <script>
 export default {
   props: ["beer"],
+  methods: {
+        defaultHomeView() {
+            this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_beer_list');
+        }
+    }
 };
 </script>
 

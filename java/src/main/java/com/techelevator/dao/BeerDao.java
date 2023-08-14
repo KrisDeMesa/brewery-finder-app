@@ -19,13 +19,16 @@ public interface BeerDao {
 
     List<BeerRating> getRatingsByUser(int userId);
 
-    List<BeerRating> getRatingsByBeer(int beerId, int breweryId) throws ResourceNotFoundException;
+    List<BeerRating> getRatingsByBeerAndBrewery(int beerId, int breweryId) throws ResourceNotFoundException;
+    int getAvgRatingByBeerId(int beerId) throws ResourceNotFoundException;
 
     BeerRating addBeerRating(BeerRating rating);
 
     List<BeerReview> getReviewsByUser(int userId);
 
-    List<BeerReview> getReviewsByBeer(int beerId, int breweryId) throws ResourceNotFoundException;
+    List<BeerReview> getReviewsByBeerAndBrewery(int beerId, int breweryId) throws ResourceNotFoundException;
+
+    List<BeerReview> getReviewsByBeerId(int beerId) throws ResourceNotFoundException;
 
     BeerReview addBeerReview(BeerReview review);
 

@@ -52,8 +52,12 @@ public class BeerService {
         return beerDao.getRatingsByUser(userId);
     }
 
-    public List<BeerRating> getRatingsByBeer(int beerId, int breweryId) throws ResourceNotFoundException {
-        return beerDao.getRatingsByBeer(beerId, breweryId);
+    public List<BeerRating> getRatingsByBeerAndBrewery(int beerId, int breweryId) throws ResourceNotFoundException {
+        return beerDao.getRatingsByBeerAndBrewery(beerId, breweryId);
+    }
+
+    public int getAvgRatingByBeerId(int beerId) throws ResourceNotFoundException{
+        return beerDao.getAvgRatingByBeerId(beerId);
     }
 
     public BeerRating addRating(BeerRating newRating) throws DuplicateRatingException {
@@ -74,9 +78,14 @@ public class BeerService {
         return beerDao.getReviewsByUser(userId);
     }
 
-    public List<BeerReview> getReviewsByBeer(int beerId, int breweryId) throws ResourceNotFoundException {
-        return beerDao.getReviewsByBeer(beerId, breweryId);
+    public List<BeerReview> getReviewsByBeerAndBrewery(int beerId, int breweryId) throws ResourceNotFoundException {
+        return beerDao.getReviewsByBeerAndBrewery(beerId, breweryId);
     }
+
+    public List<BeerReview> getReviewsByBeerId(int beerId) throws ResourceNotFoundException{
+        return beerDao.getReviewsByBeerId(beerId);
+    }
+
 
     public BeerReview addReview(BeerReview newReview) throws DuplicateReviewException {
         try {

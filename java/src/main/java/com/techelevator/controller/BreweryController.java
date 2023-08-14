@@ -96,9 +96,18 @@ public class BreweryController {
     }
 
     @GetMapping("breweries/{breweryId}/beers/ratings/{beerId}")
-    public List<BeerRating> getRatingsByBeer(@PathVariable Integer beerId, @PathVariable Integer breweryId) {
+    public List<BeerRating> getRatingsByBeerAndBrewery(@PathVariable Integer beerId, @PathVariable Integer breweryId) {
         try {
-            return beerService.getRatingsByBeer(beerId, breweryId);
+            return beerService.getRatingsByBeerAndBrewery(beerId, breweryId);
+        } catch (ResourceNotFoundException ex) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
+        }
+    }
+
+    @GetMapping("/beers/{beerId}/rating")
+    public int getAvgRatingByBeerId(@PathVariable Integer beerId) {
+        try {
+            return beerService.getAvgRatingByBeerId(beerId);
         } catch (ResourceNotFoundException ex) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         }
@@ -122,9 +131,18 @@ public class BreweryController {
     }
 
     @GetMapping("breweries/{breweryId}/beers/reviews/{beerId}")
-    public List<BeerReview> getReviewsByBeer(@PathVariable Integer beerId, @PathVariable Integer breweryId) {
+    public List<BeerReview> getReviewsByBeerAndBrewery(@PathVariable Integer beerId, @PathVariable Integer breweryId) {
         try {
-            return beerService.getReviewsByBeer(beerId, breweryId);
+            return beerService.getReviewsByBeerAndBrewery(beerId, breweryId);
+        } catch (ResourceNotFoundException ex) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
+        }
+    }
+
+    @GetMapping("/beers/{beerId}/reviews")
+    public List<BeerReview> getReviewsByBeerId(@PathVariable Integer beerId) {
+        try {
+            return beerService.getReviewsByBeerId(beerId);
         } catch (ResourceNotFoundException ex) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         }

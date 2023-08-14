@@ -11,9 +11,11 @@ import com.techelevator.model.BeerRating;
 import com.techelevator.model.BeerReview;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -97,7 +99,7 @@ public class JdbcBeerDao implements BeerDao {
         }
     }
 
-    public List<BeerRating> getRatingsByBeer(int beerId, int breweryId) throws ResourceNotFoundException {
+    public List<BeerRating> getRatingsByBeerAndBrewery(int beerId, int breweryId) throws ResourceNotFoundException {
         String sql = "SELECT * FROM rating r\n" +
                 "JOIN beer b ON r.beer_id = b.beer_id\n" +
                 "JOIN brewery_beer b_b on b_b.beer_id = b.beer_id\n" +
@@ -108,6 +110,26 @@ public class JdbcBeerDao implements BeerDao {
             throw new ResourceNotFoundException("Couldn't find beer with id " + beerId);
         } catch (Exception ex) {
             throw new DaoException(ex.getMessage());
+        }
+    }
+
+    public int getAvgRatingByBeerId(int beerId) throws ResourceNotFoundException{
+        String sql ="SELECT AVG(amount) FROM rating\n" +
+                "WHERE beer_id = ?;";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, beerId);
+            if (results.next()) {
+                int averageRating = (int)(results.getDouble("avg"));
+                if (averageRating > 0) {
+                    return averageRating;
+                } else {
+                    throw new ResourceNotFoundException();
+                }
+            } else {
+                throw new ResourceNotFoundException();
+            }
+        } catch (DataAccessException e) {
+            throw new DaoException(e.getMessage());
         }
     }
 
@@ -131,13 +153,26 @@ public class JdbcBeerDao implements BeerDao {
         }
     }
 
-    public List<BeerReview> getReviewsByBeer(int beerId, int breweryId) throws ResourceNotFoundException {
+    public List<BeerReview> getReviewsByBeerAndBrewery(int beerId, int breweryId) throws ResourceNotFoundException {
         String sql = "SELECT * FROM review r\n" +
                 "JOIN beer b ON r.beer_id = b.beer_id\n" +
                 "JOIN brewery_beer b_b on b_b.beer_id = b.beer_id\n" +
                 "WHERE b.beer_id = ? AND b_b.brewery_id = ?";
         try {
             return jdbcTemplate.query(sql, new Object[]{beerId, breweryId}, reviewsMapper);
+        } catch (EmptyResultDataAccessException ex) {
+            throw new ResourceNotFoundException("Couldn't find beer with id " + beerId);
+        } catch (Exception ex) {
+            throw new DaoException(ex.getMessage());
+        }
+    }
+
+    public List<BeerReview> getReviewsByBeerId(int beerId) throws ResourceNotFoundException {
+        String sql = "SELECT * FROM review\n" +
+                "WHERE beer_id = ?;";
+        try {
+            return jdbcTemplate.query(sql, new Object[]{beerId}, reviewsMapper);
+
         } catch (EmptyResultDataAccessException ex) {
             throw new ResourceNotFoundException("Couldn't find beer with id " + beerId);
         } catch (Exception ex) {
