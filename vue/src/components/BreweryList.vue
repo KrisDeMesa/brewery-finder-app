@@ -1,7 +1,8 @@
 <template>
     <div>
         <router-link class="brewery-link" v-for="brewery in filterBreweries" v-bind:key="brewery.id" :to="{ name: 'brewery-details', params: {id: brewery.id}}">
-        <ul>
+        <ul class="brewery-card" >
+          <!-- <h1> {{ Imags go here}} </h1> -->
           <li> {{ brewery.name }} </li>
         </ul>
         </router-link>
@@ -50,6 +51,18 @@ ul {
   color: rgb(255, 145, 0);
   font-size: 20px;
   text-decoration: none;
-}
 
+}
+.brewery-card {
+  padding: 20px;
+  border:1px solid;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0,.1);
+  margin-bottom: 15px;
+  transition: box-shadow .3 ease;
+
+}
+.brewery-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0,.2)
+}
 </style>
