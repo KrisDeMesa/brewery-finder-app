@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import BreweryDetailsView from '../views/BreweryDetailsView.vue'
 import BrewerAccount from '../views/BrewerAccount.vue'
+import IndividualBeer from '../views/IndividualBeer.vue'
 import store from '../store/index'
 
 
@@ -65,6 +66,11 @@ const router = new Router({
       path: "/account/brewer/",
       name: 'account-brewer',
       component: BrewerAccount
+    },
+    {
+      path: "/beer/:id",
+      name: 'beer-details',
+      component: IndividualBeer
     }
   ]
 })

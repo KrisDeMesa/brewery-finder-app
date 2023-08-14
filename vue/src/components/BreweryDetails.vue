@@ -17,7 +17,8 @@
                             <ul>
                                 <li v-for="(objectValue, objectKey) in arrObject" v-show="confirmNotId(objectKey)" v-bind:key="objectKey">
                                     <span class="keys"> {{`${formatKey(objectKey)}: `}} </span>
-                                    <span> {{ objectValue }} </span>
+                                    <router-link v-if="isBeerName(key, objectKey)" :to="{name: 'beer-details', params: {id: arrObject.id}}">{{objectValue}}</router-link>
+                                    <span v-if="!(isBeerName(key, objectKey))"> {{ objectValue }} </span>
                                 </li>
                             </ul>
                         </li>
@@ -120,6 +121,9 @@ export default {
         },
         confirmNotId(key) {
             return key != 'id';
+        },
+        isBeerName(key, objectKey) {
+            return key === 'beerList' && objectKey === 'name';
         }
     }
 }
