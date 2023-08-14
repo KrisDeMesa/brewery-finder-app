@@ -2,13 +2,13 @@
   <div id="full-pane">
      <div id="nav-pane">
         
-          <button id="beers" class="buttons" @click="beerListPageView">My Beers</button>
+          <button id="beers" :class="currentPageView === 'brewery_beer_list' ? 'selected' : 'buttons'" @click="beerListPageView">My Beers</button>
 
-          <button id="add" class="minor-button" @click="beerAddPageView">Add Beer</button>
+          <button id="add" :class="currentPageView === 'add_beer_form' ? 'selected' : 'buttons'" @click="beerAddPageView">Add Beer</button>
 
-          <button id="edit" class="minor-button" @click="beerEditPageView">Edit Beer</button>
+          <!-- <button id="edit" class="minor-button" @click="beerEditPageView">Edit Beer</button> -->
         
-          <button id="update" class="buttons" @click="breweryUpdatePageView">Update Brewery</button>
+          <button id="update" :class="currentPageView === 'brewery_update' ? 'selected' : 'buttons'" @click="breweryUpdatePageView">Update Brewery</button>
         
       </div>
   </div>
@@ -29,6 +29,11 @@ export default {
     beerAddPageView() {
       return this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'add_beer_form');
     }
+  },
+  computed: {
+    currentPageView () {
+      return this.$store.state.brewerPageView;
+    }
   }
 }
 </script>
@@ -36,7 +41,7 @@ export default {
 <style scoped>
 
 #nav-pane{
-  height: 50%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,24 +56,22 @@ export default {
   border-radius: 10px;
   border: 1px solid rgb(172, 13, 13);
 }
-.minor-button {
-  width: 25%;
-  height: 2rem;
-  cursor: pointer !important;
-  background-color: white;
-  color: rgb(172, 13, 13); 
-  border-radius: 10px;
-  border: 1px solid rgb(172, 13, 13);
-}
+
 .buttons:hover{
   color: rgb(244,139,41);
   border-color: rgb(244,139,41);
+  border-width: 2px;
+  
 }
 
-.minor-button:hover{
-  color: rgb(244,139,41);
-  border-color: rgb(244,139,41);
+.selected{
+  width: 50%;
+  height: 3rem;
+  color: rgb(172, 13, 13);
+  border-color: rgb(172, 13, 13);
+  border-width: 2px;
+  background-color: rgba(251,230,194);
+  border-radius: 10px;
 }
-
 
 </style>

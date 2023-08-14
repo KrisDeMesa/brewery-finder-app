@@ -52,7 +52,7 @@
                   <label class="open-label" :for="`${updatedBrewery.hoursOfOperation[n-1].day}-checkbox`">Open:</label>
                   <input class="checkbox" type="checkbox" :id="`${updatedBrewery.hoursOfOperation[n-1].day}-checkbox`" value=true v-model="updatedBrewery.hoursOfOperation[n-1].openStatus" />
                 </span>
-              <div>
+              </div>
             </div>
             <div :id="`${updatedBrewery.hoursOfOperation[n-1].day}-middle`">
               <label :for="`${updatedBrewery.hoursOfOperation[n-1].day}-open-select`">Open:</label>
