@@ -2,7 +2,7 @@
     <div class="card-container">
         <router-link class="brewery-link" v-for="brewery in filterBreweries" v-bind:key="brewery.id" :to="{ name: 'brewery-details', params: {id: brewery.id}}">
         <div class="brewery-card">
-          <img id="brewer-image" src="`../assets/BreweryLogo/${brewery.name}.png`">
+          <img id="brewer-image" src="../assets/BreweryLogo/EvilGenius.png">
           <div class="card-items"><h3> {{ brewery.name }} </h3> </div> <br>
           
           

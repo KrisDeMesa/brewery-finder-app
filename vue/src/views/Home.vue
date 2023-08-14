@@ -96,6 +96,7 @@ export default {
   grid-area: filter-header;
   border-radius: 10px 0 0 0;
   border-left: 1px solid rgb(172, 13, 13);
+  text-decoration: underline;
   
 }
 #brewerylist-header {
@@ -105,6 +106,7 @@ export default {
   border-top: 1px solid rgb(172, 13, 13);
   border-right: 1px solid rgb(172, 13, 13);
   border-radius: 0 10px 0 0;
+  text-decoration: underline;
 }
 
 /* #map-header {
