@@ -1,15 +1,14 @@
 package com.techelevator.controller;
 
-import com.techelevator.exception.CreationFailureException;
-import com.techelevator.exception.DaoException;
-import com.techelevator.exception.LinkFailureException;
+import com.techelevator.exception.*;
 import com.techelevator.model.Beer;
+import com.techelevator.model.BeerRating;
+import com.techelevator.model.BeerReview;
 import com.techelevator.model.Brewery;
 import com.techelevator.openbrewerydb.exception.OpenBreweryDBException;
 import com.techelevator.openbrewerydb.model.OpenBreweryDTO;
 import com.techelevator.service.BeerService;
 import com.techelevator.service.BreweryService;
-import com.techelevator.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -24,7 +23,6 @@ import java.util.List;
 public class BreweryController {
 
     private final BreweryService breweryService;
-
     private final BeerService beerService;
 
     public BreweryController(BreweryService breweryService, BeerService beerService) {
@@ -69,7 +67,7 @@ public class BreweryController {
     }
 
     @GetMapping("/breweries/{id}/beers")
-    public List<Beer> getBeers(@PathVariable int id) {
+    public List<Beer> getBeers(@PathVariable Integer id) {
         return beerService.getBeers(id);
     }
 
@@ -82,6 +80,60 @@ public class BreweryController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
         }
     }
+
+    @GetMapping("/beers/ratings/{userId}")
+    public List<BeerRating> getRatingsByUser(@PathVariable Integer userId) {
+        return beerService.getRatingsByUser(userId);
+    }
+
+    @GetMapping("breweries/{breweryId}/beers/ratings/{beerId}")
+    public List<BeerRating> getRatingsByBeer(@PathVariable Integer beerId, @PathVariable Integer breweryId) {
+        try {
+            return beerService.getRatingsByBeer(beerId, breweryId);
+        } catch (ResourceNotFoundException ex) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
+        }
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/beers/ratings")
+    public BeerRating addRating(@RequestBody BeerRating newRating) {
+        try {
+            return beerService.addRating(newRating);
+        } catch (DuplicateRatingException ex) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, ex.getMessage());
+        } catch (CreationFailureException ex) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+    }
+
+    @GetMapping("/beers/reviews/{userId}")
+    public List<BeerReview> getReviewsByUser(@PathVariable Integer userId) {
+        return beerService.getReviewsByUser(userId);
+    }
+
+    @GetMapping("breweries/{breweryId}/beers/reviews/{beerId}")
+    public List<BeerReview> getReviewsByBeer(@PathVariable Integer beerId, @PathVariable Integer breweryId) {
+        try {
+            return beerService.getReviewsByBeer(beerId, breweryId);
+        } catch (ResourceNotFoundException ex) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
+        }
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/beers/reviews")
+    public BeerReview addReview(@RequestBody BeerReview newReview) {
+        try {
+            return beerService.addReview(newReview);
+        } catch (DuplicateReviewException ex) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, ex.getMessage());
+        } catch (CreationFailureException ex) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+    }
+
+
 
 
 }
