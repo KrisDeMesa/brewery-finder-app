@@ -60,6 +60,8 @@ VALUES ((SELECT brewery_id FROM brewery WHERE brewery_name = 'Happy Times Brewin
 INSERT INTO brewery_beer (brewery_id, beer_id)
 VALUES ((SELECT brewery_id FROM brewery WHERE brewery_name = 'Happy Times Brewing'), (SELECT beer_id FROM beer WHERE beer_name = 'Cerulean Cove Kölsch'));
 
+--INSERT INTO rating (user_id, beer_id, amount)
+--VALUES (3, 11, 2);
 
 
 --INSERT INTO day(name)
