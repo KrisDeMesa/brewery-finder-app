@@ -9,8 +9,10 @@ import com.techelevator.exception.ResourceNotFoundException;
 import com.techelevator.model.Beer;
 import com.techelevator.model.BeerRating;
 import com.techelevator.model.BeerReview;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
@@ -37,6 +39,29 @@ public class JdbcBeerDao implements BeerDao {
         } catch (Exception e) {
             throw new DaoException(e.getMessage());
         }
+    }
+
+    public Beer getBeer(int id) throws ResourceNotFoundException{
+
+        String sql = "SELECT * FROM beer\n" +
+                "WHERE beer_id = ?";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+            if (results.next()) {
+                Beer beer = new Beer();
+                beer.setId(results.getInt("beer_id"));
+                beer.setName(results.getString("beer_name"));
+                beer.setDescription(results.getString("description"));
+                beer.setAbv(results.getDouble("abv"));
+                beer.setType(results.getString("beer_type"));
+                return beer;
+            } else {
+                throw new ResourceNotFoundException();
+            }
+        } catch (DataAccessException e) {
+            throw new DaoException(e.getMessage());
+        }
+
     }
 
     public Beer addBeer(Beer newBeer) {

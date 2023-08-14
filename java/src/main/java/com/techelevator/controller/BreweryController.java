@@ -71,6 +71,15 @@ public class BreweryController {
         return beerService.getBeers(id);
     }
 
+    @GetMapping("/beer/{id}")
+    public Beer getBeerById(@PathVariable Integer id) {
+        try {
+            return beerService.getBeerById(id);
+        } catch (ResourceNotFoundException ex) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/breweries/{id}/beers")
     public Beer addBeer(@RequestBody Beer newBeer, @PathVariable Integer id) {

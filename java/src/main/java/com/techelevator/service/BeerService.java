@@ -8,6 +8,7 @@ import com.techelevator.model.BeerReview;
 import com.techelevator.model.Brewery;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -22,6 +23,10 @@ public class BeerService {
 
     public List<Beer> getBeers(int breweryId) {
         return beerDao.getBeers(breweryId);
+    }
+
+    public Beer getBeerById(Integer id) throws ResourceNotFoundException{
+        return beerDao.getBeer(id);
     }
 
     public Beer addBeer(Beer newBeer, Integer breweryId) {

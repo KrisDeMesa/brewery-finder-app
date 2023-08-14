@@ -11,6 +11,8 @@ public interface BeerDao {
 
     List<Beer> getBeers(int breweryId);
 
+    Beer getBeer(int id) throws ResourceNotFoundException;
+
     Beer addBeer(Beer newBeer);
 
     void linkBreweryBeer(int breweryId, int beerId);
