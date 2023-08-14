@@ -40,6 +40,7 @@ export default {
 .brewery-beer-list {
   background: white;
   border: 1px solid rgb(172, 13, 13);
+  border-left: none;
   border-radius: 0 10px 10px 0;
   padding: 2rem;
 }

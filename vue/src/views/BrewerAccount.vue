@@ -84,6 +84,7 @@ export default {
     grid-area: nav;
     background: rgba(172, 13, 13, 0.2);
     border: 1px solid rgb(172, 13, 13);
+    border-right-width: 4px;
     margin-left: 40px;
     border-radius: 10px 0 0 10px;
     margin-bottom: 30px;
