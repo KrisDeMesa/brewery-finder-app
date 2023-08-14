@@ -23,8 +23,8 @@ public class Brewery {
     private double longitude;
     private String country;
     private String history;
-    private List<DayHours> hoursOfOperation;
     private List<Beer> beerList;
+    private List<DayHours> hoursOfOperation;
 
     public int getId() {
         return id;
