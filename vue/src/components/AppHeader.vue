@@ -13,18 +13,20 @@
             <input type="text" placeholder="Search for Beers" id="location" name="location">
         </form>
         
-        <div class="account-menu">
-            <router-link :to="{name: 'account-brewer'}">
-            <button class="menu-btn"> Account Menu </button>
-            </router-link>
-        </div>
+        <div id="flex-buttons">
+            <div id="account-menu" class="btns">
+                <router-link :to="{name: 'account-brewer'}">
+                <button class="menu-btn"> Account Menu </button>
+                </router-link>
+            </div>
 
-        <div class="account-logout">
-            <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">
+            <div id="account-logout" class="btns">
+                <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">
 
-            <button class="logout-btn"> Log Out </button>
+                <button class="logout-btn"> Log Out </button>
 
-        </router-link>
+                </router-link>
+            </div>
         </div>
       </div>
       
@@ -48,16 +50,24 @@ export default {
     justify-content: space-between;
     align-items: center;
 }
-.account-menu {
+#flex-buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+#account-menu {
     grid-area: menu;
 }
-.account-logout{
+#account-logout{
     grid-area: menu;
     justify-self: right;
 }
-
+.btns{
+    text-align: center;
+}
 .menu-btn{
-    margin-left: 80px;
+    /* margin-left: 80px; */
     background-color: white;
     color: rgb(172, 13, 13);
     height: 30px;
@@ -67,7 +77,7 @@ export default {
 }
 
 .logout-btn{
-    margin-right: 60px;
+    /* margin-right: 60px; */
     background-color: white;
     color: rgb(172, 13, 13);
     height: 30px;
