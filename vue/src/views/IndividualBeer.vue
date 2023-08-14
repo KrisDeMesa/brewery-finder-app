@@ -1,7 +1,7 @@
 <template>
   <div>
-      <ind-beer-header />
-      <p>test</p>
+      <ind-beer-header :beer="beer"/>
+      
       <div></div>
   </div>
 </template>
@@ -14,7 +14,8 @@ export default {
         IndBeerHeader
     }, 
     created() {
-        
+        //breweryService.getBeerById(this.$route.params(id))
+        //promise: set this.beer to response.data
     },
     data () {
         return {
