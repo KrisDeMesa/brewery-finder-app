@@ -184,18 +184,20 @@ export default {
 
 <style scoped>
 .brewery-update {
-  background: rgba(251, 230, 194, 0.7);
+  background: white;
   display: grid;
   border: 1px solid rgb(172, 13, 13);
-  border-radius: 0 0 10px 0;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "left-form right-form";
   row-gap: 20px;
+  margin-right: 40px;
+  margin-bottom: 30px;
 }
 
 
 .left-form {
-  border: 1px solid black;
   grid-area: left-form;
   display: grid;
   grid-template-columns: 100px 1fr;
@@ -213,7 +215,6 @@ export default {
 }
 
 .right-form {
-  border: 1px solid black;
   grid-area: right-form;
   display: grid;
   grid-template-columns: 100px 1fr;
