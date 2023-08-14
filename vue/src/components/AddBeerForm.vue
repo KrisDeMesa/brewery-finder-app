@@ -7,19 +7,19 @@
         <!-- <div class="labels" for="image" id="image-label">Image: </div> -->
 
         <div class="input-field">
-          <input type="text" id="name" v-model="newBeer.name"/>
+          <input type="text" id="name-input" v-model="newBeer.name"/>
         </div>
 
         <div class="input-field">
-          <input type="text" id="abv" v-model="newBeer.abv"/>
+          <input type="text" id="abv-input" v-model="newBeer.abv"/>
         </div>
 
          <div class="input-field">
-          <input type="text" id="type" v-model="newBeer.type"/>
+          <input type="text" id="type-input" v-model="newBeer.type"/>
         </div>
 
         <div class="input-field">
-          <textarea id="description" v-model="newBeer.description"/>
+          <textarea id="description-input" v-model="newBeer.description"/>
         </div>
 
         <!-- <div class="input-field">
@@ -61,18 +61,38 @@ export default {
 <style scoped>
 
 .add-brewery {
-  background: rgba(251, 230, 194, 0.7);
+  background: white;
   display: grid;
   border: 1px solid rgb(172, 13, 13);
-  border-radius: 0 0 10px 0;
-  grid-template-columns: 1fr 5fr;
+  border-left: none;
+  border-radius: 0 10px 10px 10px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 100px 100px 100px;
   grid-template-areas: 
   "name-label name-input"
   "abv-label abv-input"
   "type-label type-input"
-  "description-label description-input"
-  "image-label image-input";
+  "description-label description-input";
   row-gap: 20px;
+  margin-bottom: 30px;
+  margin-right: 40px;
+}
+
+.labels{
+  display: flex;
+  padding-top: 40px;
+  padding-left: 10px;
+  justify-content: center;
+
+}
+
+.input-field {
+  padding: 40px;
+  padding-left: 30px;
+}
+
+input {
+  margin-right: 0px;
 }
 
 #name-label{
@@ -91,9 +111,9 @@ export default {
   grid-area: description-label;
 }
 
-#image-label {
+/* #image-label {
   grid-area: image-label;
-}
+} */
 
 #name{
   grid-area: name-input;
@@ -111,8 +131,24 @@ export default {
   grid-area: description-input;
 }
 
+button {
+  display: flex;
+  justify-self: right;
+  white-space: nowrap;
+  height: 40px;
+  width: 85px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-right: 80px;
+
+}
+
+
+
+/* 
 #image {
   grid-area: image-input;
-}
+} */
 
 </style>
