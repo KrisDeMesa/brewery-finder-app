@@ -1,13 +1,13 @@
 <template>
     <div class="card-container">
         <router-link class="brewery-link" v-for="brewery in filterBreweries" v-bind:key="brewery.id" :to="{ name: 'brewery-details', params: {id: brewery.id}}">
-        <div class="brewery-card">
-          <img id="brewer-image" src="../assets/BreweryLogo/EvilGenius.png">
-          <div class="card-items"><h3> {{ brewery.name }} </h3> </div> <br>
-          
-          
-          
-        </div>
+          <div class="brewery-card">
+            <img :id="`brewer-image-${brewery.id}`" :src="getImgPath(brewery.id)" :alt="brewery.name">
+            <div class="card-items">
+              <h3> {{ brewery.name }} </h3> 
+            </div> 
+            <br>         
+          </div>
         </router-link>
         <router-view />
     </div>
@@ -17,6 +17,11 @@
 
 import breweryService from "../services/BreweryService";
 export default {
+  data() {
+    return {
+      imgUrl: '../assets/BreweryLogo/happy.png'
+    }
+  },
   created() {
     breweryService.getBreweries().then((response) => {
       this.$store.commit("GET_BREWERIES", response.data);
@@ -27,19 +32,34 @@ export default {
       return this.$store.state.breweries;
     },
     filterBreweries() {
-      // return this.$store.state.filrterBreweries;
-    const currentSearch = this.$store.state.currentSearch;
-    const currentType = this.$store.state.currentType;
+        // return this.$store.state.filrterBreweries;
+      const currentSearch = this.$store.state.currentSearch;
+      const currentType = this.$store.state.currentType;
 
-    return this.$store.state.breweries.filter(brewery => {
-      const nameMatch = brewery.name.toLowerCase().includes(currentSearch.toLowerCase());
-      const typeMatch = currentType === '' || brewery.breweryType === currentType;
+      return this.$store.state.breweries.filter(brewery => {
+        const nameMatch = brewery.name.toLowerCase().includes(currentSearch.toLowerCase());
+        const typeMatch = currentType === '' || brewery.breweryType === currentType;
 
-      return nameMatch && typeMatch;
-    });
-    }
+        return nameMatch && typeMatch;
+      });
+    },
+
+    // imgUrl() {
+    //   return "../assets/BreweryLogo/happy.png";
+    // }
     
+  },
+  methods: {
+    getImgPath(id) {
+      try {
+        return require(`../assets/BreweryLogo/${id}.png`);
+      } catch (error) {
+      return require('../assets/BreweryLogo/default-img.png');
+      // return "img not found"
+      }
+    },
   }
+
   
 };
 </script>
