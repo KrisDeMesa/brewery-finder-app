@@ -1,10 +1,13 @@
 <template>
-    <div>
+    <div class="card-container">
         <router-link class="brewery-link" v-for="brewery in filterBreweries" v-bind:key="brewery.id" :to="{ name: 'brewery-details', params: {id: brewery.id}}">
-        <ul class="brewery-card" >
-          <!-- <h1> {{ Imags go here}} </h1> -->
-          <li> {{ brewery.name }} </li>
-        </ul>
+        <div class="brewery-card">
+          <img id="brewer-image" src="`../assets/BreweryLogo/${brewery.name}.png`">
+          <div class="card-items"><h3> {{ brewery.name }} </h3> </div> <br>
+          
+          
+          
+        </div>
         </router-link>
         <router-view />
     </div>
@@ -47,22 +50,52 @@ ul {
   list-style-type: none;
 }
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  
+  
+}
+
+#brewer-image {
+  max-height: 100%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  padding: 0px;
+  
+}
+
+
 .brewery-link{
   color: rgb(255, 145, 0);
   font-size: 20px;
   text-decoration: none;
 
 }
+
 .brewery-card {
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
   border:1px solid;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0,.1);
   margin-bottom: 15px;
   transition: box-shadow .3 ease;
+  margin: 15px;
+  height: 315px;
+  width: 360px;
+  
+  
 
 }
 .brewery-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0,.2)
+  box-shadow: 0 12px 20px rgba(0, 0, 0,.2)
 }
 </style>
