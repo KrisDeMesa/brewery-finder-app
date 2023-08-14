@@ -217,7 +217,7 @@ export default {
   grid-area: right-form;
   display: grid;
   grid-template-columns: 100px 1fr;
-  grid-template-rows: 100px 100px 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px 100px;
   grid-template-areas:
   "street1-label street1"
   "street2-label street2"
@@ -225,6 +225,7 @@ export default {
   "state-label state"
   "zip-label zip"
   "history-label history"
+  ". button"
 
 }
 .labels{
@@ -330,6 +331,18 @@ export default {
 
 input {
   margin-right: 0px;
+}
+
+button {
+  margin-top: 24px;
+  grid-area: button;
+  display: flex;
+  white-space: nowrap;
+  height: 40px;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+
 }
 
 </style>
