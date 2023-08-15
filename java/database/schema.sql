@@ -61,7 +61,6 @@ CREATE TABLE brewery_beer (
 CREATE TABLE review (
     user_id int,
     beer_id int,
-    title varchar(200),
     description varchar(1000),
     CONSTRAINT pk_user_beer PRIMARY KEY (user_id, beer_id),
     CONSTRAINT fk_review_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),

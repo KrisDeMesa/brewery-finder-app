@@ -11,10 +11,10 @@ export default {
       return http.get(`/beers/${beerId}/reviews`);
   },
   addBeerReview(newBeerReview) {
-      return http.post(`/beers/reviews`, newBeerReview)
+      return http.post(`/beers/reviews`, newBeerReview);
   },
   addBeerRatings(newBeerRatings) {
-      return http.post(`/beers/ratings`, newBeerRatings)
+      return http.post(`/beers/ratings`, newBeerRatings);
   }
 
 }
