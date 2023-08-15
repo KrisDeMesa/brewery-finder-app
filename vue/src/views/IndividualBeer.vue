@@ -29,10 +29,11 @@
                 <button id="submitrating" type="button" @click="submitRating()">Submit Rating</button>
           </div>
           <div id="right-grid">
-              <div v-for="review in reviews" :key="review.userId">
+              <div class="review-box">
+                 <div id="newReview" v-for="review in reviews" :key="review.userId">
                   {{review.description}}
-              </div>
-
+                </div>
+              </div>  
               <textarea id="reviewarea" rows="5" cols="50" v-model="newReviewText" placeholder= " Submit review here...">  </textarea>
               <br
               >
