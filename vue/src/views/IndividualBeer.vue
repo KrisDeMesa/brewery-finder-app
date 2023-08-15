@@ -6,9 +6,10 @@
           <div id="left-grid">
               <ul>
                   <div v-show="showAttributes">
-                      <li>{{beer.type}}</li>
-                    <li>{{beer.abv}}</li>
-                    <li>{{beer.description}}</li>
+                    <li class="labels" id="beerType" > Type: {{beer.type}} </li>
+                    <li class="labels" id="beerAbv"> ABV: {{beer.abv}}%</li>
+                    <li class="labels" id="beerDescription"> 
+                        "{{beer.description}}"</li>
                   </div>
                   <div v-show="showRating">
                       <li>Average Rating: {{beerAvgRating}}</li>
@@ -16,7 +17,7 @@
                   
                 </ul>
                 
-                <select v-model="rating">
+                <select id="dropdown" v-model="rating">
                     <option value=""></option>
                     <option value=1>1</option>
                     <option value=2>2</option>
@@ -24,14 +25,18 @@
                     <option value=4>4</option>
                     <option value=5>5</option>
                 </select>
-                <button type="button" @click="submitRating()">Submit Rating</button>
+                <br>
+                <button id="submitrating" type="button" @click="submitRating()">Submit Rating</button>
           </div>
           <div id="right-grid">
               <div v-for="review in reviews" :key="review.userId">
                   {{review.description}}
               </div>
-              <textarea rows="5" cols="50" v-model="review">Submit your review here!</textarea>
-              <button type="button" @click="submitReview()">Submit Review</button>
+
+              <textarea id="reviewarea" rows="5" cols="50" v-model="review" placeholder= " Submit review here..."> </textarea>
+              <br
+              >
+              <button id="sumbitreviewbutton" type="button" @click="submitReview()">Submit Review</button>
           </div>
       </div>
   </div>
@@ -92,9 +97,7 @@ export default {
 </script>
 
 <style scoped>
-#whole-page{
-    
-}
+
 #main-space{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -105,8 +108,51 @@ export default {
 }
 #left-grid{
     grid-area: left;
+    display: flexbox;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    font-size: 1rem;
+
+
 }
 #right-grid{
     grid-area: right;
+    /* display: flexbox; */
+    display: flexbox;
+    flex-wrap: wrap;
+    
+    
+}
+li {
+    padding: 10px;
+}
+#beerType {
+   text-decoration-style: dotted;
+}
+#dropdown {
+    border-left-width: 1px;
+    padding-left: 16px;
+    margin-left: 50px;
+}
+#submitrating {
+    border-left-width: 1px;
+    padding: 2px;
+    margin-left: 50px;
+    margin-top: 15px;
+   
+}
+#reviewarea {
+    margin-top: 70px;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+#reviewsubmitbutton {
+    display: flex;
+    align-content: center;
+    justify-items: center;
 }
 </style>

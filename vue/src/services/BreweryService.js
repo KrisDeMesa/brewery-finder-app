@@ -21,13 +21,17 @@ export default {
   },
 
   getBeer(beerId) {
-    return http.get(`/beer/${beerId}`);
+    return http.get(`/beers/${beerId}`);
   },
 
   addBeer(newBeer, breweryId) {
     return http.post(`breweries/${breweryId}/beers`, newBeer);
   },
-
-  
+  updateBeer(updatedBeer, beerId) {
+    return http.put(`beers/${beerId}`, updatedBeer);
+  },
+  deleteBeer(beerId) {
+    return http.delete(`beers/${beerId}`);
+  }
 
 }

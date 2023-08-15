@@ -5,7 +5,7 @@ const http =axios.create({
 export default {
 
   getBeerAvgRating(beerId) {
-      return http.get(`/beer/${beerId}/rating`);
+      return http.get(`/beers/${beerId}/rating`);
   },
   getBeerReviews(beerId) {
       return http.get(`/beers/${beerId}/reviews`);
