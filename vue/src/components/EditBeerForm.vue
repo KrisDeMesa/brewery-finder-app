@@ -27,7 +27,7 @@
         </div> -->
 
         <button id="submit" @click.prevent="updateSelectedBeer">Submit Changes</button>
-        <button id="delete" @click.prevent="deleteBeer">Delete Beer</button>
+        <button id="delete" @click.prevent="deleteSelectedBeer">Delete Beer</button>
   </div>
 </template>
 
