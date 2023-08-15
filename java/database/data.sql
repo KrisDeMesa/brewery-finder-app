@@ -3,6 +3,7 @@ BEGIN TRANSACTION;
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (username,password_hash,role) VALUES ('brewer','$2a$10$gFM5Y/oDUDKEOGDGKTcQi.IuKQgxUiIuQJjfgOaURA3acpXrzb6o6','ROLE_BREWER');
+INSERT INTO users (username,password_hash,role) VALUES ('brewer2Jump','$2a$10$gFM5Y/oDUDKEOGDGKTcQi.IuKQgxUiIuQJjfgOaURA3acpXrzb6o6','ROLE_BREWER');
 INSERT INTO users (username,password_hash,role) VALUES ('user4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('user5','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('user6','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
@@ -13,7 +14,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('user10','$2a$08$UkVvwpU
 INSERT INTO users (username,password_hash,role) VALUES ('user11','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 
 INSERT INTO brewery (brewery_name, brewer, brewery_type, hours, phone_number, street_address_1, city, state_province, history) VALUES ('Happy Times Brewing', 3, 'micro', 'All Day Every Day', '1-800-BREW-NOW', '123 Hops Lane', 'Philadelphia', 'PA', 'short history');
-INSERT INTO brewery (brewery_name, brewery_type, hours, website, street_address_1, city, state_province, history) VALUES ('Jumping Orca', 'closed','M-F 6-10pm', 'jumpingorca.com', '78 Happy Way', 'Wayne', 'PA', 'short history');
+INSERT INTO brewery (brewery_name, brewer, brewery_type, hours, website, street_address_1, city, state_province, history) VALUES ('Jumping Orca', 4, 'closed','M-F 6-10pm', 'jumpingorca.com', '78 Happy Way', 'Wayne', 'PA', 'short history');
 
 
 INSERT INTO days (day_name) VALUES ('Monday');
@@ -31,6 +32,13 @@ INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, start_a
 INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, start_am_pm, end_time, end_am_pm) VALUES (1, 'Friday', true, 6, 'PM', 10, 'PM');
 INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, start_am_pm, end_time, end_am_pm) VALUES (1, 'Saturday', true, 12, 'PM', 2, 'AM');
 INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, start_am_pm, end_time, end_am_pm) VALUES (1, 'Sunday', true, 12, 'PM', 10, 'PM');
+INSERT INTO brewery_days (brewery_id, day_name, open_status) VALUES (2, 'Monday', false);
+INSERT INTO brewery_days (brewery_id, day_name, open_status) VALUES (2, 'Tuesday', false);
+INSERT INTO brewery_days (brewery_id, day_name, open_status) VALUES (2, 'Wednesday', false);
+INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, start_am_pm, end_time, end_am_pm) VALUES (2, 'Thursday', true, 6, 'PM', 10, 'PM');
+INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, start_am_pm, end_time, end_am_pm) VALUES (2, 'Friday', true, 6, 'PM', 10, 'PM');
+INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, start_am_pm, end_time, end_am_pm) VALUES (2, 'Saturday', true, 12, 'PM', 2, 'AM');
+INSERT INTO brewery_days (brewery_id, day_name, open_status, start_time, start_am_pm, end_time, end_am_pm) VALUES (2, 'Sunday', true, 12, 'PM', 10, 'PM');
 
 INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
 VALUES (DEFAULT, 'Golden Gryphon Ale', 'A smooth and radiant ale that boasts a gentle honey undertone. Its mythical name reflects its delicate balance between malt sweetness and hoppy bitterness.', 5.5, 'Golden Ale');
