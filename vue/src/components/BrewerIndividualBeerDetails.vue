@@ -91,7 +91,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     margin-top: 10px;
     margin-right: 40px;
 }
