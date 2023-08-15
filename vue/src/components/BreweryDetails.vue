@@ -12,7 +12,7 @@
                 <li v-for="(value, key) in filteredDetails" v-bind:key="key">
                     <span class="keys">{{`${formatKey(key)}: `}}</span>
                     <span v-show="!valueIsArray(value)">{{ value != null ? value : null }}</span>
-                    <ul v-show="valueIsArray(value)">
+                    <ul v-show="valueIsArray(value) && keyIsBeerList(key)">
                         <li v-for="(arrObject, index) of value" v-bind:key="index">
                             <ul>
                                 <li v-for="(objectValue, objectKey) in arrObject" v-show="confirmNotId(objectKey)" v-bind:key="objectKey">
@@ -21,6 +21,13 @@
                                     <span v-if="!(isBeerName(key, objectKey))"> {{ objectValue }} </span>
                                 </li>
                             </ul>
+                        </li>
+                    </ul>
+                    <ul v-show="valueIsArray(value) && keyIsHoursOfOperation(key)">
+                        <li v-for="(arrObject, index) of value" v-bind:key="index">
+                            <span class="keys"> {{ `${arrObject.day} : ${arrObject.openStatus === true ? '' : 'Closed'}` }} </span>
+                            {{ `${arrObject.openStatus === true ? `Opens: ${arrObject.startTime}:00 ${arrObject.startAmPm}` : ''}`}}
+                            {{ `${arrObject.openStatus === true ? `- ${arrObject.endTime}:00 ${arrObject.endAmPm}` : ''}`}}
                         </li>
                     </ul>
                     <p></p>
@@ -50,6 +57,7 @@ export default {
     },
     data() {
         return {
+            hoursOfOperation: [],
             selectedBrewery: {}
         }    
     },
@@ -117,6 +125,12 @@ export default {
         },
         valueIsArray(value) {
             return Array.isArray(value);
+        },
+        keyIsBeerList(key) {
+            return key === 'beerList';
+        },
+        keyIsHoursOfOperation(key) {
+            return key === 'hoursOfOperation';
         },
         formatKey(key) {
             return String(key).replace(/([a-z])([A-Z])/g, '$1 $2').replace(/([a-z])([1-9])/g, '$1 $2');

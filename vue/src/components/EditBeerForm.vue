@@ -56,6 +56,7 @@ export default {
             });
         },
         deleteSelectedBeer() {
+          if(confirm("Are you sure you want to delete this beer? This action cannot be undone.")) {
             BreweryService.deleteBeer(this.updatedBeer.id)
             .then( response => {
                 if (response.status === 204) {
@@ -65,12 +66,12 @@ export default {
             .catch(error => {
                 console.error('Error updating beer:', error);
             });
-        }
+          } 
+        },
     },
     created() {
         this.updatedBeer = this.$store.state.selectedBeer;
-    }
-    
+    }    
 }
 </script>
 
