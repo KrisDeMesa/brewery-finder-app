@@ -6,12 +6,21 @@
         </div>
         <div class="beer-details">
             <div class="left-form">
-                <span class="ratingIcons" v-for="n in averageRating" :key="n">
-                    <img src="../assets/images/beer-rating.png">
-                </span>
+                <div class="keys"> Beer Rating: </div>
+                <br> 
+                <div id="ratingIcons">
+                        <img
+                        class="beer-rating"
+                        v-for="n in averageRating" 
+                        :key="n"
+                        src="../assets/images/beer-rating.png"
+                        />
+                    </div>
                 <div class="left-form-details" v-for="(value, key) in beer" v-bind:key="key" v-show="confirmNotId(key)">
                     <span class="keys">{{`${formatKey(key)}: `}}</span>
+                    <br>
                     <span class="values">{{value}}</span>
+                    
                 </div>
             </div>
 
@@ -71,6 +80,16 @@ export default {
 </script>
 
 <style scoped>
+img{
+    width: 30px;
+    margin-left: 20px;
+}
+
+#ratingIcons{
+    display: inline-flex;
+    width: 30px;
+    padding-left: 10px;
+}
 .header {
     display: flex;
     /* justify-content: center; */

@@ -14,7 +14,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('user10','$2a$08$UkVvwpU
 INSERT INTO users (username,password_hash,role) VALUES ('user11','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 
 INSERT INTO brewery (brewery_name, brewer, brewery_type, hours, phone_number, street_address_1, city, state_province, history) VALUES ('Happy Times Brewing', 3, 'micro', 'All Day Every Day', '1-800-BREW-NOW', '123 Hops Lane', 'Philadelphia', 'PA', 'short history');
-INSERT INTO brewery (brewery_name, brewer, brewery_type, hours, website, street_address_1, city, state_province, history) VALUES ('Jumping Orca', 4, 'closed','M-F 6-10pm', 'jumpingorca.com', '78 Happy Way', 'Wayne', 'PA', 'short history');
+INSERT INTO brewery (brewery_name, brewer, brewery_type, hours, website, street_address_1, city, state_province, history) VALUES ('Jumping Orca', 4, 'Brewpub','M-F 6-10pm', 'jumpingorca.com', '78 Happy Way', 'Wayne', 'PA', 'short history');
 
 
 INSERT INTO days (day_name) VALUES ('Monday');
