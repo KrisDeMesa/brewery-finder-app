@@ -9,6 +9,9 @@ export default {
   },
   getBeerReviews(beerId) {
       return http.get(`/beers/${beerId}/reviews`);
+  },
+  getRatingsByUser(userId) {
+      return http.get(`/beers/ratings/${userId}`);
   }
 
 }
