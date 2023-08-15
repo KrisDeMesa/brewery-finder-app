@@ -76,6 +76,8 @@ export default {
     justify-content: space-evenly;
     align-content: center;
     border: 1px solid rgb(172, 13, 13);
+    border-bottom: none;
+    border-left: none;
     background-color: white;
     margin-right: 40px;
     border-radius: 0 10px 0 0;
@@ -90,6 +92,7 @@ export default {
     align-items: flex-start;
     margin-bottom: 30px;
     margin-top: 10px;
+    margin-right: 40px;
 }
 
 #edit-btn {
@@ -109,6 +112,7 @@ export default {
     background: white;
     display: grid;
     border: 1px solid rgb(172, 13, 13);
+    border-top: none;
     border-left: none;
     border-radius: 0 0 10px 10px;
     grid-template-columns: 1fr 1.5fr;
@@ -127,6 +131,8 @@ export default {
     padding-left: 30px;
     margin-right: 10px;
     max-height: 100%;
+    border-right: 1px solid rgb(172, 13, 13);
+
 }
 
 .right-form {
