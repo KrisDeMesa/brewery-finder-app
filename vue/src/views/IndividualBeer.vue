@@ -46,6 +46,7 @@
 <script>
 import IndBeerHeader from '../components/IndBeerHeader.vue'
 import breweryService from '../services/BreweryService.js'
+import RatingReviewService from '../services/RatingReviewService.js'
 import ratingReviewService from '../services/RatingReviewService.js'
 
 export default {
@@ -88,10 +89,22 @@ export default {
     }, 
     methods: {
         submitRating() {
+            RatingReviewService.addBeerRatings(this.rating)
+            .then(response => {
+                if(response.status == 201) {
+                    this.$router.push({name: 'account-user'})
+                }
+            })
             
         },
         submitReview() {
-
+            RatingReviewService.addBeerReview(this.review)
+            .then (response => {
+                if (response.status == 201){
+                    this.$router.push({name: 'account-user'})
+                }
+            })
+         
         }
     }
 }
