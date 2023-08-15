@@ -104,4 +104,15 @@ public class BeerService {
             throw new CreationFailureException(ex.getMessage());
         }
     }
+
+    public void deleteBeer(int id) {
+        try {
+            beerDao.unlinkBreweryBeer(id);
+            beerDao.deleteReviews(id);
+            beerDao.deleteRatings(id);
+            beerDao.deleteBeer(id);
+        } catch (DaoException ex){
+            throw new DaoException("Error encountered while attempting to delete.");
+        }
+    }
 }

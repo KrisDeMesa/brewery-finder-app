@@ -35,4 +35,12 @@ public interface BeerDao {
 
     BeerReview addBeerReview(BeerReview review);
 
+    void unlinkBreweryBeer(int beerId);
+
+    void deleteReviews(int beerId);
+
+    void deleteRatings(int beerId);
+
+    void deleteBeer(int beerId);
+
 }
