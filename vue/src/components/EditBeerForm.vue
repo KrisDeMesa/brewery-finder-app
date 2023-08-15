@@ -19,7 +19,7 @@
         </div>
 
         <div class="input-field">
-          <textarea id="description-input" v-model="updatedBeer.description"/>
+          <textarea type="text" id="description-input" v-model="updatedBeer.description"/>
         </div>
 
         <!-- <div class="input-field">
@@ -127,35 +127,66 @@ input {
 }
 
 
-#name{
+#name-input{
   grid-area: name-input;
+  border-radius: 7px;
+  border: 1px solid black;
+  text-align: center;
 }
 
-#abv {
+#abv-input {
     grid-area: abv-input;
+    border-radius: 7px;
+    border: 1px solid black;
+    text-align: center;
 }
 
-#type {
+#type-input {
   grid-area: type-input;
+  border-radius: 7px;
+  border: 1px solid black;
+  text-align: center;
 }
 
-#description {
+#description-input{
   grid-area: description-input;
+  width: 350px; 
+  height: 100px;
+  resize: none;
+  border-radius: 10px;
+  text-align: center;
+}
+input[type=text] {
+  padding: 12px 20px;
+}
+
+textarea[type=text]{
+  padding: 12px 20px;
 }
 
 button {
   display: flex;
   justify-self: right;
   white-space: nowrap;
-  height: 40px;
-  width: 85px;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 80px;
   margin-right: 80px;
-
+  border: 1px solid black;
 }
 
+#submit{
+  height: 40px;
+  width: 120px;
+  border-radius: 7px;
+  border: 1px solid black;
+}
 
+#delete{
+  height: 40px;
+  width: 90px;
+  border-radius: 7px;
+  border: 1px solid black;
+}
 
 </style>
