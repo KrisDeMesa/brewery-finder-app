@@ -27,7 +27,7 @@
         </div> -->
 
         <button id="submit" @click.prevent="updateSelectedBeer">Submit Changes</button>
-        <button id="delete" @click.prevent="deleteBeer">Delete Beer</button>
+        <button id="delete" @click.prevent="deleteSelectedBeer">Delete Beer</button>
   </div>
 </template>
 
@@ -47,7 +47,7 @@ export default {
             BreweryService.updateBeer(this.updatedBeer, this.updatedBeer.id)
             .then(response => {
                 if (response.status == 200) {
-                    this.$router.push({ name: 'account-brewer' })
+                    this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_beer_list');
                 }
                 
             })
@@ -55,11 +55,11 @@ export default {
                 console.error('Error updating beer:', error);
             });
         },
-        deleteSelectedBeer(beerId) {
-            BreweryService.deleteBeer(beerId)
+        deleteSelectedBeer() {
+            BreweryService.deleteBeer(this.updatedBeer.id)
             .then( response => {
                 if (response.status === 204) {
-                    this.$router.push ({ name: 'account-brewer' });
+                    this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_beer_list');
                 }
             })
             .catch(error => {

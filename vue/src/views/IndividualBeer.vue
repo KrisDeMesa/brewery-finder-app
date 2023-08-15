@@ -17,7 +17,7 @@
                   
                 </ul>
                 
-                <select id="dropdown" v-model="rating">
+                <select id="dropdown" v-model="ratingAmount">
                     <option value=""></option>
                     <option value=1>1</option>
                     <option value=2>2</option>
@@ -29,11 +29,12 @@
                 <button id="submitrating" type="button" @click="submitRating()">Submit Rating</button>
           </div>
           <div id="right-grid">
-              <div v-for="review in reviews" :key="review.userId">
+              <div class="review-box">
+                 <div id="newReview" v-for="review in reviews" :key="review.userId">
                   {{review.description}}
-              </div>
-
-              <textarea id="reviewarea" rows="5" cols="50" v-model="review" placeholder= " Submit review here...">  </textarea>
+                </div>
+              </div>  
+              <textarea id="reviewarea" rows="5" cols="50" v-model="newReviewText" placeholder= " Submit review here...">  </textarea>
               <br
               >
               <button id="sumbitreviewbutton" type="button" @click="submitReview()">Submit Review</button>
@@ -76,22 +77,55 @@ export default {
     },
     data () {
         return {
+            userId: this.$store.state.curUser.id,
             beer: {},
             beerAvgRating: 0,
             showAttributes: false,
             showRating: false,
-            rating: '',
+            ratingAmount: '', 
             reviews: [], 
-            review: '',
+            newReviewText: '',
             errorFlag: false
         }
     }, 
     methods: {
         submitRating() {
+            let rating = {};
+            rating['userId'] = this.userId;
+            rating['beerId'] = this.beer.id;
+            rating['amount'] = this.ratingAmount;
+
+            ratingReviewService.addBeerRatings(rating)
+            .then(response => {
+                if(response.status == 201) {
+                    this.$router.push({name: 'account-user'});
+                }
+            })
+            .catch((error) => {
+                if (error.response && error.response.status === 409) {
+                    alert('You have already rated this beer!');
+                }
+            })
             
         },
         submitReview() {
+            let review = {};
+            review['userId'] = this.userId;
+            review['beerId'] = this.beer.id;
+            review['description'] = this.newReviewText;
 
+            ratingReviewService.addBeerReview(review)
+            .then (response => {
+                if (response.status == 201){
+                    this.$router.push({name: 'account-user'})
+                }
+            })
+            .catch((error) => {
+                if (error.response && error.response.status === 409) {
+                    alert('You have already reviewed this beer!');
+                }
+            })
+         
         }
     }
 }

@@ -3,7 +3,6 @@ package com.techelevator.model;
 public class BeerReview {
     private int userId;
     private int beerId;
-    private String title;
     private String description;
 
 
@@ -21,14 +20,6 @@ public class BeerReview {
 
     public void setBeerId(int beerId) {
         this.beerId = beerId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getDescription() {
