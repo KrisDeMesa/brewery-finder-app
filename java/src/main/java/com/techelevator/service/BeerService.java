@@ -2,14 +2,12 @@ package com.techelevator.service;
 
 import com.techelevator.dao.BeerDao;
 import com.techelevator.exception.*;
-import com.techelevator.model.Beer;
-import com.techelevator.model.BeerRating;
-import com.techelevator.model.BeerReview;
-import com.techelevator.model.Brewery;
+import com.techelevator.model.*;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -55,6 +53,29 @@ public class BeerService {
     public List<BeerRating> getRatingsByUser(int userId) {
         return beerDao.getRatingsByUser(userId);
     }
+
+    public List<RatingBeer> getRatingsWithBeerByUser(int userId) throws ResourceNotFoundException {
+        List<RatingBeer> returnList = new ArrayList<>();
+
+        List<BeerRating> ratings = beerDao.getRatingsByUser(userId);
+
+        for (BeerRating rating: ratings) {
+            Beer beer = beerDao.getBeer(rating.getBeerId());
+            RatingBeer item = new RatingBeer();
+
+            item.setUserId(rating.getUserId());
+            item.setBeerId(rating.getBeerId());
+            item.setRating(rating.getAmount());
+            item.setName(beer.getName());
+            item.setDescription(beer.getDescription());
+            item.setAbv(beer.getAbv());
+            item.setType(beer.getType());
+
+            returnList.add(item);
+        }
+        return returnList;
+    }
+
 
     public List<BeerRating> getRatingsByBeerAndBrewery(int beerId, int breweryId) throws ResourceNotFoundException {
         return beerDao.getRatingsByBeerAndBrewery(beerId, breweryId);

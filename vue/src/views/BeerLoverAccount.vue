@@ -4,9 +4,9 @@
       <div id="main">
           <div id="ratings">
                 <p>My Ratings</p>
-                <div v-for="rating in ratings" :key="rating.beerId">
-                    <span>{{rating.amount}}</span>
-                    <span>{{getBeerName(rating.beerId)}}</span>
+                <div v-for="n in numberOfRatings" :key="n">
+                    <span>{{ratings[n-1].amount}}</span>
+                    <span>{{beerNames[n-1]}}</span>
                 </div>
                     
           </div>
@@ -26,14 +26,17 @@ export default {
   components: { BeerLoverHeader },
     data() {
         return {
-            ratings: []
+            ratings: [],
+            beerNames: []
         }
     },
     created () {
         ratingReviewService.getRatingsByUser(this.$store.state.user.id)
             .then( response => {
                 this.ratings = response.data;
-                
+                for (let i = 0; i < this.numberOfRatings; i++) {
+                    this.beerNames[i] = this.getBeerName(this.ratings[i].beerId);
+                }
             })
     }, 
     methods: {
@@ -44,9 +47,14 @@ export default {
                 })
                 .catch( error => {
                     if(error.response) {
-                        return '';
+                        alert('error');
                     }
                 });
+        }
+    },
+    computed: {
+        numberOfRatings() {
+            return this.ratings.length;
         }
     }
 }
