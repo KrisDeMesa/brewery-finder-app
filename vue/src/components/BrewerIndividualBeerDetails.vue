@@ -73,7 +73,8 @@ export default {
 <style scoped>
 .header {
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: center; */
+    padding-left: 420px;
     align-content: center;
     border: 1px solid rgb(172, 13, 13);
     border-bottom: none;
@@ -96,9 +97,10 @@ export default {
 }
 
 #edit-btn {
+    
     align-self: center;
     width: 50%;
-    height: 2.5rem;
+    height: 30px;
     cursor: pointer !important;
     background-color: white;
     color: rgb(172, 13, 13); 
@@ -106,6 +108,7 @@ export default {
     border: 1px solid rgb(172, 13, 13);
     min-width: 20px;
     max-width: 5%;
+    margin-top: 10px;
     margin-left: 50px;
 }
 .beer-details {
