@@ -2,13 +2,18 @@
   <div id="whole-page">
       <ind-beer-header :beer="beer"/>
       
-      <div id="main-space" v-show="createdComplete">
+      <div id="main-space" >
           <div id="left-grid">
               <ul>
-                  <li>{{beer.type}}</li>
-                  <li>{{beer.abv}}</li>
-                  <li>{{beer.description}}</li>
-                  <li>Average Rating: {{beerAvgRating}}</li>
+                  <div v-show="showAttributes">
+                      <li>{{beer.type}}</li>
+                    <li>{{beer.abv}}</li>
+                    <li>{{beer.description}}</li>
+                  </div>
+                  <div v-show="showRating">
+                      <li>Average Rating: {{beerAvgRating}}</li>
+                  </div>
+                  
                 </ul>
                 
                 <select v-model="rating">
@@ -49,8 +54,15 @@ export default {
         ratingReviewService.getBeerAvgRating(this.$route.params.id)
             .then( response => {
                 this.beerAvgRating = response.data;
-                this.createdComplete = true;
-            });
+                this.showAttributes = true;
+                this.showRating = true;
+            })
+            .catch( error => {
+                if (error.response) {
+                    this.errorFlag = true;
+                }
+                this.showAttributes = true;
+            })
         ratingReviewService.getBeerReviews(this.$route.params.id)
             .then( response => {
                 this.reviews = response.data;
@@ -60,10 +72,12 @@ export default {
         return {
             beer: {},
             beerAvgRating: 0,
-            createdComplete: false,
+            showAttributes: false,
+            showRating: false,
             rating: '',
             reviews: [], 
-            review: ''
+            review: '',
+            errorFlag: false
         }
     }, 
     methods: {
@@ -71,7 +85,7 @@ export default {
             
         },
         submitReview() {
-            
+
         }
     }
 }
