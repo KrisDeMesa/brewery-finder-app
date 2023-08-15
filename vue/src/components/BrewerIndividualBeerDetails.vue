@@ -3,15 +3,16 @@
         <div class="header">
             <h1> {{beer.name}} </h1>
             <button @click="switchToEdit()">Edit</button>
-
         </div>
         <div class="beer-details">
             <div class="left-form">
-                <span> {{averageRating}} </span>
-                    <div v-for="(value, key) in beer" v-bind:key="key" v-show="confirmNotId(key)">
-                        <span class="keys">{{`${formatKey(key)}: `}}</span>
-                        <span>{{value}}</span>
-                    </div>
+                <span class="ratingIcons" v-for="n in averageRating" :key="n">
+                    <img src="../assets/images/beer-rating.png">
+                </span>
+                <div v-for="(value, key) in beer" v-bind:key="key" v-show="confirmNotId(key)">
+                    <span class="keys">{{`${formatKey(key)}: `}}</span>
+                    <span>{{value}}</span>
+                </div>
             </div>
 
             <div class="right-form"> 
@@ -40,12 +41,16 @@ export default {
     created() {
         ratingReviewService.getBeerAvgRating(this.beer.id)
             .then(response => {
-                this.averageRating = response.data;
+                if (response.status == 200) {
+                    this.averageRating = response.data;
+                }
             });
         ratingReviewService.getBeerReviews(this.beer.id)
             .then(response => {
-                this.selectedBeerReviews = response.data;
-            })
+                if (response.status == 200) {
+                    this.selectedBeerReviews = response.data;
+                }
+            });
     },
 
     methods: {

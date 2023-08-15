@@ -6,7 +6,7 @@
       <add-beer-form id="add-beer" v-if="isAddBeerForm" :brewery="brewery"/>
       <brewery-update id="update-brewery" :brewery="brewery" v-if="isBreweryUpdate"/>
       <brewer-individual-beer-details id="brewer-beer-details" :beer="selectedBeer" v-if="isBrewerBeerDetails" />
-      <brewer-beer-edit id="brewer-beer-edit" :beer="selectedBeer" v-if="isBrewerBeerEdit" />
+      <edit-beer-form id="brewer-beer-edit" :beer="selectedBeer" v-if="isBrewerBeerEdit" />
   </div>
 </template>
 
@@ -17,6 +17,7 @@ import NavPaneBrewerAccount from '../components/NavPaneBrewerAccount.vue';
 import BreweryUpdate from '../components/BreweryUpdate.vue';
 import AddBeerForm from '../components/AddBeerForm.vue';
 import BrewerIndividualBeerDetails from '../components/BrewerIndividualBeerDetails.vue';
+import EditBeerForm from '../components/EditBeerForm.vue';
 import breweryService from '../services/BreweryService.js';
 
 
@@ -34,7 +35,8 @@ export default {
         BrewerBeerList,
         BreweryUpdate,
         AddBeerForm,
-        BrewerIndividualBeerDetails
+        BrewerIndividualBeerDetails,
+        EditBeerForm
     },
     created() {
         breweryService.getBreweries().then((response) => {

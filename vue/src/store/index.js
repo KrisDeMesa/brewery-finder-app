@@ -26,11 +26,8 @@ export default new Vuex.Store({
     brewerPageView: 'brewery_beer_list',
     currentSearch: '',
     currentType: '',
-<<<<<<< HEAD
     selectedBeer: '',
-=======
     updatedBeer: ''
->>>>>>> 8b3ae6e6015fcabedf5a613eb83d133e1b7e4cac
 
     // curUser: currentUser,
     
@@ -73,12 +70,10 @@ export default new Vuex.Store({
     },
     UPDATE_SELECTED_BEER(state, beer) {
       state.selectedBeer = beer;
+    },  
     UPDATE_BEER_BY_ID(state, updatedBeer) {
       state.updatedBeer = updatedBeer;
     }
-
-    
-    
     
   }
 })
