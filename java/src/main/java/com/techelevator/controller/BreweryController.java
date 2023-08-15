@@ -71,7 +71,7 @@ public class BreweryController {
         return beerService.getBeers(id);
     }
 
-    @GetMapping("/beer/{id}")
+    @GetMapping("/beers/{id}")
     public Beer getBeerById(@PathVariable Integer id) {
         try {
             return beerService.getBeerById(id);
@@ -117,7 +117,7 @@ public class BreweryController {
         }
     }
 
-    @GetMapping("/beer/{beerId}/rating")
+    @GetMapping("/beers/{beerId}/rating")
     public int getAvgRatingByBeerId(@PathVariable Integer beerId) {
         try {
             return beerService.getAvgRatingByBeerId(beerId);
