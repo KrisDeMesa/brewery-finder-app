@@ -201,4 +201,40 @@ public class JdbcBeerDao implements BeerDao {
             throw new DaoException(ex.getMessage());
         }
     }
+
+    public void unlinkBreweryBeer(int beerId) {
+        String sql = "DELETE FROM brewery_beer WHERE beer_id = ?;";
+        try {
+            jdbcTemplate.update(sql, beerId);
+        } catch (DataAccessException ex) {
+            throw new DaoException(ex.getMessage());
+        }
+    }
+
+    public void deleteReviews(int beerId) {
+        String sql = "DELETE FROM review WHERE beer_id = ?;";
+        try {
+            jdbcTemplate.update(sql, beerId);
+        } catch (DataAccessException ex) {
+            throw new DaoException(ex.getMessage());
+        }
+    }
+
+    public void deleteRatings(int beerId) {
+        String sql = "DELETE FROM rating WHERE beer_id = ?;";
+        try {
+            jdbcTemplate.update(sql, beerId);
+        } catch (DataAccessException ex) {
+            throw new DaoException(ex.getMessage());
+        }
+    }
+
+    public void deleteBeer(int beerId) {
+        String sql = "DELETE FROM beer WHERE beer_id = ?;";
+        try {
+            jdbcTemplate.update(sql, beerId);
+        } catch (DataAccessException ex) {
+            throw new DaoException(ex.getMessage());
+        }
+    }
 }

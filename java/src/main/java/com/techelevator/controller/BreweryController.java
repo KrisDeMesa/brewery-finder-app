@@ -173,7 +173,15 @@ public class BreweryController {
         }
     }
 
-
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/beers/{id}")
+    public void deleteBeer(@PathVariable int id) {
+        try {
+            beerService.deleteBeer(id);
+        } catch (DaoException ex) {
+            throw new DaoException(ex.getMessage());
+        }
+    }
 
 
 }
