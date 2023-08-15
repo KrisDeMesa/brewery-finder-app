@@ -103,6 +103,28 @@ public class BeerService {
         return beerDao.getReviewsByUser(userId);
     }
 
+    public List<ReviewBeer> getReviewsWithBeerByUser(int userId) throws ResourceNotFoundException{
+        List<ReviewBeer> returnList = new ArrayList<>();
+
+        List<BeerReview> reviews = beerDao.getReviewsByUser(userId);
+
+        for (BeerReview review: reviews) {
+            Beer beer = beerDao.getBeer(review.getBeerId());
+            ReviewBeer item = new ReviewBeer();
+
+            item.setUserId(review.getUserId());
+            item.setBeerId(review.getBeerId());
+            item.setReview(review.getDescription());
+            item.setName(beer.getName());
+            item.setDescription(beer.getDescription());
+            item.setAbv(beer.getAbv());
+            item.setType(beer.getType());
+
+            returnList.add(item);
+        }
+        return returnList;
+    }
+
     public List<BeerReview> getReviewsByBeerAndBrewery(int beerId, int breweryId) throws ResourceNotFoundException {
         return beerDao.getReviewsByBeerAndBrewery(beerId, breweryId);
     }

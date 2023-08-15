@@ -145,6 +145,11 @@ public class BreweryController {
         return beerService.getReviewsByUser(userId);
     }
 
+    @GetMapping("/reviews/{userId}")
+    public List<ReviewBeer> getReviewsWithBeerByUser(@PathVariable Integer userId) throws ResourceNotFoundException{
+        return beerService.getReviewsWithBeerByUser(userId);
+    }
+
     @GetMapping("breweries/{breweryId}/beers/reviews/{beerId}")
     public List<BeerReview> getReviewsByBeerAndBrewery(@PathVariable Integer beerId, @PathVariable Integer breweryId) {
         try {

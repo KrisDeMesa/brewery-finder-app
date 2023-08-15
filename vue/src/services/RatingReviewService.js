@@ -18,6 +18,12 @@ export default {
   },
   addBeerRatings(newBeerRatings) {
       return http.post(`/beers/ratings`, newBeerRatings);
+  },
+  getRatingsAndBeersByUser(userId) {
+      return http.get(`/ratings/${userId}`);
+  },
+  getReviewsAndBeersByUser(userId) {
+    return http.get(`/reviews/${userId}`);
   }
 
 }
