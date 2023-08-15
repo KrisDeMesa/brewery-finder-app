@@ -90,6 +90,17 @@ public class JdbcBeerDao implements BeerDao {
         }
     }
 
+    public void updateBeer(Beer updatedBeer, int beerId) {
+        String sql = "UPDATE beer SET beer_name = ?, description = ?, abv = ?, beer_type = ?" +
+                "WHERE beer_id = ?";
+        try {
+            jdbcTemplate.update(sql, updatedBeer.getName(), updatedBeer.getDescription(),
+                    updatedBeer.getAbv(), updatedBeer.getType(), beerId);
+        }  catch (Exception ex) {
+            throw new DaoException(ex.getMessage());
+        }
+    }
+
     public List<BeerRating> getRatingsByUser(int userId) {
         String sql = "SELECT * FROM rating WHERE user_id = ?";
         try {

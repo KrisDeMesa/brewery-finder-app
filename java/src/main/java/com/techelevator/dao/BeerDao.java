@@ -17,9 +17,12 @@ public interface BeerDao {
 
     void linkBreweryBeer(int breweryId, int beerId);
 
+    void updateBeer(Beer updatedBeer, int beerId);
+
     List<BeerRating> getRatingsByUser(int userId);
 
     List<BeerRating> getRatingsByBeerAndBrewery(int beerId, int breweryId) throws ResourceNotFoundException;
+
     int getAvgRatingByBeerId(int beerId) throws ResourceNotFoundException;
 
     BeerRating addBeerRating(BeerRating rating);

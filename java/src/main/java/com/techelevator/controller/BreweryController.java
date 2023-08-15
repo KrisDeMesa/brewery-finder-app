@@ -61,7 +61,7 @@ public class BreweryController {
         try {
             breweryService.updateBrewery(brewery, id);
         } catch (DaoException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
         }
 
     }
@@ -86,6 +86,19 @@ public class BreweryController {
         try {
             return beerService.addBeer(newBeer, id);
         } catch (CreationFailureException | LinkFailureException ex) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
+        }
+    }
+
+
+    @PutMapping("beers/{id}")
+    public void updateBeer(@RequestBody Beer updatedBeer, @PathVariable Integer id) {
+        if (id != updatedBeer.getId()) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Id in URL did not match Id in Beer object");
+        }
+        try {
+            beerService.updateBeer(updatedBeer, id);
+        } catch (DaoException ex) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
         }
     }

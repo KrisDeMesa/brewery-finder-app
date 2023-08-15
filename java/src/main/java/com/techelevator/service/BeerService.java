@@ -48,6 +48,10 @@ public class BeerService {
         }
     }
 
+    public void updateBeer(Beer updatedBeer, int beerId) {
+        beerDao.updateBeer(updatedBeer, beerId);
+    }
+
     public List<BeerRating> getRatingsByUser(int userId) {
         return beerDao.getRatingsByUser(userId);
     }
