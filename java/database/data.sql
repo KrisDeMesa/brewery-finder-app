@@ -3,6 +3,14 @@ BEGIN TRANSACTION;
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (username,password_hash,role) VALUES ('brewer','$2a$10$gFM5Y/oDUDKEOGDGKTcQi.IuKQgxUiIuQJjfgOaURA3acpXrzb6o6','ROLE_BREWER');
+INSERT INTO users (username,password_hash,role) VALUES ('user4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('user5','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('user6','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('user7','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('user8','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('user9','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('user10','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('user11','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 
 INSERT INTO brewery (brewery_name, brewer, brewery_type, hours, phone_number, street_address_1, city, state_province, history) VALUES ('Happy Times Brewing', 3, 'micro', 'All Day Every Day', '1-800-BREW-NOW', '123 Hops Lane', 'Philadelphia', 'PA', 'short history');
 INSERT INTO brewery (brewery_name, brewery_type, hours, website, street_address_1, city, state_province, history) VALUES ('Jumping Orca', 'closed','M-F 6-10pm', 'jumpingorca.com', '78 Happy Way', 'Wayne', 'PA', 'short history');
@@ -60,8 +68,110 @@ VALUES ((SELECT brewery_id FROM brewery WHERE brewery_name = 'Happy Times Brewin
 INSERT INTO brewery_beer (brewery_id, beer_id)
 VALUES ((SELECT brewery_id FROM brewery WHERE brewery_name = 'Happy Times Brewing'), (SELECT beer_id FROM beer WHERE beer_name = 'Cerulean Cove Kölsch'));
 
---INSERT INTO rating (user_id, beer_id, amount)
---VALUES (3, 11, 2);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (3, 9, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (3, 10, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (3, 6, 2);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (3, 7, 2);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (3, 5, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (3, 4, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (3, 1, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (3, 2, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (4, 3, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (4, 2, 1);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (5, 3, 2);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (5, 4, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (5, 5, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (5, 7, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (5, 6, 1);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (6, 1, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (6, 7, 2);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (6, 3, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (6, 8, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (6, 9, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (6, 10, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (7, 10, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (7, 9, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (7, 8, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (7, 7, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (7, 6, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (7, 5, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (7, 4, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (7, 3, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (7, 2, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (7, 1, 5);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (8, 1, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (8, 2, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (8, 3, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (8, 4, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (8, 5, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (8, 6, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (8, 7, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (8, 8, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (8, 9, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (8, 10, 4);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (9, 10, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (9, 9, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (9, 8, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (9, 7, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (9, 6, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (9, 5, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (9, 4, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (9, 3, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (9, 2, 3);
+INSERT INTO rating (user_id, beer_id, amount)
+VALUES (9, 1, 1);
+
+
 
 
 --INSERT INTO day(name)
