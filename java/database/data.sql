@@ -62,12 +62,84 @@ VALUES (DEFAULT, 'Prairie Phoenix Pilsner', 'A crisp and effervescent pilsner th
 INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
 VALUES (DEFAULT, 'Eldritch Ember ESB', 'A beer that evokes the warmth of an ember''s glow, it perfectly balances the bitterness of traditional hops with the caramel sweetness of malt.', 5.6, 'Extra Special Bitter (ESB)');
 
+INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
+VALUES (DEFAULT, 'Ayinger Oktoberfest', 'Pure Gold, that is how the pope himself described this beer back in the 1700s. Join us for a balanced ride of all things heavenly!', 6.1, 'Marzen');
+INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
+VALUES (DEFAULT, 'Stevies Smirnoff IceSpin', 'Something for those who cannot drink real beer. We made something so you can drag your friend here while you enjoy an adult drink!', 2.1, 'Essentially Water');
+INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
+VALUES (DEFAULT, 'Nathans Hot Dog Lager', 'One sip will remind you of what makes America great... hot dogs. Brewed with Nathans own hotdog water, fermented with light Citra hops to be salty and savory. Enjoy on hot days.', 4.9, 'Lager');
+INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
+VALUES (DEFAULT, 'Racer 5', 'An American classic: hoppy, mellow, something to share with friends celebrating their first house', 7.1, 'West-Coast IPA');
+INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
+VALUES (DEFAULT, 'Miller LowLife', 'We take the day old champagne of beers and make something truly unforgettable for those who want one drink to finish their night', 9.9, 'Imperial/Also Good Glass Cleaner');
+INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
+VALUES (DEFAULT, 'Nittany Lion Gameday IPA', 'Our very own founders celebratory drink when Penn State secures a win. Hazy, hectic, helluva good beer.', 8.4, 'Double IPA');
+INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
+VALUES (DEFAULT, 'Mandalorian Stout', 'Serious stout for serious protectors of the universe. Dark, roasted enemies of the republic, clean finish', 4.0, 'Stout');
+INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
+VALUES (DEFAULT, 'Mummers Saison', 'Who said the mummers were insensitive? $1 from each sale of this beer goes to William Way Center. Light black raspberry flavor, champagne yeast', 3.9, 'Saison');
+INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
+VALUES (DEFAULT, 'Schuylkill Tea', 'We took literal twisted tea and mixed it with water from our very own river! Some say its the new weight loss miracle.', 4.3, 'Wooder');
+INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
+VALUES (DEFAULT, 'West-Philly Whopper', 'Take two universities and buy up all the land, squeeze out the locals and you have this refreshing look at how schools are a racket. Cloudy to style after the shady tactics.', 5.0, 'IPA');
+INSERT INTO beer (beer_id, beer_name, description, abv, beer_type) 
+VALUES (DEFAULT, 'Trust the Process', 'Inspired by our own Embiid who drinks alot of shirley temples, this drink ferments cherries, lemons, and limes to make somehting summery while you forget they got knocked out again in the first round', 3.7, 'Weisse');
+
+
+
 INSERT INTO brewery_beer (brewery_id, beer_id)
 VALUES ((SELECT brewery_id FROM brewery WHERE brewery_name = 'Happy Times Brewing'), (SELECT beer_id FROM beer WHERE beer_name = 'Golden Gryphon Ale'));
 
 INSERT INTO brewery_beer (brewery_id, beer_id)
 VALUES ((SELECT brewery_id FROM brewery WHERE brewery_name = 'Happy Times Brewing'), (SELECT beer_id FROM beer WHERE beer_name = 'Cerulean Cove Kölsch'));
+-- new below here
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (1, 3);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (1, 4);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (1, 5);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (1, 6);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (1, 7);
 
+
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (2, 9);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (2, 10);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (2, 11);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (2, 12);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (2, 13);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (2, 14);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (2, 15);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (2, 16);
+
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (3, 17);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (3, 18);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (3, 19);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (3, 20);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (3, 21);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (3, 22);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (3, 23);
+INSERT INTO brewery_beer (brewery_id, beer_id)
+VALUES (3, 24);
+
+--new above here
 INSERT INTO rating (user_id, beer_id, amount)
 VALUES (3, 9, 4);
 INSERT INTO rating (user_id, beer_id, amount)
