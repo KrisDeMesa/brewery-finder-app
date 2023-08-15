@@ -114,21 +114,39 @@ input {
 /* #image-label {
   grid-area: image-label;
 } */
+input[type=text] {
+  padding: 12px 20px;
+}
 
-#name{
+textarea[type=text]{
+  padding: 12px 20px;
+}
+
+#name-input{
   grid-area: name-input;
+  border-radius: 7px;
+  border: 1px solid black;
 }
 
-#abv {
+#abv-input {
     grid-area: abv-input;
+    border-radius: 7px;
+    border: 1px solid black;
 }
 
-#type {
+#type-input {
   grid-area: type-input;
+  border-radius: 7px;
+  border: 1px solid black;
 }
 
-#description {
+#description-input {
   grid-area: description-input;
+  width: 350px; 
+  height: 100px;
+  resize: none;
+  border-radius: 10px;
+  border: 1px solid black;
 }
 
 button {
@@ -139,9 +157,10 @@ button {
   width: 85px;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 80px;
   margin-right: 80px;
-
+  border-radius: 7px;
+  border: 1px solid black;
 }
 
 

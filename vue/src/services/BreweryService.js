@@ -27,9 +27,11 @@ export default {
   addBeer(newBeer, breweryId) {
     return http.post(`breweries/${breweryId}/beers`, newBeer);
   },
+
   updateBeer(updatedBeer, beerId) {
     return http.put(`beers/${beerId}`, updatedBeer);
   },
+  
   deleteBeer(beerId) {
     return http.delete(`beers/${beerId}`);
   }

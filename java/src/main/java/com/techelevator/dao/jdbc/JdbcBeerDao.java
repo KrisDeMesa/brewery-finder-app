@@ -192,10 +192,10 @@ public class JdbcBeerDao implements BeerDao {
     }
 
     public BeerReview addBeerReview(BeerReview newReview) {
-        String sql = "INSERT INTO review VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO review VALUES (?, ?, ?)";
         try {
             jdbcTemplate.update(sql, newReview.getUserId(), newReview.getBeerId(),
-                    newReview.getTitle(), newReview.getDescription());
+                    newReview.getDescription());
             return newReview;
         } catch (Exception ex) {
             throw new DaoException(ex.getMessage());

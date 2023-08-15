@@ -27,12 +27,14 @@
                 </li>
             </ul>
             </div>    
+            <div> </div>
         <div id="map-label">
             <div class="head-text">Map</div>
             <div id="map-content">
                 <brewery-map :latitude="selectedBrewery.latitude" :longitude="selectedBrewery.longitude" :address="combinedAddress"></brewery-map>
             </div>
-        </div>    
+        </div> 
+       
 
     </div>
 
@@ -175,12 +177,13 @@ h1 {
 .keys {
     text-transform: capitalize;
     font-weight: bold;
+
 }
 ul {
     font-size: 20px;
     list-style-type: none;
     margin-top: 30px;
-    margin-left: 30px;
+    margin-left: 20px;
     
 }
 
@@ -204,7 +207,7 @@ ul {
 
   color: rgb(172, 13, 13);
   grid-area: details-content;
-  margin-left: 300px;
+  margin-left: 200px;
   border: 1px solid rgb(172, 13, 13);
   border-radius: 10px;
   background: white;
