@@ -15,7 +15,7 @@
         
         <div id="flex-buttons">
             <div id="account-menu" class="btns">
-                <router-link :to="{name: 'account-brewer'}">
+                <router-link :to="$store.state.user.authorities[0].name === 'ROLE_USER' ? {name: 'account-user'} : {name: 'account-brewer'}">
                 <button class="menu-btn"> Account Menu </button>
                 </router-link>
             </div>
@@ -35,7 +35,7 @@
 
 <script>
 export default {
-
+    
 }
 </script>
 
