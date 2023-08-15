@@ -1,7 +1,7 @@
 <template>
   <div class="brewery-beer-list">
     
-    <div v-for="beer in beers" v-bind:key="beer.id">
+    <a class="beer-links" v-for="beer in beers" v-bind:key="beer.id" @click="routeToDetails(beer)">
       <div class="data-div">
         <div id="image-div">
           <img
@@ -9,14 +9,13 @@
           v-for="index in rating"
           v-bind:key="index"
           src="../assets/images/beer-rating.png"
-          
-        /></div>
-        <span class="beer-name" id="beer-name">{{ beer.name }}</span
-        >
+          />
+        </div>
+        <span class="beer-name" id="beer-name">{{ beer.name }}</span>
 
       </div>
+    </a>
       
-    </div>
   </div>
 </template>
 
@@ -33,6 +32,12 @@ export default {
       return this.beers.length;
     },
   },
+  methods: {
+    routeToDetails(selectedBeer) {
+      this.$store.commit('UPDATE_SELECTED_BEER', selectedBeer);
+      this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewer_beer_details');
+    }
+  }
 };
 </script>
 
@@ -76,6 +81,14 @@ img {
 
 #beer-name {
   grid-area: beer-name;
+}
+
+.beer-links {
+  text-decoration: none;
+}
+
+a {
+  cursor: pointer;
 }
 
 

@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     hideHeader() {
-      return this.$route.name === 'login' || this.$route.name === 'register' || this.$route.name === 'account-brewer' || this.$route.name === 'account-user' || this.$route.name === 'beer-details';
+      return this.$route.name === 'login' || this.$route.name === 'register' || this.$route.name === 'account-brewer' || this.$route.name === 'account-user' || this.$route.name === 'beer-details' || this.$route.name == 'brewer-beer-details';
     }
   }
 }

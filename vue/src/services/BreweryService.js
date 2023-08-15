@@ -26,6 +26,8 @@ export default {
 
   addBeer(newBeer, breweryId) {
     return http.post(`breweries/${breweryId}/beers`, newBeer);
-  }
+  },
+
+  
 
 }

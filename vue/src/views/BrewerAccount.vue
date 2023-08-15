@@ -5,6 +5,8 @@
       <brewer-beer-list id="beer-list" v-if="isBreweryBeerList" :beers="beers"/>
       <add-beer-form id="add-beer" v-if="isAddBeerForm" :brewery="brewery"/>
       <brewery-update id="update-brewery" :brewery="brewery" v-if="isBreweryUpdate"/>
+      <brewer-individual-beer-details id="brewer-beer-details" :beer="selectedBeer" v-if="isBrewerBeerDetails" />
+      <brewer-beer-edit id="brewer-beer-edit" :beer="selectedBeer" v-if="isBrewerBeerEdit" />
   </div>
 </template>
 
@@ -14,7 +16,9 @@ import BrewerBeerList from '../components/BrewerBeerList.vue';
 import NavPaneBrewerAccount from '../components/NavPaneBrewerAccount.vue';
 import BreweryUpdate from '../components/BreweryUpdate.vue';
 import AddBeerForm from '../components/AddBeerForm.vue';
+import BrewerIndividualBeerDetails from '../components/BrewerIndividualBeerDetails.vue';
 import breweryService from '../services/BreweryService.js';
+
 
 
 export default {
@@ -29,7 +33,8 @@ export default {
         NavPaneBrewerAccount,
         BrewerBeerList,
         BreweryUpdate,
-        AddBeerForm
+        AddBeerForm,
+        BrewerIndividualBeerDetails
     },
     created() {
         breweryService.getBreweries().then((response) => {
@@ -55,6 +60,15 @@ export default {
         },
         isAddBeerForm() {
             return this.$store.state.brewerPageView === 'add_beer_form';
+        },
+        isBrewerBeerDetails() {
+            return this.$store.state.brewerPageView === 'brewer_beer_details';
+        },
+        isBrewerBeerEdit() {
+            return this.$store.state.brewerPageView === 'brewer-beer-edit';
+        },
+        selectedBeer() {
+            return this.$store.state.selectedBeer;
         }
     }
 }
@@ -96,6 +110,10 @@ export default {
     margin-bottom: 30px;
 }
 #update-brewery{
+    grid-area: main;
+}
+
+#brewer-beer-details {
     grid-area: main;
 }
 </style>
