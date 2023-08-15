@@ -123,21 +123,15 @@ INSERT INTO brewery_beer (brewery_id, beer_id)
 VALUES (2, 16);
 
 INSERT INTO brewery_beer (brewery_id, beer_id)
-VALUES (3, 17);
+VALUES (1, 17);
 INSERT INTO brewery_beer (brewery_id, beer_id)
-VALUES (3, 18);
+VALUES (2, 18);
 INSERT INTO brewery_beer (brewery_id, beer_id)
-VALUES (3, 19);
+VALUES (1, 19);
 INSERT INTO brewery_beer (brewery_id, beer_id)
-VALUES (3, 20);
+VALUES (2, 20);
 INSERT INTO brewery_beer (brewery_id, beer_id)
-VALUES (3, 21);
-INSERT INTO brewery_beer (brewery_id, beer_id)
-VALUES (3, 22);
-INSERT INTO brewery_beer (brewery_id, beer_id)
-VALUES (3, 23);
-INSERT INTO brewery_beer (brewery_id, beer_id)
-VALUES (3, 24);
+VALUES (1, 21);
 
 --new above here
 INSERT INTO rating (user_id, beer_id, amount)
