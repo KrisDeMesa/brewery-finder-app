@@ -1,10 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.exception.*;
-import com.techelevator.model.Beer;
-import com.techelevator.model.BeerRating;
-import com.techelevator.model.BeerReview;
-import com.techelevator.model.Brewery;
+import com.techelevator.model.*;
 import com.techelevator.openbrewerydb.exception.OpenBreweryDBException;
 import com.techelevator.openbrewerydb.model.OpenBreweryDTO;
 import com.techelevator.service.BeerService;
@@ -106,6 +103,11 @@ public class BreweryController {
     @GetMapping("/beers/ratings/{userId}")
     public List<BeerRating> getRatingsByUser(@PathVariable Integer userId) {
         return beerService.getRatingsByUser(userId);
+    }
+
+    @GetMapping("/ratings/{userId}")
+    public List<RatingBeer> getRatingsWithBeerByUser(@PathVariable Integer userId) throws ResourceNotFoundException{
+        return beerService.getRatingsWithBeerByUser(userId);
     }
 
     @GetMapping("breweries/{breweryId}/beers/ratings/{beerId}")
