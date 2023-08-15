@@ -2,7 +2,7 @@
     <div class="card-container">
         <router-link class="brewery-link" v-for="brewery in filterBreweries" v-bind:key="brewery.id" :to="{ name: 'brewery-details', params: {id: brewery.id}}">
           <div class="brewery-card">
-            <img :id="`brewer-image-${brewery.id}`" :src="getImgPath(brewery.id)" :alt="brewery.name">
+            <img :id="`brewer-image-${brewery.id}`" :src="getImgPath(brewery.id)" alt="">
             <div class="card-items">
               <h3> {{ brewery.name }} </h3> 
             </div> 
@@ -54,8 +54,8 @@ export default {
       try {
         return require(`../assets/BreweryLogo/${id}.png`);
       } catch (error) {
-      return require('../assets/BreweryLogo/default-img.png');
-      // return "img not found"
+      // return require('../assets/BreweryLogo/default-img.png');
+      return "img not found"
       }
     },
   }
