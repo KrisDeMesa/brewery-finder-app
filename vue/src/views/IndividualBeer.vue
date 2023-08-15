@@ -33,11 +33,12 @@
                   {{review.description}}
               </div>
 
-              <textarea id="reviewarea" rows="5" cols="50" v-model="review" placeholder= " Submit review here..."> </textarea>
+              <textarea id="reviewarea" rows="5" cols="50" v-model="review" placeholder= " Submit review here...">  </textarea>
               <br
               >
               <button id="sumbitreviewbutton" type="button" @click="submitReview()">Submit Review</button>
-          </div>
+              
+             </div>
       </div>
   </div>
 </template>
@@ -135,7 +136,7 @@ li {
     margin-left: 50px;
 }
 #submitrating {
-    border-left-width: 1px;
+    
     padding: 2px;
     margin-left: 50px;
     margin-top: 15px;
@@ -144,7 +145,7 @@ li {
 #reviewarea {
     margin-top: 70px;
     margin-right: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 1px;
     font-size: 1rem;
     display: flex;
     align-content: center;
@@ -155,4 +156,9 @@ li {
     align-content: center;
     justify-items: center;
 }
+/* .beer-filling {
+  width: 100px;
+  height: 100px;
+} */
+
 </style>

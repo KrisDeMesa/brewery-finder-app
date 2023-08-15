@@ -106,4 +106,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+#beer-name {
+  font-size: 40px;
+}
 </style>
