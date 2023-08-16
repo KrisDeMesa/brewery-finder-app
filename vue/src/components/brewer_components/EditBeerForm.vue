@@ -26,13 +26,18 @@
           <input type="text" id="image" v-model="imageUrl"/>
         </div> -->
 
-        <button id="submit" @click.prevent="updateSelectedBeer">Submit Changes</button>
-        <button id="delete" @click.prevent="deleteSelectedBeer">Delete Beer</button>
+        <div id="submit">
+          <button id="submit-button" @click.prevent="updateSelectedBeer">Submit Changes</button>
+        </div>
+
+        <div id="delete">
+          <button id="delete-button" @click.prevent="deleteSelectedBeer">Delete Beer</button>
+        </div>
   </div>
 </template>
 
 <script>
-import BreweryService from '../services/BreweryService';
+import BreweryService from '../../services/BreweryService';
 
 export default {
     
@@ -87,13 +92,15 @@ export default {
   border: 1px solid rgb(172, 13, 13);
   border-left: none;
   border-radius: 0 10px 10px 10px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100px 100px 100px 100px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 100px 100px 100px 200px 100px 100px;
   grid-template-areas: 
   "name-label name-input"
   "abv-label abv-input"
   "type-label type-input"
-  "description-label description-input";
+  "description-label description-input"
+  ". submit-button"
+  ". delete-button";
   row-gap: 20px;
   margin-bottom: 30px;
   margin-right: 40px;
@@ -181,18 +188,37 @@ button {
   border: 1px solid black;
 }
 
-#submit{
+#submit {
+  grid-area: submit-button;
+}
+
+#submit-button {
   height: 40px;
   width: 120px;
   border-radius: 7px;
   border: 1px solid black;
+  justify-self: start;
+  align-self: center;
+  margin-left: 30px;
+  margin-top: 30px;
+  cursor: pointer;
 }
 
-#delete{
+#delete {
+  grid-area: delete-button;
+}
+
+#delete-button {
   height: 40px;
-  width: 90px;
+  width: 120px;
   border-radius: 7px;
   border: 1px solid black;
+  justify-self: start;
+  margin-left: 30px;
+  margin-top: 30px;
+  cursor: pointer;
+  background-color: rgba(255, 0, 0, 0.253);
+  
 }
 
 </style>

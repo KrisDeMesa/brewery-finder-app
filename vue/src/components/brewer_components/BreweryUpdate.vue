@@ -153,7 +153,7 @@
 </template>
 
 <script>
-import breweryService from "../services/BreweryService.js";
+import breweryService from "../../services/BreweryService.js";
 export default {
   props: ["brewery"],
   data() {

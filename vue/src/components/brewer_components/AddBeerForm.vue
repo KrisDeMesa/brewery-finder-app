@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import BreweryService from '../services/BreweryService'
+import BreweryService from '../../services/BreweryService'
 export default {
     props: ['brewery'],
     data() {

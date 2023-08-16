@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import IndBeerHeader from '../components/IndBeerHeader.vue'
+import IndBeerHeader from '../components/beer_lover_components/IndBeerHeader.vue'
 import breweryService from '../services/BreweryService.js'
 import ratingReviewService from '../services/RatingReviewService.js'
 

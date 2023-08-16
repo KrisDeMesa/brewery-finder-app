@@ -6,7 +6,7 @@
         <img @click="defaultBrewerPageView"
           class="nav-link"
           id="ontap-logo"
-          src="../assets/images/ontap-logo.png"
+          src="../../assets/images/ontap-logo.png"
           alt="on-tap"
       /></router-link>
       </div>

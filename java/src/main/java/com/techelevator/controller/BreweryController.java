@@ -142,6 +142,7 @@ public class BreweryController {
 
     @GetMapping("/beers/reviews/{userId}")
     public List<BeerReview> getReviewsByUser(@PathVariable Integer userId) {
+
         return beerService.getReviewsByUser(userId);
     }
 

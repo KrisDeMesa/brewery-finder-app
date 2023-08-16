@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import BeerLoverHeader from '../components/BeerLoverHeader.vue'
+import BeerLoverHeader from '../components/beer_lover_components/BeerLoverHeader.vue'
 import ratingReviewService from '../services/RatingReviewService.js'
 
 
@@ -43,7 +43,7 @@ export default {
             reviewsAndBeers: []
         }
     },
-    created () {
+    created() {
         ratingReviewService.getRatingsAndBeersByUser(this.$store.state.user.id)
             .then( response => {
                 this.ratingsAndBeers = response.data;

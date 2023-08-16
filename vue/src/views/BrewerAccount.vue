@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import AppHeaderBrewerAccount from '../components/AppHeaderBrewerAccount.vue';
-import BrewerBeerList from '../components/BrewerBeerList.vue';
-import NavPaneBrewerAccount from '../components/NavPaneBrewerAccount.vue';
-import BreweryUpdate from '../components/BreweryUpdate.vue';
-import AddBeerForm from '../components/AddBeerForm.vue';
-import BrewerIndividualBeerDetails from '../components/BrewerIndividualBeerDetails.vue';
-import EditBeerForm from '../components/EditBeerForm.vue';
+import AppHeaderBrewerAccount from '../components/brewer_components/AppHeaderBrewerAccount.vue';
+import BrewerBeerList from '../components/brewer_components/BrewerBeerList.vue';
+import NavPaneBrewerAccount from '../components/brewer_components/NavPaneBrewerAccount.vue';
+import BreweryUpdate from '../components/brewer_components/BreweryUpdate.vue';
+import AddBeerForm from '../components/brewer_components/AddBeerForm.vue';
+import BrewerIndividualBeerDetails from '../components/brewer_components/BrewerIndividualBeerDetails.vue';
+import EditBeerForm from '../components/brewer_components/EditBeerForm.vue';
 import breweryService from '../services/BreweryService.js';
 // import ratingReviewService from '../services/RatingReviewService.js';
 

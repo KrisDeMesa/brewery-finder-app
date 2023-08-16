@@ -2,7 +2,7 @@
   <div>
       <div class="app-header">
       <div id="main-header">
-        <router-link :to="{ name: 'home' }"><img class="nav-link" id="ontap-logo" src="../assets/images/ontap-logo.png" alt="on-tap"></router-link>
+        <router-link :to="{ name: 'home' }"><img class="nav-link" id="ontap-logo" src="../../assets/images/ontap-logo.png" alt="on-tap"></router-link>
         
         
         

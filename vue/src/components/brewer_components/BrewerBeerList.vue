@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import ratingReviewService from '../services/RatingReviewService.js';
+import ratingReviewService from '../../services/RatingReviewService.js';
 
 export default {
   props: ["beers"],
@@ -33,7 +33,6 @@ export default {
     for (const beer of this.beers) {
       ratingReviewService.getBeerAvgRating(beer.id)
         .then( response => {
-            console.log(response.data);
             this.ratings.push(response.data);
         })
         .catch( error => {

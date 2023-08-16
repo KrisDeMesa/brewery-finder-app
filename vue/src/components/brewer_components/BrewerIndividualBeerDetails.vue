@@ -13,7 +13,7 @@
                         class="beer-rating"
                         v-for="n in averageRating" 
                         :key="n"
-                        src="../assets/images/beer-rating.png"
+                        src="../../assets/images/beer-rating.png"
                         />
                     </div>
                 <div class="left-form-details" v-for="(value, key) in beer" v-bind:key="key" v-show="confirmNotId(key)">
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import ratingReviewService from '../services/RatingReviewService';
+import ratingReviewService from '../../services/RatingReviewService';
 export default {
     props: ["beer"],
     data() {

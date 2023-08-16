@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import AppHeaderBrewerAccount from '../components/AppHeaderBrewerAccount.vue';
-import BrewerIndividualBeerDetails from '../components/BrewerIndividualBeerDetails.vue';
+import AppHeaderBrewerAccount from '../components/brewer_components/AppHeaderBrewerAccount.vue';
+import BrewerIndividualBeerDetails from '../components/brewer_components/BrewerIndividualBeerDetails.vue';
 import breweryService from '../services/BreweryService.js';
 // import NavPaneBrewerAccount from '../components/NavPaneBrewerAccount.vue';
 
