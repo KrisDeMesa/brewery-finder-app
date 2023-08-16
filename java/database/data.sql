@@ -257,6 +257,18 @@ INSERT INTO review (user_id, beer_id, description)
 VALUES (5, 2, 'Don''t go another day of your existence without trying this one!');
 INSERT INTO review (user_id, beer_id, description)
 VALUES (5, 3, 'You know.. yeah.. this one will do.');
+-- new below here
+INSERT INTO review (user_id, beer_id, description)
+VALUES (5, 4, 'Great Scott, this beer sent me back in time to when I was happy. Will be buying again');
+INSERT INTO review (user_id, beer_id, description)
+VALUES (4, 4, 'If god did exist this would be the first beer to smight down. People from New York I hear like it though.');
+INSERT INTO review (user_id, beer_id, description)
+VALUES (5, 9, 'Now thats what I call music 12! Also the beer is as described');
+INSERT INTO review (user_id, beer_id, description)
+VALUES (4, 9, 'Well, All things a possible through Christ, so jot that down. With that, this beer changed my view on the world.');
+		
+--new above here
+
 
 
 --INSERT INTO day(name)
