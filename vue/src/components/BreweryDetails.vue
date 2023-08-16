@@ -36,9 +36,11 @@
             </div>    
             <div> </div>
         <div id="map-label">
-            <div class="head-text">Map</div>
-            <div id="map-content">
-                <brewery-map :latitude="selectedBrewery.latitude" :longitude="selectedBrewery.longitude" :address="combinedAddress"></brewery-map>
+            <div id="map-border">
+                <div class="head-text">Map</div>
+                <div id="map-content">
+                    <brewery-map :latitude="selectedBrewery.latitude" :longitude="selectedBrewery.longitude" :address="combinedAddress"></brewery-map>
+                </div>
             </div>
         </div> 
        
@@ -209,9 +211,12 @@ ul {
   grid-area: map-content;
   margin-left: 40px;
   margin-right: 200px;
-  border: 1px solid rgb(172, 13, 13);
-  border-radius: 10px;
-
+  /* border: 1px solid rgb(172, 13, 13); */
+  /* border-radius: 10px; */
+}
+#map-border{
+    border: 1px solid rgb(172, 13, 13);
+    border-radius: 10px;
 }
 .banner {
   grid-area: banner;
@@ -235,6 +240,7 @@ ul {
   min-width: auto;
   min-height: auto;
   padding: 30px;
+  border-radius: 10px;
   /* padding-top: 30px;
   padding-bottom: 30px; */
   /* background-size: cover; */
