@@ -3,14 +3,14 @@
     
     <a class="beer-links" v-for="beer in beers" v-bind:key="beer.id" @click="routeToDetails(beer)">
       <div class="data-div">
-        <div id="image-div">
+        <!-- <div v-for="rating in ratings" :key="rating" id="image-div">
           <img
           class="beer-rating"
           v-for="index in rating"
           v-bind:key="index"
           src="../assets/images/beer-rating.png"
           />
-        </div>
+        </div> -->
         <span class="beer-name" id="beer-name">{{ beer.name }}</span>
 
       </div>
@@ -20,12 +20,28 @@
 </template>
 
 <script>
+import ratingReviewService from '../services/RatingReviewService.js';
+
 export default {
   props: ["beers"],
   data() {
     return {
-      rating: 5,
-    };
+      ratings: [],
+    }
+  },
+  created() {
+    for (const beer of this.beers) {
+      ratingReviewService.getBeerAvgRating(beer.id)
+        .then( response => {
+            console.log(response.data);
+            this.ratings.push(response.data);
+        })
+        .catch( error => {
+            if (error.response) {
+                this.errorFlag = true;
+            }
+        })
+    }
   },
   computed: {
     numberOfBeers() {
@@ -36,7 +52,7 @@ export default {
     routeToDetails(selectedBeer) {
       this.$store.commit('UPDATE_SELECTED_BEER', selectedBeer);
       this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewer_beer_details');
-    }
+    },
   }
 };
 </script>

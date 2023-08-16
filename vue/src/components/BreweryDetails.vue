@@ -26,7 +26,7 @@
                     <ul v-show="valueIsArray(value) && keyIsHoursOfOperation(key)">
                         <li v-for="(arrObject, index) of value" v-bind:key="index">
                             <span class="keys"> {{ `${arrObject.day} : ${arrObject.openStatus === true ? '' : 'Closed'}` }} </span>
-                            {{ `${arrObject.openStatus === true ? `Opens: ${arrObject.startTime}:00 ${arrObject.startAmPm}` : ''}`}}
+                            {{ `${arrObject.openStatus === true ? `${arrObject.startTime}:00 ${arrObject.startAmPm}` : ''}`}}
                             {{ `${arrObject.openStatus === true ? `- ${arrObject.endTime}:00 ${arrObject.endAmPm}` : ''}`}}
                         </li>
                     </ul>

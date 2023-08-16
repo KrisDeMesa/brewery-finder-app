@@ -2,7 +2,7 @@
   <div id="grid">
       <app-header-brewer-account id="header" :brewery="brewery" />
       <nav-pane-brewer-account id="nav"/>
-      <brewer-beer-list id="beer-list" v-if="isBreweryBeerList" :beers="beers"/>
+      <brewer-beer-list id="beer-list" v-if="isBreweryBeerList" :beers="beers" :ratings="ratings"/>
       <add-beer-form id="add-beer" v-if="isAddBeerForm" :brewery="brewery"/>
       <brewery-update id="update-brewery" :brewery="brewery" v-if="isBreweryUpdate"/>
       <brewer-individual-beer-details id="brewer-beer-details" :beer="selectedBeer" v-if="isBrewerBeerDetails" />
@@ -19,6 +19,7 @@ import AddBeerForm from '../components/AddBeerForm.vue';
 import BrewerIndividualBeerDetails from '../components/BrewerIndividualBeerDetails.vue';
 import EditBeerForm from '../components/EditBeerForm.vue';
 import breweryService from '../services/BreweryService.js';
+// import ratingReviewService from '../services/RatingReviewService.js';
 
 
 
@@ -26,7 +27,8 @@ export default {
     data () {
         return {
             brewery: {},
-            beers: []
+            beers: [],
+            ratings: [],
         }
     },
     components: {
@@ -47,6 +49,10 @@ export default {
             breweryService.getBeers(this.brewery.id).then( response => {
                 this.beers = response.data;
             });
+            // ratingReviewService.getRatingsByUser(this.$store.state.curUser.id).then( response => {
+            //     this.ratings = response.data;
+            // })
+            
         });
         
     },
