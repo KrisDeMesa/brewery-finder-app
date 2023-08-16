@@ -82,12 +82,12 @@ export default {
             showAttributes: false,
             showRating: false,
             rating: {
-                userId: this.$store.state.curUser.id,
+                userId: this.$store.state.user.id,
                 beerId: this.$route.params.id,
                 amount: ''
             },
             newReview: {
-                userId: this.$store.state.curUser.id,
+                userId: this.$store.state.user.id,
                 beerId: this.$route.params.id,
                 description: ''
             }, 

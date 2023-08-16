@@ -22,7 +22,7 @@ export default new Vuex.Store({
     user: currentUser || {},
     breweries: [],
     filterBreweries: [],
-    curUser: currentUser,
+    // curUser: currentUser,
     brewerPageView: 'brewery_beer_list',
     currentSearch: '',
     currentType: '',
