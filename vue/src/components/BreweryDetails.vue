@@ -226,10 +226,12 @@ ul {
 
   color: rgb(172, 13, 13);
   grid-area: details-content;
-  margin-left: 200px;
+  margin-left: 100px;
   border: 1px solid rgb(172, 13, 13);
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   background: white;
+  overflow-y: scroll;
+  height: 900px;
 }
 #map-content {
   grid-area: map-label;
