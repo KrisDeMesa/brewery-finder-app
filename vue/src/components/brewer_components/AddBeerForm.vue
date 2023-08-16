@@ -88,6 +88,8 @@ export default {
   padding-top: 40px;
   padding-left: 10px;
   justify-content: center;
+  font-size: 15px;
+  font-weight: 900;
 
 }
 
@@ -166,6 +168,7 @@ button {
   margin-right: 80px;
   border-radius: 7px;
   border: 1px solid black;
+  font-weight: 700;
 }
 
 

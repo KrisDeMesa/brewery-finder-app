@@ -111,6 +111,8 @@ export default {
   padding-top: 40px;
   padding-left: 10px;
   justify-content: center;
+  font-size: 15px;
+  font-weight: 900;
 
 }
 
@@ -202,6 +204,7 @@ button {
   margin-left: 30px;
   margin-top: 30px;
   cursor: pointer;
+  font-weight: 700;
 }
 
 #delete {
@@ -218,6 +221,7 @@ button {
   margin-top: 30px;
   cursor: pointer;
   background-color: rgba(255, 0, 0, 0.253);
+  font-weight: 700;
   
 }
 

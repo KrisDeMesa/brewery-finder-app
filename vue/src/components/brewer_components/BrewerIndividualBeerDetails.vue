@@ -129,11 +129,12 @@ img{
     background-color: white;
     color: rgb(172, 13, 13); 
     border-radius: 10px;
-    border: 1px solid rgb(172, 13, 13);
+    border: 2px solid rgb(172, 13, 13);
     min-width: 20px;
     max-width: 5%;
     margin-top: 10px;
     margin-left: 50px;
+    font-weight: 700;
 }
 .beer-details {
     background: white;

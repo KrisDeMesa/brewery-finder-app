@@ -436,6 +436,8 @@ export default {
     resize: none;
   border-radius: 10px;
   border: 1px solid black;
+  display: flex;
+  text-align: center;
 }
 
 #history-label {
@@ -465,5 +467,7 @@ button {
   width: 200px;
   justify-content: center;
   align-items: center;
+  font-weight: 700;
+
 }
 </style>
