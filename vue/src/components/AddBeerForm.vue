@@ -1,8 +1,8 @@
 <template>
   <div class="add-brewery">
         <div class="labels" for= "name" id="name-label">Name: </div>
-        <div class="labels" for="type" id="abv-label">ABV: </div>
-        <div class="labels" for="abv" id="type-label">Type: </div>
+        <div class="labels" for="abv" id="abv-label">ABV: </div>
+        <div class="labels" for="type" id="type-label">Type: </div>
         <div class="labels" for="description" id="description-label">Description: </div>
         <!-- <div class="labels" for="image" id="image-label">Image: </div> -->
 
@@ -46,12 +46,17 @@ export default {
     },
     methods: {
         addBeer() {
-            BreweryService.addBeer(this.newBeer, this.brewery.id)
-                .then(response => {
-                    if (response.status == 201) {
-                        this.$router.push({name: 'home'});
-                    }
-                })
+            if (isNaN(parseInt(this.newBeer.abv))) {
+              alert("Please enter a valid ABV");
+            } else {
+              BreweryService.addBeer(this.newBeer, this.brewery.id)
+                  .then(response => {
+                      if (response.status == 201) {
+                          this.$router.push({name: 'home'});
+                      }
+                  })
+            }
+
 
         }
     }

@@ -43,17 +43,22 @@ export default {
     },
 
     methods: {
+      
         updateSelectedBeer() {
-            BreweryService.updateBeer(this.updatedBeer, this.updatedBeer.id)
-            .then(response => {
-                if (response.status == 200) {
-                    this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_beer_list');
-                }
-                
-            })
-            .catch(error => {
-                console.error('Error updating beer:', error);
-            });
+          if (isNaN(parseInt(this.updatedBeer.abv))) {
+              alert("Please enter a valid ABV");
+            } else {
+                BreweryService.updateBeer(this.updatedBeer, this.updatedBeer.id)
+              .then(response => {
+                  if (response.status == 200) {
+                      this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_beer_list');
+                  }
+                  
+              })
+              .catch(error => {
+                  console.error('Error updating beer:', error);
+              });
+            }
         },
         deleteSelectedBeer() {
           if(confirm("Are you sure you want to delete this beer? This action cannot be undone.")) {
