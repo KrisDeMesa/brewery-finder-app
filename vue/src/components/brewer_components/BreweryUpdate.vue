@@ -199,7 +199,7 @@ export default {
   border: 1px solid rgb(172, 13, 13);
   border-left: none;
   border-radius: 0 10px 10px 0;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas: "left-form right-form";
   row-gap: 20px;
   margin-right: 40px;
@@ -209,6 +209,7 @@ export default {
 .left-form {
   grid-area: left-form;
   display: grid;
+  justify-items: center;
   grid-template-columns: 100px 1fr;
   /* grid-template-rows: 100px 100px 100px 100px; */
   grid-template-areas:
@@ -217,12 +218,13 @@ export default {
     "phone-label phone"
     "website-label website"
     "hours-label hours-container";
+  padding-left: 50px;
 }
 
 .right-form {
-  margin-left: 150px;
   grid-area: right-form;
   justify-self: "end";
+  justify-items: center;
   display: grid;
   grid-template-columns: 100px 1fr;
   grid-template-rows: 100px 100px 100px 100px 100px 100px 100px;
@@ -236,8 +238,9 @@ export default {
     ". button";
 }
 .labels {
-  padding-top: 10px;
-  padding-left: 10px;
+  padding-top: 15px;
+  font-size: 15px;
+  font-weight: 900;
 }
 
 #name {
@@ -250,6 +253,7 @@ export default {
 
 #type {
   grid-area: type;
+  
 }
 
 #type-label {
@@ -296,11 +300,16 @@ export default {
   grid-area: weekday;
   justify-self: center;
   align-self: end;
+  font-size: 15px;
+  font-weight: 900;
 }
 
 .open-checkbox-label {
   grid-area: open-checkbox-label;
   justify-self: end;
+    font-size: 15px;
+  font-weight: 900;
+  
 }
 .open-checkbox {
   grid-area: open-checkbox;
@@ -329,6 +338,8 @@ export default {
   grid-area: close-label;
   align-self: center;
   justify-self: center;
+    font-size: 15px;
+  font-weight: 900;
 }
 
 .close-time {
@@ -422,6 +433,9 @@ export default {
 
 #history {
   grid-area: history;
+    resize: none;
+  border-radius: 10px;
+  border: 1px solid black;
 }
 
 #history-label {
@@ -431,12 +445,17 @@ export default {
 .input-field {
   padding: 10px;
   padding-left: 30px;
+  padding-top: 15px;
 }
 
 input {
+  border-radius: 7px;
+  border: .5px solid black;
   margin-right: 0px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
-
 button {
   margin-top: 24px;
   grid-area: button;
