@@ -245,7 +245,18 @@ VALUES (9, 2, 3);
 INSERT INTO rating (user_id, beer_id, amount)
 VALUES (9, 1, 1);
 
-
+INSERT INTO review (user_id, beer_id, description)
+VALUES (4, 1, 'Wow, this one really surprised me!');
+INSERT INTO review (user_id, beer_id, description)
+VALUES (4, 2, 'Lackluster first attempt, but I''ll give it a second.');
+INSERT INTO review (user_id, beer_id, description)
+VALUES (4, 3, 'Reminds me of my grandfather''s moonshine - for better or for worse.');
+INSERT INTO review (user_id, beer_id, description)
+VALUES (5, 1, 'Exquisite!');
+INSERT INTO review (user_id, beer_id, description)
+VALUES (5, 2, 'Don''t go another day of your existence without trying this one!');
+INSERT INTO review (user_id, beer_id, description)
+VALUES (5, 3, 'You know.. yeah.. this one will do.');
 
 
 --INSERT INTO day(name)
