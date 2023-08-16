@@ -27,8 +27,8 @@
             <div class="right-form"> 
                 <div v-for="review in selectedBeerReviews" v-bind:key="review.id">
                     <ul>
-                        <li v-for="(value, key) in review" :key="key">
-                            <span v-if="filteredReviewData(key)"> {{value}} </span>
+                        <li v-for="(value, key) in review" :key="key" :class="{'hidden': !filteredReviewData(key)}">
+                            <span > {{value}} </span>
                         </li>
                     </ul>
                 </div>
@@ -80,6 +80,11 @@ export default {
 </script>
 
 <style scoped>
+
+.hidden {
+    display: none;
+}
+
 img{
     width: 30px;
     margin-left: 20px;
