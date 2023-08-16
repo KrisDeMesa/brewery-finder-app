@@ -70,21 +70,25 @@ export default {
 }
 
 .beer-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: beer-list;
   font-size: 2rem;
   color: rgb(244,139,41);
+  padding: 10px;
 }
 img {
   width: 30px;
 }
-.data-div {
+/* .data-div {
   display: grid;
   grid-template-columns: 1fr 1.5fr 2.5fr 1fr;
   grid-template-areas: ". image beer-name .";
   
   text-align: center;
   align-items: center;
-}
+} */
 
 #image-div {
   grid-area: image;
