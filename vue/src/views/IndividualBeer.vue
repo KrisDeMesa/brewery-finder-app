@@ -17,7 +17,7 @@
                   
                 </ul>
                 
-                <select id="dropdown" v-model="ratingAmount">
+                <select id="dropdown" v-model="rating.amount">
                     <option value=""></option>
                     <option value=1>1</option>
                     <option value=2>2</option>
@@ -34,7 +34,7 @@
                   {{review.description}}
                 </div>
               </div>  
-              <textarea id="reviewarea" rows="5" cols="50" v-model="newReviewText" placeholder= " Submit review here...">  </textarea>
+              <textarea id="reviewarea" rows="5" cols="50" v-model="newReview.description" placeholder= " Submit review here...">  </textarea>
               <br
               >
               <button id="sumbitreviewbutton" type="button" @click="submitReview()">Submit Review</button>
@@ -77,25 +77,27 @@ export default {
     },
     data () {
         return {
-            userId: this.$store.state.curUser.id,
             beer: {},
             beerAvgRating: 0,
             showAttributes: false,
             showRating: false,
-            ratingAmount: '', 
+            rating: {
+                userId: this.$store.state.curUser.id,
+                beerId: this.$route.params.id,
+                amount: ''
+            },
+            newReview: {
+                userId: this.$store.state.curUser.id,
+                beerId: this.$route.params.id,
+                description: ''
+            }, 
             reviews: [], 
-            newReviewText: '',
             errorFlag: false
         }
     }, 
     methods: {
         submitRating() {
-            let rating = {};
-            rating['userId'] = this.userId;
-            rating['beerId'] = this.beer.id;
-            rating['amount'] = this.ratingAmount;
-
-            ratingReviewService.addBeerRatings(rating)
+            ratingReviewService.addBeerRatings(this.rating)
             .then(response => {
                 if(response.status == 201) {
                     this.$router.push({name: 'account-user'});
@@ -109,12 +111,7 @@ export default {
             
         },
         submitReview() {
-            let review = {};
-            review['userId'] = this.userId;
-            review['beerId'] = this.beer.id;
-            review['description'] = this.newReviewText;
-
-            ratingReviewService.addBeerReview(review)
+            ratingReviewService.addBeerReview(this.newReview)
             .then (response => {
                 if (response.status == 201){
                     this.$router.push({name: 'account-user'})

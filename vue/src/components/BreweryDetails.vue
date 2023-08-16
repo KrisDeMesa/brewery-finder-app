@@ -2,7 +2,7 @@
     <div class="brewery-details">    
         
         <div id="brewery-banner" class="banner">
-            <h1 v-bind:key="key"> {{selectedBrewery.name}} </h1> 
+            <h1> {{selectedBrewery.name}} </h1> 
         </div>
             <div id="details"></div>
             <div id="details-content"> 
