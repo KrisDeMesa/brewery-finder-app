@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #main-header {
     color: rgb(172, 13, 13);
     display: grid;

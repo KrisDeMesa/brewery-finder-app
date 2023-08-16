@@ -54,7 +54,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #main {
     display: grid;
     grid-template-columns: 1fr 1.5fr;

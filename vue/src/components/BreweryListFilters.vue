@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .filter-container {
     margin-top: 30px;
     display: flex;
