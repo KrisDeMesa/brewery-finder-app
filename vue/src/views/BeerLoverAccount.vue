@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="beer-lover-account">
       <beer-lover-header id="beer-lover-header" />
       <div id="main">
           <div id="ratings">
@@ -55,5 +55,18 @@ export default {
 </script>
 
 <style>
+#main {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-areas: 
+    "ratings reviews";
+    
+}
 
+#ratings {
+    grid-area: ratings;
+}
+#reviews {
+    grid-area: review;
+}
 </style>
