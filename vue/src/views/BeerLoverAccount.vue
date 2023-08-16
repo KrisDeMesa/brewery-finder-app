@@ -2,25 +2,29 @@
   <div class="beer-lover-account">
       <beer-lover-header id="beer-lover-header" />
       <div id="main">
+          <div class="left-form"> 
+          <div class="headers" id="rating-header">My Ratings</div>
           <div id="ratings">
-                <p>My Ratings</p>
-                <div v-for="element in ratingsAndBeers" :key="element.beerId">
-                    <span>{{element.rating}}</span>
-                    <span>{{element.name}}</span>
-                    <span>{{element.abv}}</span>
-                    <span>{{element.type}}</span>
-                </div>
-                    
+                <div id="individual-beer" v-for="element in ratingsAndBeers" :key="element.beerId">
+                    <div id="category">Beer Name: </div>
+                    <span id="info">{{element.name}}</span>
+                    <div id="category">My Rating: </div>
+                    <span id="info" >{{element.rating}}</span>
+                    <br>
+                    <div id="category">Type of Beer: </div>
+                    <span id="info">{{element.type}}</span>
+                </div> 
+            </div>
           </div>
+          <div class="right-form">
+          <div class="headers" id="review-header">My Reviews</div>
           <div id="reviews">
-              <p>My Reviews</p>
               <div v-for="element in reviewsAndBeers" :key="element.beerId">
-                    
                     <span>{{element.name}}</span>
-                    <span>{{element.abv}}</span>
                     <span>{{element.type}}</span>
                     <span>{{element.review}}</span>
                 </div>
+            </div>
           </div>
       </div>
   </div>
@@ -55,18 +59,72 @@ export default {
 </script>
 
 <style scoped>
-#main {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    grid-template-areas: 
-    "ratings reviews";
+
+.beer-lover-account{
+    background: rgba(251,230,194);
+    height: 100%;
     
 }
+#main {
+    height: 100%;
+    background: rgba(251,230,194);
+    border: 1px solid rgb(172, 13, 13);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    display: grid;
+    grid-template-columns: .75fr 1fr;
+    grid-template-areas: 
+    "left-form right-form";
+}
 
+.left-form{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    grid-area: left-form;
+    margin-left: 30px;
+    max-height: 100%;
+    border: 1px solid rgb(172, 13, 13);
+    border-radius: 10px 0 10px 10px;
+    margin-bottom: 30px;
+    padding: 10px
+}
+
+.right-form{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    grid-area: right-form;
+    margin-right: 30px;
+    max-height: 100%;
+    border: 1px solid rgb(172, 13, 13);
+    border-radius: 0 10px 10px 10px;
+    border-left: none;
+    margin-bottom: 30px;
+}
 #ratings {
     grid-area: ratings;
+    padding-top: 30px;
+    padding-left: 30px;
 }
 #reviews {
     grid-area: review;
+}
+
+#rating-header, #review-header{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 900;
+    color: rgb(172, 13, 13);
+}
+
+#individual-beer{
+    padding-bottom: 20px;
+    /* border: 1px solid rgb(172, 13, 13); */
+}
+
+#info{
+    padding-left: 100px;
 }
 </style>
