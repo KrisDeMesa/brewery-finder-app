@@ -31,7 +31,7 @@
           <div id="right-grid">
               <div class="review-box">
                  <div id="newReview" v-for="review in reviews" :key="review.userId">
-                  {{review.description}}
+                  "{{review.description}}"
                 </div>
               </div>  
               <textarea id="reviewarea" rows="5" cols="50" v-model="newReview.description" placeholder= " Submit review here...">  </textarea>
@@ -138,6 +138,10 @@ export default {
     border: 1px solid black;
     
 }
+
+#newReview {
+    margin-bottom: 10px;
+}
 #left-grid{
     grid-area: left;
     display: flexbox;
@@ -182,10 +186,11 @@ li {
     align-content: center;
     justify-content: center;
 }
-#reviewsubmitbutton {
+#sumbitreviewbutton {
     display: flex;
     align-content: center;
     justify-items: center;
+    margin-bottom: 20px;
 }
 /* .beer-filling {
   width: 100px;

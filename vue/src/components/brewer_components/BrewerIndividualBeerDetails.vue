@@ -25,10 +25,11 @@
             </div>
 
             <div class="right-form"> 
-                <div v-for="review in selectedBeerReviews" v-bind:key="review.id">
-                    <ul>
-                        <li v-for="(value, key) in review" :key="key" :class="{'hidden': !filteredReviewData(key)}">
-                            <span > {{value}} </span>
+                <div id="review-header">Reviews:</div>
+                <div class="review-div" v-for="review in selectedBeerReviews" v-bind:key="review.id">
+                    <ul id='review-list'> 
+                        <li id="reviews" v-for="(value, key) in review" :key="key" :class="{'hidden': !filteredReviewData(key)}">
+                            <span>" {{value}} "</span>
                         </li>
                     </ul>
                 </div>
@@ -90,10 +91,23 @@ img{
     margin-left: 20px;
 }
 
+#review-list {
+    list-style: none;
+    
+}
 #ratingIcons{
     display: inline-flex;
     width: 30px;
     padding-left: 10px;
+}
+#reviews {
+    padding-bottom: 20px;
+    
+    
+}
+.review-div {
+    margin-right: 30px;
+    
 }
 .header {
     display: flex;
@@ -143,7 +157,7 @@ img{
     border-top: none;
     border-left: none;
     border-radius: 0 0 10px 10px;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 1.3fr;
     grid-template-areas: "left-form right-form";
     row-gap: 20px;
     column-gap: 20px;
@@ -165,11 +179,20 @@ img{
 
 .right-form {
     grid-area: right-form;
+    
+    margin-right: 10px;
+    max-height: 100%;
 }
 
 .keys {
     text-transform: capitalize;
     font-weight: bold;
+}
+#review-header {
+    text-align:left;
+    margin-top: 0px;
+    font-weight: bold;
+
 }
 
 #edit-btn:hover{
