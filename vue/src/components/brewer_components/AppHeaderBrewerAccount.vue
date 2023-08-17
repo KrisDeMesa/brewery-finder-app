@@ -40,8 +40,8 @@ export default {
     background: rgba(251,230,194);
     border-top: 1px solid rgb(172, 13, 13);
     border-radius: 10px 10px 0 0;
-    padding-top: 30px;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 #main-header {
     color: rgb(172, 13, 13);
@@ -66,14 +66,16 @@ export default {
     display: flex;
     justify-content: flex-end;
 }
+
 .logout-btn{
+    /* margin-right: 60px; */
     background-color: white;
     color: rgb(172, 13, 13);
-    height: 30px;
-    width: 120px;
+    font-size: 1rem;
+    height: 40px;
+    width: 160px;
     border-radius: 10px;
-    border: 1px solid rgb(172, 13, 13);
-    
+    border: 2px solid rgb(172, 13, 13)
 }
 .logout-btn:hover {
     cursor: pointer !important;
@@ -81,7 +83,7 @@ export default {
 #ontap-logo {
    width: 180px;
    height: auto;
-   margin-right: 40px ;
+   
 }
 p{
     font-size: 3.5rem;
