@@ -20,8 +20,10 @@
           <div class="headers" id="review-header">My Reviews</div>
           <div id="reviews">
               <div id="review" v-for="element in reviewsAndBeers" :key="element.beerId">
-                    <span id="review-name"> Beer Name: {{element.name}}</span>
-                    <span id="review-type"> Beer Type: {{element.type}}</span>
+                    <div id="review-name-head">Beer Name: </div>
+                    <span id="review-name"> {{element.name}}</span>
+                    <div id="review-type-head"> Beer Type: </div>
+                    <span id="review-type"> {{element.type}}</span>
                     <div id="review-review"> Review: </div>
                     <span id="review-description">{{element.review}}</span>
                 </div>
@@ -72,11 +74,11 @@ div#review {
     padding-right: 10px;
 }
 
-span#review-name {
+div#review-name-head {
     color: rgb(172, 13, 13);
 }
 
-span#review-type {
+div#review-type-head {
     color: rgb(172, 13, 13);
 }
 
@@ -86,7 +88,6 @@ div#review-review {
 
 span#review-description {
     /* border: 1px solid black; */
-    padding-left: 10px;
     font-size: 14px;
 }
 
