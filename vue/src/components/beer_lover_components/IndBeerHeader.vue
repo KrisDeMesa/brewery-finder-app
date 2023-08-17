@@ -78,6 +78,7 @@ export default {
 }
 #btns {
   grid-area: logout;
+  margin-right: 90px;
 }
 .btn {
   background-color: white;
@@ -86,7 +87,7 @@ export default {
   width: 120px;
   border-radius: 10px;
   border: 1px solid rgb(172, 13, 13);
-  
+  margin-left: 70px;
 }
 .btn-container {
     text-align: center;
