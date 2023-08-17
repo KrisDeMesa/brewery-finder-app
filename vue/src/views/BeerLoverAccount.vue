@@ -8,11 +8,11 @@
                 <div id="individual-beer" v-for="element in ratingsAndBeers" :key="element.beerId">
                     <div id="category">Beer Name: </div>
                     <span id="info">{{element.name}}</span>
-                    <div id="category">My Rating: </div>
-                    <span id="info" >{{element.rating}}</span>
-                    <br>
                     <div id="category">Type of Beer: </div>
                     <span id="info">{{element.type}}</span>
+                     <div id="category">My Rating: </div>
+                    <span id="info" >{{element.rating}}/5</span>
+                    <br>
                 </div> 
             </div>
           </div>
