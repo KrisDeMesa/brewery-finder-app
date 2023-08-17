@@ -128,7 +128,7 @@ button:hover {
     border-bottom: none;
     border-radius: 10px 10px 0 0;
     padding-top: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .search-bar{

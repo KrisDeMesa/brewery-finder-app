@@ -179,12 +179,12 @@ h1 {
   display: grid;
   border: 1px solid rgb(172, 13, 13);
   border-radius: 10px;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
+  grid-template-columns: 1fr;
+  grid-template-areas: 
     "banner"
     "content"
     ;
-     
+  
 }
 #content-flex{
     grid-area: content;
