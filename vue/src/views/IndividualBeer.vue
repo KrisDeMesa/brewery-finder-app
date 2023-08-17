@@ -97,17 +97,22 @@ export default {
     }, 
     methods: {
         submitRating() {
-            ratingReviewService.addBeerRatings(this.rating)
-            .then(response => {
-                if(response.status == 201) {
-                    this.$router.push({name: 'account-user'});
-                }
-            })
-            .catch((error) => {
-                if (error.response && error.response.status === 409) {
-                    alert('You have already rated this beer!');
-                }
-            })
+            if (this.rating.amount === '') {
+                alert('Please select a valid rating');
+            } else {
+                ratingReviewService.addBeerRatings(this.rating)
+                .then(response => {
+                    if(response.status == 201) {
+                        this.$router.push({name: 'account-user'});
+                    }
+                })
+                .catch((error) => {
+                    if (error.response && error.response.status === 409) {
+                        alert('You have already rated this beer!');
+                    }
+                })
+            }
+
             
         },
         submitReview() {
