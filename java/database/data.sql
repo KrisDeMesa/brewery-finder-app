@@ -14,7 +14,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('user10','$2a$08$UkVvwpU
 INSERT INTO users (username,password_hash,role) VALUES ('user11','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 
 INSERT INTO brewery (brewery_name, brewer, brewery_type, phone_number, street_address_1, city, state_province, history) VALUES ('Happy Times Brewing', 3, 'micro', '1-800-BREW-NOW', '123 Hops Lane', 'Philadelphia', 'PA', 'short history');
-INSERT INTO brewery (brewery_name, brewer, brewery_type, website, street_address_1, city, state_province, history) VALUES ('Jumping Orca', 4, 'Brewpub', 'jumpingorca.com', '78 Happy Way', 'Wayne', 'PA', 'short history');
+INSERT INTO brewery (brewery_name, brewer, brewery_type, website, street_address_1, city, state_province, history) VALUES ('Jumping Orca', 4, 'Brewpub', 'jumpingorca.com', '200 W Lancaster Avenue', 'Wayne', 'PA', 'This boutique brewery began with the dreams of a retired weightlifter who pursued their hobby for brewing later in life and had an intense passion for orca whales.');
 
 
 INSERT INTO days (day_name) VALUES ('Monday');
@@ -224,8 +224,7 @@ INSERT INTO rating (user_id, beer_id, amount)
 VALUES (8, 9, 4);
 INSERT INTO rating (user_id, beer_id, amount)
 VALUES (8, 10, 4);
-INSERT INTO rating (user_id, beer_id, amount)
-VALUES (9, 10, 3);
+
 INSERT INTO rating (user_id, beer_id, amount)
 VALUES (9, 9, 3);
 INSERT INTO rating (user_id, beer_id, amount)
@@ -270,6 +269,9 @@ INSERT INTO review (user_id, beer_id, description)
 VALUES (4, 10, 'Cosmic forces aligned during the creation of this beer.');
 INSERT INTO review (user_id, beer_id, description)
 VALUES (5, 10, 'Wouldn''t say it is my favorite, but I would drink it. Tastes just fine after a couple.');
+
+INSERT INTO review (user_id, beer_id, description)
+VALUES (9, 1, 'You ever wonder why? Yeah, me too. But this beer helps. I think I''m drunk...');
 		
 --new above here
 
