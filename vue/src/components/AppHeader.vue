@@ -2,17 +2,10 @@
   <div class="app-header">
       <div id="main-header">
         <router-link :to="{ name: 'home' }"><img class="nav-link" id="ontap-logo" src="../assets/images/ontap-logo.png" alt="on-tap"></router-link>
-        
-        <form class="search-bar">
-            <!-- <label for="breweryname">Name </label> -->
-            <input type="text" placeholder="Name of Brewery" id="breweryname" name="breweryname">
-            
-        </form>
-        <form action="" class="search-bar">
-            <!-- <label for="location">City or State </label> -->
-            <input type="text" placeholder="Search for Beers" id="location" name="location">
-        </form>
-        
+
+        <div id="title">
+            <p>Explore What's <span id="ontap-text">OnTap</span><span id="exclamation">!</span></p>
+        </div>
         <div id="flex-buttons">
             <div id="account-menu" class="btns">
                 <router-link :to="$store.state.user.authorities[0].name === 'ROLE_USER' ? {name: 'account-user'} : {name: 'account-brewer'}">
@@ -44,24 +37,39 @@ export default {
 #main-header {
     color: rgb(172, 13, 13);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: 
-    "logo searchname searchlocation menu";
+    "logo title menu";
     justify-content: space-between;
     align-items: center;
 }
 #flex-buttons{
+    grid-area: menu;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 30px;
 }
 #account-menu {
-    grid-area: menu;
+    /* grid-area: menu; */
 }
 #account-logout{
-    grid-area: menu;
+    /* grid-area: menu; */
     justify-self: right;
+}
+#title{
+    grid-area: title;
+}
+p{
+    font-size: 3.5rem;
+    padding-left: 50px;
+    display: inline;
+}
+#ontap-text{
+    color: rgb(244,139,41);
+    /* display: inline; */
+    padding-left: 0;
 }
 .btns{
     text-align: center;
@@ -69,26 +77,26 @@ export default {
 .menu-btn{
     /* margin-left: 80px; */
     background-color: white;
-    color: rgb(172, 13, 13);
-    height: 30px;
-    width: 120px;
+    color: rgb(244,139,41);
+    font-size: 1rem;
+    height: 40px;
+    width: 160px;
     border-radius: 10px;
-    border: 1px solid rgb(172, 13, 13)
+    border: 2px solid rgb(244,139,41);
 }
-
 .logout-btn{
     /* margin-right: 60px; */
     background-color: white;
     color: rgb(172, 13, 13);
-    height: 30px;
-    width: 120px;
+    font-size: 1rem;
+    height: 40px;
+    width: 160px;
     border-radius: 10px;
-    border: 1px solid rgb(172, 13, 13)
+    border: 2px solid rgb(172, 13, 13)
 }
 button:hover {
     cursor: pointer !important;
 }
-
 #ontap-logo {
    margin-left: 80px ;
    grid-area: logo;
@@ -96,21 +104,9 @@ button:hover {
    height: auto;
     
 }
-
 .nav-link:hover {
     cursor: pointer !important;
 }
-
-#breweryname {
-    grid-area: searchname;
-    justify-self: center;
-   
-}
-#location {
-    grid-area: searchlocation;
-    justify-self: center;
-}
-
 .app-header {
     background: rgba(251,230,194);
     border: 1px solid rgb(172, 13, 13);
@@ -118,7 +114,6 @@ button:hover {
     border-radius: 10px 10px 0 0;
     padding-top: 20px;
 }
-
 .search-bar{
     padding-left: 40px
 }
@@ -127,7 +122,4 @@ input[type="text"]{
     height: 40px;
     font-size: 25px;
 }
-
-
-
 </style>
