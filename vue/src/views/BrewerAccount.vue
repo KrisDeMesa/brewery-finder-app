@@ -6,7 +6,7 @@
       <add-beer-form id="add-beer" v-if="isAddBeerForm" :brewery="brewery"/>
       <brewery-update id="update-brewery" :brewery="brewery" v-if="isBreweryUpdate"/>
       <brewer-individual-beer-details id="brewer-beer-details" :beer="selectedBeer" v-if="isBrewerBeerDetails" />
-      <edit-beer-form id="brewer-beer-edit" :beer="selectedBeer" v-if="isBrewerBeerEdit" />
+      <edit-beer-form id="brewer-beer-edit" :beer="selectedBeer" v-if="isBrewerBeerEdit" @beerDeletedRefresh="getBeers" />
   </div>
 </template>
 
@@ -46,15 +46,20 @@ export default {
             this.brewery = this.$store.state.breweries.find( curBrewery => {
                 return curBrewery.brewerId === this.$store.state.user.id;
             });
-            breweryService.getBeers(this.brewery.id).then( response => {
-                this.beers = response.data;
-            });
+            this.getBeers();
             // ratingReviewService.getRatingsByUser(this.$store.state.curUser.id).then( response => {
             //     this.ratings = response.data;
             // })
             
         });
         
+    },
+    methods: {
+        getBeers() {
+            breweryService.getBeers(this.brewery.id).then( response => {
+                this.beers = response.data;
+            });
+        }
     },
     computed: {
         isBreweryBeerList() {

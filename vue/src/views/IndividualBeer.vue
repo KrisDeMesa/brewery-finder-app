@@ -12,7 +12,7 @@
                         "{{beer.description}}"</li>
                   </div>
                   <div v-show="showRating">
-                      <li>Average Rating: {{beerAvgRating}}</li>
+                      <li>Average Rating: {{beerAvgRating}}/5 </li>
                   </div>
                   
                 </ul>

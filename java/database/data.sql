@@ -3,7 +3,7 @@ BEGIN TRANSACTION;
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (username,password_hash,role) VALUES ('brewer','$2a$10$gFM5Y/oDUDKEOGDGKTcQi.IuKQgxUiIuQJjfgOaURA3acpXrzb6o6','ROLE_BREWER');
-INSERT INTO users (username,password_hash,role) VALUES ('brewer2Jump','$2a$10$gFM5Y/oDUDKEOGDGKTcQi.IuKQgxUiIuQJjfgOaURA3acpXrzb6o6','ROLE_BREWER');
+INSERT INTO users (username,password_hash,role) VALUES ('brewer2','$2a$10$gFM5Y/oDUDKEOGDGKTcQi.IuKQgxUiIuQJjfgOaURA3acpXrzb6o6','ROLE_BREWER');
 INSERT INTO users (username,password_hash,role) VALUES ('user4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('user5','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('user6','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
@@ -266,6 +266,10 @@ INSERT INTO review (user_id, beer_id, description)
 VALUES (5, 9, 'Now thats what I call music 12! Also the beer is as described');
 INSERT INTO review (user_id, beer_id, description)
 VALUES (4, 9, 'Well, All things a possible through Christ, so jot that down. With that, this beer changed my view on the world.');
+INSERT INTO review (user_id, beer_id, description)
+VALUES (4, 10, 'Cosmic forces aligned during the creation of this beer.');
+INSERT INTO review (user_id, beer_id, description)
+VALUES (5, 10, 'Wouldn''t say it is my favorite, but I would drink it. Tastes just fine after a couple.');
 		
 --new above here
 
