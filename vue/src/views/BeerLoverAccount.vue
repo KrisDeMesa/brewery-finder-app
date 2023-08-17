@@ -19,10 +19,11 @@
           <div class="right-form">
           <div class="headers" id="review-header">My Reviews</div>
           <div id="reviews">
-              <div v-for="element in reviewsAndBeers" :key="element.beerId">
-                    <span>{{element.name}}</span>
-                    <span>{{element.type}}</span>
-                    <span>{{element.review}}</span>
+              <div id="review" v-for="element in reviewsAndBeers" :key="element.beerId">
+                    <span id="review-name"> Beer Name: {{element.name}}</span>
+                    <span id="review-type"> Beer Type: {{element.type}}</span>
+                    <div id="review-review"> Review: </div>
+                    <span id="review-description">{{element.review}}</span>
                 </div>
             </div>
           </div>
@@ -59,6 +60,55 @@ export default {
 </script>
 
 <style scoped>
+
+div#review {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(172, 13, 13);
+    margin-bottom: 20px;
+    border-radius: 10px 10px 10px 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+span#review-name {
+    color: rgb(172, 13, 13);
+}
+
+span#review-type {
+    color: rgb(172, 13, 13);
+}
+
+div#review-review {
+    color: rgb(172, 13, 13);
+}
+
+span#review-description {
+    /* border: 1px solid black; */
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+div#individual-beer {
+    border: 2px solid rgb(172, 13, 13);
+    margin-bottom: 20px;
+    border-radius: 10px 10px 10px 10px;
+    padding-bottom: 10px;
+}
+
+div#category {
+    padding-left: 10px;
+    color: rgb(172,13,13);
+    /* text-decoration: underline; */
+    
+}
+
+span#info {
+    padding-bottom: 20px;
+    color: black;
+    padding-left: 10px;
+}
 
 .beer-lover-account{
     background: rgba(251,230,194);
@@ -101,14 +151,19 @@ export default {
     border-radius: 0 10px 10px 10px;
     border-left: none;
     margin-bottom: 30px;
+    padding: 10px;
 }
 #ratings {
     grid-area: ratings;
     padding-top: 30px;
     padding-left: 30px;
+    padding-right: 20px;
 }
 #reviews {
     grid-area: review;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 20px;
 }
 
 #rating-header, #review-header{
@@ -118,11 +173,11 @@ export default {
     font-weight: 900;
     color: rgb(172, 13, 13);
 }
-
+/* 
 #individual-beer{
     padding-bottom: 20px;
     /* border: 1px solid rgb(172, 13, 13); */
-}
+/* } */ 
 
 #info{
     padding-left: 100px;
