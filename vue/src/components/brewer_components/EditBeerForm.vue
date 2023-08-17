@@ -70,7 +70,8 @@ export default {
             BreweryService.deleteBeer(this.updatedBeer.id)
             .then( response => {
                 if (response.status === 204) {
-                    this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_beer_list');
+                  this.$emit('beerDeletedRefresh');
+                  this.$store.commit('CHANGE_BREWER_PAGE_VIEW', 'brewery_beer_list');
                 }
             })
             .catch(error => {
