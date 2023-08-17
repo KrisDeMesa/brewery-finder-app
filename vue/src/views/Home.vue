@@ -73,6 +73,7 @@ export default {
   border-top: none;
   border-radius: 0 0 10px 10px;
   padding: 30px;
+  padding-top: 0;
   display: grid;
     grid-template-columns: 2fr 4fr 3fr;
     grid-template-areas: 
