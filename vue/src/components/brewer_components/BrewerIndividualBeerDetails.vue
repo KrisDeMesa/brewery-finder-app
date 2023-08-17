@@ -144,7 +144,7 @@ img{
     color: rgb(172, 13, 13); 
     border-radius: 10px;
     border: 2px solid rgb(172, 13, 13);
-    min-width: 20px;
+    min-width: 40px;
     max-width: 5%;
     margin-top: 10px;
     margin-left: 50px;
