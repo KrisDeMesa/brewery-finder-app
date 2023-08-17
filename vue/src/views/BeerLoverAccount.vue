@@ -11,7 +11,7 @@
                     <div id="category">Type of Beer: </div>
                     <span id="info">{{element.type}}</span>
                      <div id="category">My Rating: </div>
-                    <span id="info" >{{element.rating}}/5</span>
+                    <span id="info" >{{element.rating}}/5  </span>
                     <br>
                     <!-- do we want these on the same line and make them bigger font? -->
                 </div> 
