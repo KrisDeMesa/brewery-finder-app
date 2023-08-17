@@ -25,8 +25,9 @@
         <!-- <div class="input-field">
           <input type="text" id="image" v-model="imageUrl"/>
         </div> -->
-
-        <button id="submit" @click.prevent="addBeer">Add Beer</button>
+        <div class="submit-button">
+          <button id="submit" @click.prevent="addBeer">Add Beer</button>
+        </div>
   </div>
 </template>
 
@@ -71,13 +72,14 @@ export default {
   border: 1px solid rgb(172, 13, 13);
   border-left: none;
   border-radius: 0 10px 10px 10px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 3fr;
   grid-template-rows: 100px 100px 100px 100px;
   grid-template-areas: 
   "name-label name-input"
   "abv-label abv-input"
   "type-label type-input"
-  "description-label description-input";
+  "description-label description-input"
+  ". button";
   row-gap: 20px;
   margin-bottom: 30px;
   margin-right: 40px;
@@ -157,18 +159,21 @@ textarea[type=text]{
 }
 
 button {
-  display: flex;
-  justify-self: right;
-  white-space: nowrap;
   height: 40px;
-  width: 85px;
-  justify-content: center;
-  align-items: center;
-  margin-top: 80px;
-  margin-right: 80px;
+  width: 120px;
   border-radius: 7px;
   border: 1px solid black;
+  justify-self: start;
+  align-self: center;
+  margin-left: 30px;
+  margin-top: 30px;
+  cursor: pointer;
   font-weight: 700;
+}
+
+.submit-button {
+  grid-area: button;
+  margin-top: 60px;
 }
 
 

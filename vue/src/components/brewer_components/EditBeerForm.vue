@@ -100,8 +100,7 @@ export default {
   "abv-label abv-input"
   "type-label type-input"
   "description-label description-input"
-  ". submit-button"
-  ". delete-button";
+  ". buttons";
   row-gap: 20px;
   margin-bottom: 30px;
   margin-right: 40px;
@@ -192,7 +191,7 @@ button {
 }
 
 #submit {
-  grid-area: submit-button;
+  grid-area: buttons;
 }
 
 #submit-button {
@@ -209,7 +208,8 @@ button {
 }
 
 #delete {
-  grid-area: delete-button;
+  grid-area: buttons;
+  margin-left: 270px;
 }
 
 #delete-button {
