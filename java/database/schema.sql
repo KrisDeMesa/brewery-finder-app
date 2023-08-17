@@ -26,7 +26,6 @@ CREATE TABLE brewery (
 	open_db_id varchar(100),
 	brewery_name varchar(200),
 	brewery_type varchar(30),
-	hours varchar(200),
 	phone_number varchar(20),
 	website varchar (100),
 	street_address_1 varchar(200),

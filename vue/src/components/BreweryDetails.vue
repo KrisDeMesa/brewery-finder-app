@@ -10,7 +10,7 @@
                     <!-- <h2> Brewery Details</h2> -->
                 <div class="head-text">Brewery Details</div>
                 <ul>
-                    <li v-for="(value, key) in filteredDetails" v-bind:key="key">
+                    <li v-for="(value, key) in filteredDetails" v-bind:key="key" :class="{'hidden': value === null}">
                         <span class="keys">{{`${formatKey(key)}: `}}</span>
                         <span v-show="!valueIsArray(value)">{{ value != null ? value : null }}</span>
                         <ul v-show="valueIsArray(value) && keyIsBeerList(key)">
@@ -18,7 +18,7 @@
                                 <ul>
                                     <li v-for="(objectValue, objectKey) in arrObject" v-show="confirmNotId(objectKey)" v-bind:key="objectKey">
                                         <span class="keys"> {{`${formatKey(objectKey)}: `}} </span>
-                                        <router-link v-if="isBeerName(key, objectKey)" :to="{name: 'beer-details', params: {id: arrObject.id}}">{{objectValue}}</router-link>
+                                        <router-link v-if="isBeerName(key, objectKey)" :to="{name: 'beer-details', params: {id: arrObject.id}}" class="link">{{objectValue}}</router-link>
                                         <span v-if="!(isBeerName(key, objectKey))"> {{ objectValue }} </span>
                                     </li>
                                 </ul>
@@ -150,7 +150,12 @@ export default {
 </script>
 
 <style scoped>
-
+.hidden{
+    display: none;
+}
+.link{
+    color: rgb(244,139,41);
+}
 #brewery-banner {
     background-image: url("../assets/brewery-banner.jpg");
     background-position: 60% 85%;
@@ -194,6 +199,7 @@ h1 {
 #details-content {
 
   color: rgb(172, 13, 13);
+  
   /* margin-left: 100px; */
   border: 1px solid rgb(172, 13, 13);
   border-radius: 10px 0 0 10px;
@@ -220,6 +226,7 @@ h1 {
 .keys {
     text-transform: capitalize;
     font-weight: bold;
+    color: rgb(172, 13, 13);
 }
 ul {
     font-size: 20px;

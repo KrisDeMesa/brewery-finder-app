@@ -15,7 +15,6 @@ public class BreweryMapper implements RowMapper<Brewery> {
         brewery.setOpenDbId(resultSet.getString("open_db_id"));
         brewery.setName(resultSet.getString("brewery_name"));;
         brewery.setBreweryType(resultSet.getString("brewery_type"));
-        brewery.setHours(resultSet.getString("hours"));
         brewery.setPhoneNumber(resultSet.getString("phone_number"));
         brewery.setWebsite(resultSet.getString("website"));
         brewery.setStreetAddress1(resultSet.getString("street_address_1"));
