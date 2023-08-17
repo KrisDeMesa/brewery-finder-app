@@ -13,6 +13,7 @@
                      <div id="category">My Rating: </div>
                     <span id="info" >{{element.rating}}/5</span>
                     <br>
+                    <!-- do we want these on the same line and make them bigger font? -->
                 </div> 
             </div>
           </div>
@@ -95,10 +96,15 @@ div#individual-beer {
     margin-bottom: 20px;
     border-radius: 10px 10px 10px 10px;
     padding-bottom: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0,.1);
+}
+div#individual-beer:hover {
+    box-shadow: 0 12px 20px rgba(0, 0, 0,.2)
+
 }
 
 div#category {
-    padding-left: 10px;
+    padding-left: 30px;
     color: rgb(172,13,13);
     /* text-decoration: underline; */
     
@@ -107,7 +113,7 @@ div#category {
 span#info {
     padding-bottom: 20px;
     color: black;
-    padding-left: 10px;
+    padding-left: 60px;
 }
 
 .beer-lover-account{
