@@ -6,9 +6,9 @@
           <div id="left-grid">
               <ul>
                   <div v-show="showAttributes">
-                    <li class="labels" id="beerType" > Type: {{beer.type}} </li>
+                    <li class="labels" id="beerType" >Beer Type: {{beer.type}} </li>
                     <li class="labels" id="beerAbv"> ABV: {{beer.abv}}%</li>
-                    <li class="labels" id="beerDescription"> 
+                    <li class="label" id="beerDescription"> 
                         "{{beer.description}}"</li>
                   </div>
                   <div v-show="showRating">
@@ -130,37 +130,50 @@ export default {
 
 <style scoped>
 
+#whole-page{
+    background: rgba(251,230,194);
+    border: 1px solid rgb(172, 13, 13);
+    border-top: none;
+    border-radius: 10px;
+    height: 100;
+}
 #main-space{
+    background: white;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
     "left right";
-    border: 1px solid black;
-    
+    border: 1px solid rgb(172, 13, 13);
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 40px;
 }
 
 #newReview {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    /* padding-top: 40px; */
 }
 #left-grid{
     grid-area: left;
     display: flexbox;
     margin-right: 40px;
     margin-bottom: 30px;
-    font-size: 1rem;
-
-
+    font-size: 20px;
 }
 #right-grid{
     grid-area: right;
     /* display: flexbox; */
     display: flexbox;
     flex-wrap: wrap;
-    
-    
+    padding: 10px;
+    font-size: 20px;
 }
 li {
     padding: 10px;
+    list-style-type: none;
+    
 }
 #beerType {
    text-decoration-style: dotted;
@@ -174,7 +187,7 @@ li {
     
     padding: 2px;
     margin-left: 50px;
-    margin-top: 15px;
+    margin-top: 20px;
    
 }
 #reviewarea {
@@ -183,18 +196,21 @@ li {
     margin-bottom: 1px;
     font-size: 1rem;
     display: flex;
-    align-content: center;
+    align-content: left;
     justify-content: center;
+    resize: none;
 }
 #sumbitreviewbutton {
     display: flex;
     align-content: center;
     justify-items: center;
     margin-bottom: 20px;
+    
 }
 /* .beer-filling {
   width: 100px;
   height: 100px;
 } */
+
 
 </style>
