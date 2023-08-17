@@ -2,9 +2,13 @@
   <div>
       <div class="app-header">
       <div id="main-header">
-        <router-link :to="{ name: 'home' }"><img class="nav-link" id="ontap-logo" src="../../assets/images/ontap-logo.png" alt="on-tap"></router-link>
+        <div id="logo-container">
+            <router-link :to="{ name: 'home' }"><img class="nav-link" id="ontap-logo" src="../../assets/images/ontap-logo.png" alt="on-tap"></router-link>
+        </div>
         
-        
+        <div id="title">
+            <p>My Beer Adventures</p>
+        </div>
         
         <div id="flex-buttons">
             <div id="account-menu" class="btns">
@@ -23,7 +27,7 @@
         </div>
       </div>
       
-  </div>
+    </div>
   </div>
 </template>
 
@@ -39,26 +43,30 @@ export default {
 #main-header {
     color: rgb(172, 13, 13);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: 
-    "logo searchname searchlocation menu";
+    "logo title menu";
     justify-content: space-between;
     align-items: center;
 }
 #flex-buttons{
+    grid-area: menu;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: center;
     grid-area: menu;
+    padding: 30px;
 }
-#account-menu {
-    grid-area: menu;
+#title{
+    grid-area: title;
+    text-align: center;
 }
-#account-logout{
-    grid-area: menu;
-    justify-self: right;
+p{
+    font-size: 3.5rem;
+    
+    display: inline;
 }
 .btns{
     text-align: center;
@@ -66,32 +74,38 @@ export default {
 .menu-btn{
     /* margin-left: 80px; */
     background-color: white;
-    color: rgb(172, 13, 13);
-    height: 30px;
-    width: 120px;
+    color: rgb(244,139,41);
+    font-size: 1rem;
+    height: 40px;
+    width: 160px;
     border-radius: 10px;
-    border: 1px solid rgb(172, 13, 13)
+    border: 2px solid rgb(244,139,41);
 }
-
 .logout-btn{
     /* margin-right: 60px; */
     background-color: white;
     color: rgb(172, 13, 13);
-    height: 30px;
-    width: 120px;
+    font-size: 1rem;
+    height: 40px;
+    width: 160px;
     border-radius: 10px;
-    border: 1px solid rgb(172, 13, 13)
+    border: 2px solid rgb(172, 13, 13)
 }
+#logo-container{
+    grid-area: logo;
+    text-align: center;
+}
+
 button:hover {
     cursor: pointer !important;
 }
 
 #ontap-logo {
-   margin-left: 80px ;
-   grid-area: logo;
+   /* margin-left: 80px ; */
+   /* grid-area: logo; */
    width: 180px;
    height: auto;
-    
+   
 }
 
 .nav-link:hover {
@@ -114,6 +128,7 @@ button:hover {
     border-bottom: none;
     border-radius: 10px 10px 0 0;
     padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 .search-bar{

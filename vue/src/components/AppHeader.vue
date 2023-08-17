@@ -1,7 +1,9 @@
 <template>
   <div class="app-header">
       <div id="main-header">
-        <router-link :to="{ name: 'home' }"><img class="nav-link" id="ontap-logo" src="../assets/images/ontap-logo.png" alt="on-tap"></router-link>
+        <div id="logo-container">
+            <router-link :to="{ name: 'home' }"><img class="nav-link" id="ontap-logo" src="../assets/images/ontap-logo.png" alt="on-tap"></router-link>
+        </div>
 
         <div id="title">
             <p>Explore What's <span id="ontap-text">OnTap</span><span id="exclamation">!</span></p>
@@ -60,10 +62,11 @@ export default {
 }
 #title{
     grid-area: title;
+    text-align: center;
 }
 p{
     font-size: 3.5rem;
-    padding-left: 50px;
+    
     display: inline;
 }
 #ontap-text{
@@ -97,9 +100,13 @@ p{
 button:hover {
     cursor: pointer !important;
 }
+#logo-container{
+    grid-area: logo;
+    text-align: center;
+}
 #ontap-logo {
-   margin-left: 80px ;
-   grid-area: logo;
+   
+   
    width: 180px;
    height: auto;
     

@@ -3,7 +3,7 @@
       <beer-lover-header id="beer-lover-header" />
       <div id="main">
           <div class="left-form"> 
-          <div class="headers" id="rating-header">My Ratings</div>
+          <div class="headers" id="rating-header">Ratings</div>
           <div id="ratings">
                 <div id="individual-beer" v-for="element in ratingsAndBeers" :key="element.beerId">
                     <div id="category">Beer Name: </div>
@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="right-form">
-          <div class="headers" id="review-header">My Reviews</div>
+          <div class="headers" id="review-header">Reviews</div>
           <div id="reviews">
               <div id="review" v-for="element in reviewsAndBeers" :key="element.beerId">
                     <div id="review-name-head">Beer Name: </div>
