@@ -58,15 +58,17 @@
             value="true"
             v-model="updatedBrewery.hoursOfOperation[n - 1].openStatus"
           />
-
+          
           <div
             class="labels open-label"
+            :class="{'hidden': !(updatedBrewery.hoursOfOperation[n-1].openStatus)}"
             :for="`${updatedBrewery.hoursOfOperation[n - 1].day}-open-select`"
           >
             Open:
           </div>
           <input
             class="open-time"
+            :class="{'hidden': !(updatedBrewery.hoursOfOperation[n-1].openStatus)}"
             type="number"
             min="1"
             max="12"
@@ -75,6 +77,7 @@
           />
           <select
             class="open-am-pm"
+            :class="{'hidden': !(updatedBrewery.hoursOfOperation[n-1].openStatus)}"
             :id="`${updatedBrewery.hoursOfOperation[n - 1].day}-open-am-pm`"
             v-model="updatedBrewery.hoursOfOperation[n - 1].startAmPm"
           >
@@ -84,6 +87,7 @@
 
           <span
             class="close-label"
+            :class="{'hidden': !(updatedBrewery.hoursOfOperation[n-1].openStatus)}"
             :for="`${updatedBrewery.hoursOfOperation[n - 1].day}-close-select`"
             >Close:</span
           >
@@ -92,17 +96,20 @@
             min="1"
             max="12"
             class="close-time"
+            :class="{'hidden': !(updatedBrewery.hoursOfOperation[n-1].openStatus)}"
             :id="`${updatedBrewery.hoursOfOperation[n - 1].day}-close-number`"
             v-model="updatedBrewery.hoursOfOperation[n - 1].endTime"
           />
           <select
             :id="`${updatedBrewery.hoursOfOperation[n - 1].day}-close-am-pm`"
             class="close-am-pm"
+            :class="{'hidden': !(updatedBrewery.hoursOfOperation[n-1].openStatus)}"
             v-model="updatedBrewery.hoursOfOperation[n - 1].endAmPm"
           >
             <option value="AM">AM</option>
             <option value="PM">PM</option>
           </select>
+          
         </div>
       </div>
     </div>
@@ -193,6 +200,9 @@ export default {
 
 
 <style scoped>
+.hidden{
+  display: none;
+}
 .brewery-update {
   background: white;
   display: grid;
@@ -291,6 +301,10 @@ export default {
   justify-content: center;
   align-items: center;
   grid-area: hours-of-operation;
+  border-bottom-color: rgba(172, 13, 13, .7);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  padding-bottom: 20px;
 }
 
 .day-top {
@@ -389,6 +403,7 @@ export default {
 
 #hours-of-operation-7 {
   grid-area: hours-7;
+  border-bottom: none;
 }
 
 #street1 {
