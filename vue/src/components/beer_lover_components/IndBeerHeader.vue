@@ -15,29 +15,29 @@
       <div id="beer-name">
         <p>{{ beer.name }}</p>
       </div>
-      <div id="btns">
-        <div id="flex-buttons">
-          
-            <div class="btn-container">
-              <button
-                class="btn"
-                @click="$router.push({ name: 'account-user' })"
-              >
-                Account Menu
-              </button>
-            </div>
-            <div class="btn-container">
-              <button
-                class="btn"
-                @click="$router.push({ name: 'logout' })"
-                v-if="$store.state.token != ''"
-              >
-                Log Out
-              </button>
-            </div>
-          
+      
+      <div id="flex-buttons">
+        
+        <div class="btn-container">
+          <button
+            class="menu-btn"
+            @click="$router.push({ name: 'account-user' })"
+          >
+            Account Menu
+          </button>
         </div>
+        <div class="btn-container">
+          <button
+            class="logout-btn"
+            @click="$router.push({ name: 'logout' })"
+            v-if="$store.state.token != ''"
+          >
+            Log Out
+          </button>
+        </div>
+        
       </div>
+      
     </div>
   </div>
 </template>
@@ -58,39 +58,60 @@ export default {
   background: rgba(251, 230, 194);
   border-top: 1px solid rgb(172, 13, 13);
   border-radius: 10px 10px 0 0;
-  padding-top: 30px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 #main-header {
   color: rgb(172, 13, 13);
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-areas: "logo name logout";
+  grid-template-areas: "logo title menu";
   align-items: center;
-  justify-items: center;
+  /* justify-items: center; */
 }
 #logo-div {
   grid-area: logo;
-}
-#beer-name {
-  grid-area: name;
   text-align: center;
 }
-#btns {
-  grid-area: logout;
-  margin-right: 90px;
+#beer-name {
+  grid-area: title;
+  text-align: center;
 }
-.btn {
-  background-color: white;
-  color: rgb(172, 13, 13);
-  height: 30px;
-  width: 120px;
-  border-radius: 10px;
-  border: 1px solid rgb(172, 13, 13);
-  margin-left: 70px;
+.menu-btn{
+    /* margin-left: 80px; */
+    background-color: white;
+    color: rgb(244,139,41);
+    font-size: 1rem;
+    height: 40px;
+    width: 160px;
+    border-radius: 10px;
+    border: 2px solid rgb(244,139,41);
 }
-.btn-container {
-    text-align: center;
+.logout-btn{
+    /* margin-right: 60px; */
+    background-color: white;
+    color: rgb(172, 13, 13);
+    font-size: 1rem;
+    height: 40px;
+    width: 160px;
+    border-radius: 10px;
+    border: 2px solid rgb(172, 13, 13)
+}
+p{
+  font-size: 3.5rem;
+}
+#flex-buttons{
+    grid-area: menu;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    grid-area: menu;
+    padding: 30px;
+}
+.btn-container{
+  text-align: center;
 }
 .btn:hover {
   cursor: pointer !important;
@@ -98,15 +119,9 @@ export default {
 #ontap-logo {
   width: 180px;
   height: auto;
-  margin-right: 40px;
-}
-#flex-buttons {
   
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
 }
+
 #beer-name {
   font-size: 40px;
 }
