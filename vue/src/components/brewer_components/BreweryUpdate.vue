@@ -150,7 +150,7 @@
         <input type="text" id="zip" v-model="updatedBrewery.postalCode" />
       </div>
 
-      <div class="input-field">
+      <div class="history-field">
         <textarea id="history" v-model="updatedBrewery.history"></textarea>
       </div>
 
@@ -465,6 +465,11 @@ export default {
   padding-top: 15px;
 }
 
+#history {
+  width: 400px;
+  height: 80px;
+}
+
 input {
   border-radius: 7px;
   border: .5px solid black;
@@ -475,6 +480,7 @@ input {
 }
 button {
   margin-top: 24px;
+  border-radius: 7px;
   grid-area: button;
   display: flex;
   white-space: nowrap;
@@ -483,6 +489,7 @@ button {
   justify-content: center;
   align-items: center;
   font-weight: 700;
+  cursor: pointer;
 
 }
 </style>
